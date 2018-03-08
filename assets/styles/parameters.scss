@@ -49,10 +49,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 // Start - User Profile Page
 .user-profile-page {
   background: yellow;
-  margin: 0 auto;
   height: 700px;
+  margin: 0 auto;
   max-width: 1400px;
-  // position: relative;
 }
 
 .create-npc-button{
@@ -60,32 +59,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .view-npcs {
-  margin-top: 10%;
+  margin-top: 5%;
 }
-
-// .ex-1 {
-//   left: 35px;
-// }
-//
-// .ex-2 {
-//   left: 35px;
-//   top: 350px;
-// }
-//
-// .ex-3 {
-//   right: 35px;
-// }
-//
-// .ex-4 {
-//   right: 35px;
-//   top: 350px;
-// }
 
 .resource-example {
   height: 320px;
-  // margin-bottom: 20px;
-  // position: absolute;
-  // width: 300px;
 }
 
 .left-column {
