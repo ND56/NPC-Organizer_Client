@@ -52,39 +52,52 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin: 0 auto;
   height: 700px;
   max-width: 1400px;
-  position: relative;
+  // position: relative;
 }
 
-.create-npc-button,
+.create-npc-button{
+  margin-top: 60%;
+}
+
 .view-npcs {
-  display: block;
-  margin: 0 auto;
-  width: 120px;
+  margin-top: 10%;
 }
 
-.ex-1 {
-  left: 35px;
-}
-
-.ex-2 {
-  left: 35px;
-  top: 350px;
-}
-
-.ex-3 {
-  right: 35px;
-}
-
-.ex-4 {
-  right: 35px;
-  top: 350px;
-}
+// .ex-1 {
+//   left: 35px;
+// }
+//
+// .ex-2 {
+//   left: 35px;
+//   top: 350px;
+// }
+//
+// .ex-3 {
+//   right: 35px;
+// }
+//
+// .ex-4 {
+//   right: 35px;
+//   top: 350px;
+// }
 
 .resource-example {
   height: 320px;
-  margin-bottom: 20px;
-  position: absolute;
-  width: 300px;
+  // margin-bottom: 20px;
+  // position: absolute;
+  // width: 300px;
+}
+
+.left-column {
+  height: 700px;
+}
+
+.middle-column {
+  height: 700px;
+}
+
+.right-column {
+  height: 700px;
 }
 // End - User Profile Page
 

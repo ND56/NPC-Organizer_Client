@@ -5,6 +5,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 //   background-color: #82D7C6;
 // }
 
+// Start - User Profile Page
 .ex-1 {
   background-color: red;
 }
@@ -20,3 +21,16 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .ex-4 {
   background-color: black;
 }
+
+.left-column {
+  background: orange;
+}
+
+.middle-column {
+  background: purple;
+}
+
+.right-column {
+  background: orange;
+}
+// End - User Profile Page
