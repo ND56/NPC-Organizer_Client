@@ -27,10 +27,13 @@ const onLogInSucess = function (apiResponse) {
   $('#home-page').hide()
   $('#log-in-button').hide()
   $('#register-button').hide()
+  $('#universal-response-modal-content').text('Welcome, ' + apiResponse.user.user_name + '. On behalf of DMs everywhere, thanks for your solemn commitment to organized NPC management!')
+  $('#universal-response-modal').modal('show')
   $('#user-profile-header').text(`${apiResponse.user.user_name}'s Profile`)
   $('#user-profile-header').show()
   $('#user-profile-page').show()
   $('#log-out-button').show()
+  $('#change-pw-button').show()
 }
 
 const onLogInFailure = function (apiResponse) {
@@ -42,9 +45,48 @@ const onLogInFailure = function (apiResponse) {
   $('#universal-response-modal').modal('show')
 }
 
+const onSignOutSuccess = function (apiResponse) {
+  $('#user-profile-header').hide()
+  $('#user-profile-page').hide()
+  $('#log-out-button').hide()
+  $('#change-pw-button').hide()
+  $('#home-page').show()
+  $('#log-in-button').show()
+  $('#register-button').show()
+  $('#universal-response-modal-content').text('See ya next time!')
+  $('#universal-response-modal').modal('show')
+}
+
+const onSignOutFailure = function (apiResponse) {
+  $('#universal-response-modal-content').text('Failed to log out. The server responded with with error code: ' + apiResponse.status + ':, ' + apiResponse.statusText + '. The server might be down at the moment. Try again later!')
+  $('#universal-response-modal').modal('show')
+}
+
+const onPwChangeSuccess = function (apiResponse) {
+  $('#change-pw-modal').modal('hide')
+  $('#change-pw-form').each(function () {
+    this.reset()
+  })
+  $('#universal-response-modal-content').text('Your password was successfully updated, ' + store.user.user_name + '!')
+  $('#universal-response-modal').modal('show')
+}
+
+const onPwChangeFailure = function (apiResponse) {
+  $('#change-pw-modal').modal('hide')
+  $('#change-pw-form').each(function () {
+    this.reset()
+  })
+  $('#universal-response-modal-content').text('You failed to change your password, ' + store.user.user_name + '. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you entered your old password correctly!')
+  $('#universal-response-modal').modal('show')
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
   onLogInSucess,
-  onLogInFailure
+  onLogInFailure,
+  onSignOutSuccess,
+  onSignOutFailure,
+  onPwChangeSuccess,
+  onPwChangeFailure
 }
