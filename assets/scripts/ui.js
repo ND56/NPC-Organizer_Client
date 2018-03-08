@@ -29,8 +29,8 @@ const onLogInSucess = function (apiResponse) {
   $('#register-button').hide()
   $('#universal-response-modal-content').text('Welcome, ' + apiResponse.user.user_name + '. On behalf of DMs everywhere, thanks for your solemn commitment to organized NPC management!')
   $('#universal-response-modal').modal('show')
-  $('#user-profile-header').text(`${apiResponse.user.user_name}'s Profile`)
-  $('#user-profile-header').show()
+  $('#universal-content-header').text(`${store.user.user_name}'s Profile`)
+  $('#universal-content-header').show()
   $('#user-profile-page').show()
   $('#log-out-button').show()
   $('#change-pw-button').show()
@@ -46,7 +46,7 @@ const onLogInFailure = function (apiResponse) {
 }
 
 const onSignOutSuccess = function (apiResponse) {
-  $('#user-profile-header').hide()
+  $('#universal-content-header').hide()
   $('#user-profile-page').hide()
   $('#log-out-button').hide()
   $('#change-pw-button').hide()
@@ -80,6 +80,41 @@ const onPwChangeFailure = function (apiResponse) {
   $('#universal-response-modal').modal('show')
 }
 
+const createNPCSuccess = function (apiResponse) {
+  $('#create-npc-modal').modal('hide')
+  $('#create-npc-form').each(function () {
+    this.reset()
+  })
+  $('#universal-response-modal-content').text(apiResponse.npc.name + ' was successfully created!')
+  $('#universal-response-modal').modal('show')
+}
+
+const createNPCFailure = function (apiResponse) {
+  $('#create-npc-modal').modal('hide')
+  $('#create-npc-form').each(function () {
+    this.reset()
+  })
+  $('#universal-response-modal-content').text('Failed to create NPC. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you entered the data fields correctly!')
+  $('#universal-response-modal').modal('show')
+}
+
+const viewAllNPCsSuccess = function (apiResponse) {
+  $('#return-to-profile-button').show()
+  $('#universal-content-header').text('All Public NPCs')
+  $('#user-profile-page').hide()
+}
+
+const viewAllNPCsFailure = function (apiResponse) {
+  $('#universal-response-modal-content').text('Failed to load NPCs. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. The server might be down. Try again later!')
+  $('#universal-response-modal').modal('show')
+}
+
+const returnToProfile = function () {
+  $('#return-to-profile-button').hide()
+  $('#universal-content-header').text(`${store.user.user_name}'s Profile`)
+  $('#user-profile-page').show()
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -88,5 +123,10 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onPwChangeSuccess,
-  onPwChangeFailure
+  onPwChangeFailure,
+  createNPCSuccess,
+  createNPCFailure,
+  viewAllNPCsSuccess,
+  viewAllNPCsFailure,
+  returnToProfile
 }

@@ -37,9 +37,20 @@ const onCreateNPC = function (event) {
   event.preventDefault()
   const filteredNPCData = getFormFields(event.target)
   api.createNewNPC(filteredNPCData)
-    .then(function (apiResponse) {
-      console.log(apiResponse)
-    })
+    .then(ui.createNPCSuccess)
+    .catch(ui.createNPCFailure)
+}
+
+const onViewNPCs = function (event) {
+  event.preventDefault()
+  api.getAllNPCs()
+    .then(ui.viewAllNPCsSuccess)
+    .catch(ui.viewAllNPCsFailure)
+}
+
+const onReturnToProfile = function (event) {
+  event.preventDefault()
+  ui.returnToProfile()
 }
 
 module.exports = {
@@ -47,5 +58,7 @@ module.exports = {
   onLogIn,
   onLogOut,
   onChangePw,
-  onCreateNPC
+  onCreateNPC,
+  onViewNPCs,
+  onReturnToProfile
 }

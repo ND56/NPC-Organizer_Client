@@ -58,10 +58,22 @@ const createNewNPC = function (filteredNPCInfo) {
   })
 }
 
+const getAllNPCs = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
   onSignOut,
   onPwChange,
-  createNewNPC
+  createNewNPC,
+  getAllNPCs
 }
