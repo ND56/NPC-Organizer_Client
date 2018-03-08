@@ -1,4 +1,5 @@
 const store = require('./store')
+const templateAllNPCs = require('./templates/npc-listing.handlebars')
 
 const onSignUpSucess = function (apiResponse) {
   $('#register-modal').modal('hide')
@@ -102,6 +103,9 @@ const viewAllNPCsSuccess = function (apiResponse) {
   $('#return-to-profile-button').show()
   $('#universal-content-header').text('All Public NPCs')
   $('#user-profile-page').hide()
+  $('#get-all-npc-div').show()
+  const allNPCReadoutHTML = templateAllNPCs({ npcs: apiResponse.npcs })
+  $('#get-all-npc-div').append(allNPCReadoutHTML)
 }
 
 const viewAllNPCsFailure = function (apiResponse) {
@@ -112,6 +116,8 @@ const viewAllNPCsFailure = function (apiResponse) {
 const returnToProfile = function () {
   $('#return-to-profile-button').hide()
   $('#universal-content-header').text(`${store.user.user_name}'s Profile`)
+  $('#get-all-npc-div').hide()
+  $('#get-all-npc-div').empty()
   $('#user-profile-page').show()
 }
 

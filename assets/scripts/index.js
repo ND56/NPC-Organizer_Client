@@ -15,6 +15,7 @@ $(() => {
   $('#return-to-profile-button').hide()
   $('#universal-content-header').hide()
   $('#user-profile-page').hide()
+  $('#get-all-npc-div').hide()
   $('#register-form').on('submit', events.onSignUp)
   $('#log-in-form').on('submit', events.onLogIn)
   $('#log-out-button').on('click', events.onLogOut)

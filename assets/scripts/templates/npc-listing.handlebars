@@ -1,0 +1,27 @@
+{{#each npcs as |npc|}}
+
+<!-- Only populates public NPCs -->
+<!-- Attributes list items only generated if they exist in the database -->
+
+  {{#unless npc.private}}
+    <div class="npc-readout-div" data-id="{{npc.id}}">
+      <h3>{{npc.name}}</h3>
+      <ul>
+        {{#if npc.race}}
+          <li>Race: {{npc.race}}</li>
+        {{/if}}
+        {{#if npc.dnd_class}}
+          <li>Class: {{npc.dnd_class}}</li>
+        {{/if}}
+        {{#if npc.challenge_rating}}
+          <li>Challenge Rating: {{npc.challenge_rating}}</li>
+        {{/if}}
+        {{#if npc.user.user_name}}
+          <li>Created by: {{npc.user.user_name}}</li>
+        {{/if}}
+      </ul>
+      <button id="toggle-large-view-button" class="btn btn-default {{npc.id}}">View NPC</button>
+    </div>
+  {{/unless}}
+
+{{/each}}
