@@ -140,6 +140,76 @@
       </div>
       <!-- End - User Profile Page -->
 
+      <!-- Start - Create NPC Modal -->
+      <div class="modal fade" id="create-npc-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content create-npc-modal-content" id="create-npc-modal-content">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <!-- start form for Create NPC modal-->
+            <form class="form-horizontal" id="create-npc-form">
+              <div class="form-group">
+                <label for="inputName" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputName" name="npc[name]" placeholder="E.g., Frodo Baggins">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputRace" class="col-sm-2 control-label">Race</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputRace" name="npc[race]" placeholder="E.g., Halfing">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputClass" class="col-sm-2 control-label">Class</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputClass" name="npc[dnd_class]" placeholder="E.g., Rogue">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputChallengeRating" class="col-sm-2 control-label">Challenge Rating</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputChallengeRating" name="npc[challenge_rating]" placeholder="Challenge Rating">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputStats" class="col-sm-2 control-label">Stats</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputStats" name="npc[stats]" placeholder="E.g., HP, AC, abilites, modifiers, etc.">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputTraits" class="col-sm-2 control-label">Traits</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputTraits" name="npc[traits]" placeholder="E.g., Lucky; loyal; determined.">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputNotes" class="col-sm-2 control-label">Notes</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputNotes" name="npc[notes]" placeholder="E.g., Widely known for having destroyed the One Ring in the fires of Mount Doom.">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPrivacySetting" class="col-sm-2 control-label">Private?</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPrivacySetting" name="npc[private]" placeholder="Writing 'true' will hide your npc from other users; 'false' will render your npc visible to the public.">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Create NPC!</button>
+                </div>
+              </div>
+            </form>
+            <!-- end form for Create NPC modal-->
+          </div>
+        </div>
+      </div>
+      <!-- End - Create NPC Modal -->
+
       <!-- Start - Change Password Modal -->
       <div class="modal fade" id="change-pw-modal" tabindex="-1">
         <div class="modal-dialog modal-lg">

@@ -33,9 +33,16 @@ const onChangePw = function (event) {
     .catch(ui.onPwChangeFailure)
 }
 
+const onCreateNPC = function (event) {
+  event.preventDefault()
+  const filteredNPCData = getFormFields(event.target)
+  api.createNewNPC(filteredNPCData)
+}
+
 module.exports = {
   onSignUp,
   onLogIn,
   onLogOut,
-  onChangePw
+  onChangePw,
+  onCreateNPC
 }

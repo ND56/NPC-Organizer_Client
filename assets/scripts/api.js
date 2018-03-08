@@ -46,9 +46,22 @@ const onPwChange = function (filteredChangePwData) {
   })
 }
 
+const createNewNPC = function (filteredNPCInfo) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: filteredNPCInfo
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
   onSignOut,
-  onPwChange
+  onPwChange,
+  createNewNPC
 }

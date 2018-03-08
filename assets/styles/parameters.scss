@@ -29,7 +29,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 .log-in-modal-content,
 .register-modal-content,
-.change-pw-modal-content {
+.change-pw-modal-content,
+.create-npc-modal-content {
   padding: 10px 65px 30px 0;
 }
 
@@ -41,6 +42,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .universal-response-modal,
 .universal-response-modal-content {
   font-size: 20px;
+  padding-bottom: 40px;
   padding-left: 40px;
   padding-right: 40px;
 }
