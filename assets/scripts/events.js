@@ -37,6 +37,9 @@ const onCreateNPC = function (event) {
   event.preventDefault()
   const filteredNPCData = getFormFields(event.target)
   api.createNewNPC(filteredNPCData)
+    .then(function (apiResponse) {
+      console.log(apiResponse)
+    })
 }
 
 module.exports = {
