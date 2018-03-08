@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>npcHub</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -11,9 +11,99 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
 
+    <body class="container-fluid">
+
+      <!-- Start - Static Nav Bar -->
+      <button class="nav-button log-in-button" id="log-in-button" data-toggle="modal" data-target="#log-in-modal">Log In</button>
+      <button class="nav-button register-button" id="register-button" data-toggle="modal" data-target="#register-modal">Register</button>
+      <!-- End - Static Nav Bar -->
+
+      <!-- Start - Log-In Modal -->
+      <div class="modal fade" id="log-in-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content log-in-modal-content" id="log-in-modal-content">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <!-- start form for log-in modal-->
+            <form class="form-horizontal" id="log-in-form">
+              <div class="form-group">
+                <label for="inputEmail1" class="col-sm-2 control-label">Email or Username</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail1" name="credentials[email]" placeholder="Email or Username">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword1" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword1" name="credentials[password]" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Start managing NPCs!</button>
+                </div>
+              </div>
+            </form>
+            <!-- end form for log-in modal-->
+          </div>
+        </div>
+      </div>
+      <!-- End - Log-In Modal -->
+
+      <!-- Start - Register Modal -->
+      <div class="modal fade" id="register-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content register-modal-content" id="register-modal-content">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <!-- start form for log-in modal-->
+            <form class="form-horizontal" id="register-form">
+              <div class="form-group">
+                <label for="inputEmail2" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail2" name="credentials[email]" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputUsername2" class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputUsername2" name="credentials[user_name]" placeholder="Username">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword2" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword2" name="credentials[password]" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="confirm-password" class="col-sm-2 control-label">Confirm Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="confirm-password" name="credentials[password_confirmation]" placeholder="You probably spelled your password wrong. Write it again!">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Join our ranks!</button>
+                </div>
+              </div>
+            </form>
+            <!-- end form for log-in modal-->
+          </div>
+        </div>
+      </div>
+      <!-- End - Register Modal -->
+
+      <!-- Start - Static Title -->
+      <h1 class="static-header">npcHub</h1>
+      <!-- End - Static Title -->
+
+      <!-- Start - Home Page View -->
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
       minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
@@ -21,5 +111,24 @@
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.</p>
+      <!-- End - Home Page View -->
+
+      <!-- Start - universal response modal -->
+      <div class="modal fade universal-response-modal" id="universal-response-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content universal-modal-content">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <div class="universal-response-modal-content" id="universal-response-modal-content">
+              ...
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - universal response modal -->
+
     </body>
+
 </html>
