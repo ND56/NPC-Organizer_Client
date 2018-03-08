@@ -1,6 +1,23 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+// Start - Nav Bar
+.nav-button {
+  display: inline-block;
+  float: right;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+// End - Nav Bar
+
+// Start - Header
+.static-header {
+  color: red;
+  font-size: 100px;
+}
+// End - Header
+
+// Start - Modals
 .close-modal {
   border: 0;
   font-size: 20px;
@@ -16,30 +33,60 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   padding: 10px 65px 30px 0;
 }
 
-.nav-button {
-  display: inline-block;
-  float: right;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
 .space-div {
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
 
-.static-header {
-  color: red;
-  font-size: 100px;
-}
-
 .universal-response-modal,
 .universal-response-modal-content {
   font-size: 20px;
-  padding-bottom: 40px;
   padding-left: 40px;
   padding-right: 40px;
 }
+// End - Modals
+
+// Start - User Profile Page
+.user-profile-page {
+  background: yellow;
+  margin: 0 auto;
+  height: 700px;
+  max-width: 1400px;
+  position: relative;
+}
+
+.create-npc-button,
+.view-npcs {
+  display: block;
+  margin: 0 auto;
+  width: 120px;
+}
+
+.ex-1 {
+  left: 35px;
+}
+
+.ex-2 {
+  left: 35px;
+  top: 350px;
+}
+
+.ex-3 {
+  right: 35px;
+}
+
+.ex-4 {
+  right: 35px;
+  top: 350px;
+}
+
+.resource-example {
+  height: 320px;
+  margin-bottom: 20px;
+  position: absolute;
+  width: 300px;
+}
+// End - User Profile Page
 
 @media (max-width: 991px) {
   .log-in-modal-content,

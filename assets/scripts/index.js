@@ -9,10 +9,11 @@ $(() => {
 })
 
 $(() => {
+  $('#home-page').hide()
   $('#log-out-button').hide()
   $('#change-pw-button').hide()
-  $('#user-profile-header').hide()
-  $('#user-profile-page').hide()
+  // $('#user-profile-header').hide()
+  // $('#user-profile-page').hide()
   $('#register-form').on('submit', events.onSignUp)
   $('#log-in-form').on('submit', events.onLogIn)
   $('#log-out-button').on('click', events.onLogOut)
