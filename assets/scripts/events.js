@@ -8,14 +8,17 @@ const onSignUp = function (event) {
   api.onRegister(filteredInputData)
     .then(ui.onSignUpSucess)
     .catch(ui.onSignUpFailure)
-  // api.create(data)
-  //   .then(ui.onSignUpSuccess)
-  //   .catch(ui.onSignUpFailure)
-  // $('#register-form').each(function () {
-  //   this.reset()
-  // })
+}
+
+const onLogIn = function (event) {
+  event.preventDefault()
+  const filteredInputData = getFormFields(event.target)
+  api.onSignIn(filteredInputData)
+    .then(ui.onLogInSucess)
+    .catch(ui.onLogInFailure)
 }
 
 module.exports = {
-  onSignUp
+  onSignUp,
+  onLogIn
 }

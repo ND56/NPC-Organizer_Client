@@ -1,4 +1,4 @@
-// const store = require('./store')
+const store = require('./store')
 
 const onSignUpSucess = function (apiResponse) {
   $('#register-modal').modal('hide')
@@ -18,7 +18,33 @@ const onSignUpFailure = function (apiResponse) {
   $('#universal-response-modal').modal('show')
 }
 
+const onLogInSucess = function (apiResponse) {
+  store.user = apiResponse.user
+  $('#log-in-modal').modal('hide')
+  $('#log-in-form').each(function () {
+    this.reset()
+  })
+  $('#home-page').hide()
+  $('#log-in-button').hide()
+  $('#register-button').hide()
+  $('#user-profile-header').text(`${apiResponse.user.user_name}'s Profile`)
+  $('#user-profile-header').show()
+  $('#user-profile-page').show()
+  $('#log-out-button').show()
+}
+
+const onLogInFailure = function (apiResponse) {
+  $('#log-in-modal').modal('hide')
+  $('#log-in-form').each(function () {
+    this.reset()
+  })
+  $('#universal-response-modal-content').text('Failed to log in. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you\'ve already registered and have entered your email and password correctly!')
+  $('#universal-response-modal').modal('show')
+}
+
 module.exports = {
   onSignUpSucess,
-  onSignUpFailure
+  onSignUpFailure,
+  onLogInSucess,
+  onLogInFailure
 }

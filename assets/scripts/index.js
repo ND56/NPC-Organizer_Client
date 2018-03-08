@@ -9,5 +9,9 @@ $(() => {
 })
 
 $(() => {
+  $('#log-out-button').hide()
+  $('#user-profile-header').hide()
+  $('#user-profile-page').hide()
   $('#register-form').on('submit', events.onSignUp)
+  $('#log-in-form').on('submit', events.onLogIn)
 })
