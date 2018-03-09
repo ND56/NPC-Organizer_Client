@@ -108,8 +108,14 @@ const createNPCFailure = function (apiResponse) {
   $('#create-npc-form').each(function () {
     this.reset()
   })
-  $('#universal-response-modal-content').text('Failed to create NPC. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you entered the data fields correctly!')
-  $('#universal-response-modal').modal('show')
+  if (apiResponse.responseText === '{"name":["has already been taken"]}') {
+    $('#universal-response-modal-content').text('Uh oh, that NPC name has already been chosen! Pick another!')
+    $('#universal-response-modal').modal('show')
+  } else {
+    $('#universal-response-modal-content').text('Failed to create NPC. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you entered the data fields correctly!')
+    $('#universal-response-modal').modal('show')
+  }
+  console.log(apiResponse.responseText)
 }
 
 const viewAllNPCsSuccess = function (apiResponse) {
