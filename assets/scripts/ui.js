@@ -26,10 +26,15 @@ const onSignUpFailure = function (apiResponse) {
   } else if (apiResponse.responseText === '{"user_name":["has already been taken"]}') {
     $('#universal-response-modal-content').text('Woops, that Username has already been chosen! Pick another!')
     $('#universal-response-modal').modal('show')
+  } else if (apiResponse.responseJSON.exception === '#<ArgumentError: An object with the method #include? or a proc, lambda or symbol is required, and must be supplied as the :in (or :within) option of the configuration hash>') {
+    $('#universal-response-modal-content').text('Registration failed. You must pick a sweet Username that we\'ll tag your NPCs with!')
+    $('#universal-response-modal').modal('show')
   } else {
     $('#universal-response-modal-content').text('Your registration was a failure. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you\'re using a unique email address and that your password entries match!')
     $('#universal-response-modal').modal('show')
   }
+  console.log(apiResponse)
+  console.log(apiResponse.responseJSON.exception)
 }
 
 const onLogInSucess = function (apiResponse) {
@@ -48,6 +53,7 @@ const onLogInSucess = function (apiResponse) {
   $('#user-profile-page').show()
   $('#log-out-button').show()
   $('#change-pw-button').show()
+  console.log(apiResponse)
 }
 
 const onLogInFailure = function (apiResponse) {
@@ -95,12 +101,15 @@ const onPwChangeFailure = function (apiResponse) {
 }
 
 const createNPCSuccess = function (apiResponse) {
+  $('#npc-needs-name').hide()
+  $('#npc-needs-privacy').hide()
   $('#create-npc-modal').modal('hide')
   $('#create-npc-form').each(function () {
     this.reset()
   })
   $('#universal-response-modal-content').text(apiResponse.npc.name + ' was successfully created!')
   $('#universal-response-modal').modal('show')
+  console.log(apiResponse)
 }
 
 const createNPCFailure = function (apiResponse) {
@@ -211,6 +220,8 @@ const populateNPCModal = function () {
 const editNPCSuccess = function (apiResponse) {
   store.npc = apiResponse.npc
   // reset form for use in create npc
+  $('#npc-needs-name').hide()
+  $('#npc-needs-privacy').hide()
   $('#edit-npc-form').each(function () {
     this.reset()
   })
@@ -231,6 +242,14 @@ const editNPCSuccess = function (apiResponse) {
 const editNPCFailure = function (apiResponse) {
   $('#universal-response-modal-content').text('Failed to edit NPC. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you\'re inputing the correct data!')
   $('#universal-response-modal').modal('show')
+}
+
+const blankNPCNameField = function () {
+  $('#npc-needs-name').show()
+}
+
+const blankNPCPrivacyField = function () {
+  $('#npc-needs-privacy').show()
 }
 
 module.exports = {
@@ -255,5 +274,7 @@ module.exports = {
   deleteNPCFailure,
   populateNPCModal,
   editNPCSuccess,
-  editNPCFailure
+  editNPCFailure,
+  blankNPCNameField,
+  blankNPCPrivacyField
 }

@@ -37,9 +37,21 @@ const onChangePw = function (event) {
 const onCreateNPC = function (event) {
   event.preventDefault()
   const filteredNPCData = getFormFields(event.target)
-  api.createNewNPC(filteredNPCData)
-    .then(ui.createNPCSuccess)
-    .catch(ui.createNPCFailure)
+  console.log(filteredNPCData)
+  console.log(filteredNPCData.npc.name)
+  // adding front-end validation no blank Name
+  // this isn't a great fix tho because someone might
+  // access my API from somewhere else
+  // I need to fix the back-end validation too
+  if (filteredNPCData.npc.name === '') {
+    ui.blankNPCNameField()
+  } else if (filteredNPCData.npc.private === '') {
+    ui.blankNPCPrivacyField()
+  } else {
+    api.createNewNPC(filteredNPCData)
+      .then(ui.createNPCSuccess)
+      .catch(ui.createNPCFailure)
+  }
 }
 
 const onViewNPCs = function (event) {
@@ -91,9 +103,15 @@ const onEditNPC = function (event) {
 const onEditNPCSubmit = function (event) {
   event.preventDefault()
   const filteredNPCData = getFormFields(event.target)
-  api.editNPC(filteredNPCData)
-    .then(ui.editNPCSuccess)
-    .catch(ui.editNPCFailure)
+  if (filteredNPCData.npc.name === '') {
+    ui.blankNPCNameField()
+  } else if (filteredNPCData.npc.private === '') {
+    ui.blankNPCPrivacyField()
+  } else {
+    api.editNPC(filteredNPCData)
+      .then(ui.editNPCSuccess)
+      .catch(ui.editNPCFailure)
+  }
 }
 
 module.exports = {
