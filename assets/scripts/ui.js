@@ -17,8 +17,19 @@ const onSignUpFailure = function (apiResponse) {
   $('#register-form').each(function () {
     this.reset()
   })
-  $('#universal-response-modal-content').text('Your registration was a failure. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you\'re using a unique email address and that your password entries match!')
-  $('#universal-response-modal').modal('show')
+  if (apiResponse.responseText === '{"password_confirmation":["doesn\'t match Password"]}') {
+    $('#universal-response-modal-content').text('Welp, this is embarrassing, registration failed due to mismatching password entries. Try again, you can do it!')
+    $('#universal-response-modal').modal('show')
+  } else if (apiResponse.responseText === '{"email":["has already been taken"]}') {
+    $('#universal-response-modal-content').text('Registration failed because that email is already registered! Use another!')
+    $('#universal-response-modal').modal('show')
+  } else if (apiResponse.responseText === '{"user_name":["has already been taken"]}') {
+    $('#universal-response-modal-content').text('Woops, that Username has already been chosen! Pick another!')
+    $('#universal-response-modal').modal('show')
+  } else {
+    $('#universal-response-modal-content').text('Your registration was a failure. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you\'re using a unique email address and that your password entries match!')
+    $('#universal-response-modal').modal('show')
+  }
 }
 
 const onLogInSucess = function (apiResponse) {
