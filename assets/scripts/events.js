@@ -1,6 +1,7 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -69,6 +70,18 @@ const onViewLargeNPCReadout = function (event) {
     .catch(ui.RetrieveNPCFailure)
 }
 
+const onDeleteNPC = function (event) {
+  event.preventDefault()
+  const npcIndexObj = $(event.target).data()
+  const npcIndex = npcIndexObj.id
+  // Start - Storing npcIndex in store so ui can access
+  store.npcIndex = npcIndex
+  // End
+  api.deleteNPC(npcIndex)
+    .then(ui.deleteNPCSucess)
+    .catch(ui.deleteNPCFailure)
+}
+
 module.exports = {
   onSignUp,
   onLogIn,
@@ -78,5 +91,6 @@ module.exports = {
   onViewNPCs,
   onReturnToProfile,
   onViewPersonalNPCs,
-  onViewLargeNPCReadout
+  onViewLargeNPCReadout,
+  onDeleteNPC
 }

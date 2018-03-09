@@ -80,6 +80,17 @@ const retrieveNPC = function (npcIndex) {
   })
 }
 
+const deleteNPC = function (npcIndex) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs/' + npcIndex,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -87,5 +98,6 @@ module.exports = {
   onPwChange,
   createNewNPC,
   getAllNPCs,
-  retrieveNPC
+  retrieveNPC,
+  deleteNPC
 }

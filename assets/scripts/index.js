@@ -25,4 +25,6 @@ $(() => {
   $('#view-personal-npcs').on('click', events.onViewPersonalNPCs)
   $('#return-to-profile-button').on('click', events.onReturnToProfile)
   $('body').on('click', '#view-large-npc', events.onViewLargeNPCReadout)
+  $('body').on('click', '#delete-npc', events.onDeleteNPC)
+  // $('body').on('click', '#edit-npc', events.onEditNPC)
 })

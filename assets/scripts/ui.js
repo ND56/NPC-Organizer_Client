@@ -158,6 +158,18 @@ const RetrieveNPCFailure = function (apiResponse) {
   $('#universal-response-modal').modal('show')
 }
 
+const deleteNPCSucess = function (apiResponse) {
+  $('#single-npc-readout-modal').modal('hide')
+  $('#universal-response-modal-content').text('Deletion successful! Now make something better!')
+  $('#universal-response-modal').modal('show')
+  $("div[data-id='1-" + store.npcIndex + "']").hide()
+}
+
+const deleteNPCFailure = function (apiResponse) {
+  $('#universal-response-modal-content').text('Failed to delete NPC. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. The server might be down. Try again later!')
+  $('#universal-response-modal').modal('show')
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -175,5 +187,7 @@ module.exports = {
   viewPersonalNPCsSuccess,
   viewPersonalNPCsFailure,
   RetrieveNPCSuccess,
-  RetrieveNPCFailure
+  RetrieveNPCFailure,
+  deleteNPCSucess,
+  deleteNPCFailure
 }
