@@ -119,6 +119,19 @@ const onEditNPCSubmit = function (event) {
   }
 }
 
+const searchPersonalNPCs = function (event) {
+  event.preventDefault()
+  console.log('Dropdown event!')
+  console.log(event)
+}
+
+const searchByAttribute = function (event) {
+  event.preventDefault()
+  console.log('Dropdown event 2!')
+  console.log(event)
+  ui.showNPCSearchField(event.target.value)
+}
+
 module.exports = {
   onSignUp,
   onLogIn,
@@ -131,5 +144,7 @@ module.exports = {
   onViewLargeNPCReadout,
   onDeleteNPC,
   onEditNPC,
-  onEditNPCSubmit
+  onEditNPCSubmit,
+  searchPersonalNPCs,
+  searchByAttribute
 }

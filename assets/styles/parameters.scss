@@ -47,9 +47,19 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   padding-right: 40px;
 }
 
+.search-npcs-modal-content-wrapper {
+  height: 125px;
+  width: 450px;
+}
+
 #abil-label,
 #spells-label {
   padding-left: 21px;
+}
+
+#search-npcs-modal {
+  position: absolute;
+  top: 60%;
 }
 // End - Modals
 
@@ -66,7 +76,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .view-npcs,
-.view-personal-npcs {
+.view-personal-npcs,
+.search-npcs-button {
   margin-top: 5%;
 }
 

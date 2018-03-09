@@ -9,12 +9,13 @@ $(() => {
 })
 
 $(() => {
-  // $('#home-page').hide()
+  $('#home-page').hide()
+  $('#search-npc-form').hide()
   $('#log-out-button').hide()
   $('#change-pw-button').hide()
   $('#return-to-profile-button').hide()
-  $('#universal-content-header').hide()
-  $('#user-profile-page').hide()
+  // $('#universal-content-header').hide()
+  // $('#user-profile-page').hide()
   $('#get-npc-div').hide()
   $('#npc-needs-name').hide()
   $('#npc-needs-privacy').hide()
@@ -31,4 +32,6 @@ $(() => {
   $('body').on('click', '#edit-npc', events.onEditNPC)
   $('body').on('submit', '#edit-npc-form', events.onEditNPCSubmit)
   $('body').on('submit', '#create-npc-form', events.onCreateNPC)
+  $('#ownership-dropdown').on('change', events.searchPersonalNPCs)
+  $('#attribute-dropdown').on('change', events.searchByAttribute)
 })

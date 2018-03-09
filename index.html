@@ -137,6 +137,9 @@
           <div class="row-div">
             <button class="col-xs-offset-3 col-xs-6 view-personal-npcs" id="view-personal-npcs">View All Personal NPCs</button>
           </div>
+          <div class="row-div">
+            <button class="col-xs-offset-3 col-xs-6 search-npcs-button" id="search-npcs-button" data-toggle="modal" data-target="#search-npcs-modal">Search NPCs</button>
+          </div>
         </div>
         <div class="col-xs-4 right-column">
           <div class="resource-example ex-3"></div>
@@ -144,6 +147,62 @@
         </div>
       </div>
       <!-- End - User Profile Page -->
+
+      <!-- Start - Search NPC Modal -->
+      <div class="modal fade search-npcs-modal" id="search-npcs-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content search-npcs-modal-content-wrapper">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <div class="search-npcs-modal-content" id="search-npcs-modal-content">
+              <!-- Row 1 -->
+              <!-- Column 1-A -->
+                <div class="col-xs-6 drop-down-label">
+                  Search:
+                </div>
+                <!-- Column 1-B -->
+                <div class="col-xs-6 drop-down-div drop-down-1" id="drop-down-1">
+                  <select class="ownership-dropdown" id="ownership-dropdown">
+                    <option value="Public NPCs">Public NPCs</option>
+                    <option value="Your NPCs">Your NPCs</option>
+                  </select>
+                </div>
+              <!-- Row 2 -->
+                <!-- Column 2-A -->
+                <div class="col-xs-6 drop-down-label">
+                  Search by:
+                </div>
+                <!-- Column 2-B -->
+                <div class="col-xs-6 drop-down-div drop-down-2" id="drop-down-2">
+                  <select class="attribute-dropdown" id="attribute-dropdown">
+                    <option value="name">Name</option>
+                    <option value="race">Race</option>
+                    <option value="class">Class</option>
+                    <option value="CR">Challenge Rating</option>
+                    <option value="level">Level</option>
+                    <option value="user">Creator</option>
+                  </select>
+                </div>
+              <!-- End Drop-Downs -->
+              <!-- Form Field to Search -->
+              <div class="form-div">
+                <form class="form-horizontal search-npc-form" id="search-npc-form">
+                  <div class="form-group">
+                    <label for="inputAttribute" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputAttribute" placeholder="E.g., Frodo Baggins">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- Form Field to Search -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Search NPC Modal -->
 
       <!-- Start - Create NPC Modal -->
       <div class="modal fade" id="create-npc-modal" tabindex="-1">

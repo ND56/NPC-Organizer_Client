@@ -257,6 +257,10 @@ const emptyUserNameField = function () {
   $('#user-needs-username').show()
 }
 
+const showNPCSearchField = function (chosenAttribute) {
+  console.log('Chosen attribute is ', chosenAttribute)
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -282,5 +286,6 @@ module.exports = {
   editNPCFailure,
   blankNPCNameField,
   blankNPCPrivacyField,
-  emptyUserNameField
+  emptyUserNameField,
+  showNPCSearchField
 }
