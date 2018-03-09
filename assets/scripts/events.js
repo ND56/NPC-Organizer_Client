@@ -6,9 +6,14 @@ const store = require('./store')
 const onSignUp = function (event) {
   event.preventDefault()
   const filteredInputData = getFormFields(event.target)
-  api.onRegister(filteredInputData)
-    .then(ui.onSignUpSucess)
-    .catch(ui.onSignUpFailure)
+  console.log(filteredInputData.credentials.user_name)
+  if (filteredInputData.credentials.user_name === '') {
+    ui.emptyUserNameField()
+  } else {
+    api.onRegister(filteredInputData)
+      .then(ui.onSignUpSucess)
+      .catch(ui.onSignUpFailure)
+  }
 }
 
 const onLogIn = function (event) {

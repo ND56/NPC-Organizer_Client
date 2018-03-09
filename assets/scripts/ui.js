@@ -4,6 +4,7 @@ const templatePersonalNPCs = require('./templates/personal-npc-listing.handlebar
 const templateSingleNPC = require('./templates/single-npc.handlebars')
 
 const onSignUpSucess = function (apiResponse) {
+  $('#user-needs-username').hide()
   $('#register-modal').modal('hide')
   $('#register-form').each(function () {
     this.reset()
@@ -252,6 +253,10 @@ const blankNPCPrivacyField = function () {
   $('#npc-needs-privacy').show()
 }
 
+const emptyUserNameField = function () {
+  $('#user-needs-username').show()
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -276,5 +281,6 @@ module.exports = {
   editNPCSuccess,
   editNPCFailure,
   blankNPCNameField,
-  blankNPCPrivacyField
+  blankNPCPrivacyField,
+  emptyUserNameField
 }
