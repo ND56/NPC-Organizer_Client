@@ -69,11 +69,23 @@ const getAllNPCs = function () {
   })
 }
 
+const retrieveNPC = function (npcIndex) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs/' + npcIndex,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
   onSignOut,
   onPwChange,
   createNewNPC,
-  getAllNPCs
+  getAllNPCs,
+  retrieveNPC
 }

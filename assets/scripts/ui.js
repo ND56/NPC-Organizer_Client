@@ -1,5 +1,6 @@
 const store = require('./store')
 const templateAllNPCs = require('./templates/npc-listing.handlebars')
+const templatePersonalNPCs = require('./templates/personal-npc-listing.handlebars')
 
 const onSignUpSucess = function (apiResponse) {
   $('#register-modal').modal('hide')
@@ -103,9 +104,9 @@ const viewAllNPCsSuccess = function (apiResponse) {
   $('#return-to-profile-button').show()
   $('#universal-content-header').text('All Public NPCs')
   $('#user-profile-page').hide()
-  $('#get-all-npc-div').show()
+  $('#get-npc-div').show()
   const allNPCReadoutHTML = templateAllNPCs({ npcs: apiResponse.npcs })
-  $('#get-all-npc-div').append(allNPCReadoutHTML)
+  $('#get-npc-div').append(allNPCReadoutHTML)
 }
 
 const viewAllNPCsFailure = function (apiResponse) {
@@ -113,12 +114,38 @@ const viewAllNPCsFailure = function (apiResponse) {
   $('#universal-response-modal').modal('show')
 }
 
+const viewPersonalNPCsSuccess = function (apiResponse) {
+  $('#return-to-profile-button').show()
+  $('#universal-content-header').text(store.user.user_name + '\'s NPCs')
+  $('#user-profile-page').hide()
+  $('#get-npc-div').show()
+  const personalNPCArr = apiResponse.npcs.filter(function (npc) {
+    return npc.user.email === store.user.email
+  })
+  const personalNPCReadout = templatePersonalNPCs({ npcs: personalNPCArr })
+  $('#get-npc-div').append(personalNPCReadout)
+}
+
+const viewPersonalNPCsFailure = function (apiResponse) {
+  $('#universal-response-modal-content').text('Failed to load NPCs. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. The server might be down. Try again later!')
+  $('#universal-response-modal').modal('show')
+}
+
 const returnToProfile = function () {
   $('#return-to-profile-button').hide()
   $('#universal-content-header').text(`${store.user.user_name}'s Profile`)
-  $('#get-all-npc-div').hide()
-  $('#get-all-npc-div').empty()
+  $('#get-npc-div').hide()
+  $('#get-npc-div').empty()
   $('#user-profile-page').show()
+}
+
+const RetrieveNPCSuccess = function (apiResponse) {
+
+}
+
+const RetrieveNPCFailure = function (apiResponse) {
+  $('#universal-response-modal-content').text('Failed to load NPC. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. The server might be down. Try again later!')
+  $('#universal-response-modal').modal('show')
 }
 
 module.exports = {
@@ -134,5 +161,9 @@ module.exports = {
   createNPCFailure,
   viewAllNPCsSuccess,
   viewAllNPCsFailure,
-  returnToProfile
+  returnToProfile,
+  viewPersonalNPCsSuccess,
+  viewPersonalNPCsFailure,
+  RetrieveNPCSuccess,
+  RetrieveNPCFailure
 }

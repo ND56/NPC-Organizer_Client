@@ -53,6 +53,22 @@ const onReturnToProfile = function (event) {
   ui.returnToProfile()
 }
 
+const onViewPersonalNPCs = function (event) {
+  event.preventDefault()
+  api.getAllNPCs()
+    .then(ui.viewPersonalNPCsSuccess)
+    .catch(ui.viewPersonalNPCsFailure)
+}
+
+const onViewLargeNPCReadout = function (event) {
+  event.preventDefault()
+  const npcIndexObj = $(event.target).data()
+  const npcIndex = npcIndexObj.id
+  api.retrieveNPC(npcIndex)
+    .then(ui.RetrieveNPCSuccess)
+    .catch(ui.RetrieveNPCFailure)
+}
+
 module.exports = {
   onSignUp,
   onLogIn,
@@ -60,5 +76,7 @@ module.exports = {
   onChangePw,
   onCreateNPC,
   onViewNPCs,
-  onReturnToProfile
+  onReturnToProfile,
+  onViewPersonalNPCs,
+  onViewLargeNPCReadout
 }
