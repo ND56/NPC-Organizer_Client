@@ -141,9 +141,15 @@ const returnToProfile = function () {
 }
 
 const RetrieveNPCSuccess = function (apiResponse) {
+  // start - set boolean value of var based on ownership for use in handlebars
+  let ownership = false
+  if (apiResponse.npc.user.email === store.user.email) {
+    ownership = true
+  }
+  // end
   $('#single-npc-readout-modal-content').empty()
   $('#single-npc-readout-modal').modal('show')
-  const singleNPCHTML = templateSingleNPC({ npc: apiResponse.npc })
+  const singleNPCHTML = templateSingleNPC({ npc: apiResponse.npc, ownership: ownership })
   $('#single-npc-readout-modal-content').append(singleNPCHTML)
 }
 

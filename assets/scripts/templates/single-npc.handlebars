@@ -44,9 +44,12 @@
           <li>Privacy Setting: Public</li>
         {{/unless}}
       </ul>
+      {{#if ownership}}
+        <button id="edit-npc" class="btn btn-default" data-id="{{npc.id}}">Edit NPC</button>
+        <button id="delete-npc" class="btn btn-default" data-id="{{npc.id}}">Delete NPC</button>
+      {{/if}}
       <!-- —IF OWNER —> ***BUTTON: Edit NPC***
       —IF OWNER —> ***BUTTON: Delete NPC*** (Are you sure?) -->
-      <!-- <button id="view-large-npc" class="btn btn-default" data-id="{{npc.id}}">View NPC</button> -->
       <!-- I'm concerned I rely on the ID for the event handler since this will create a bunch of buttons with the same ID -->
       <!-- I want them all to have the same function, but I think wierd things can happen if a bunch of things have the same ID -->
       <!-- Other bad options include using the data-id, which I don't want to do because I want this to be the npc index -->
