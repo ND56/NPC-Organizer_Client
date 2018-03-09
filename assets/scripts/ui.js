@@ -1,6 +1,7 @@
 const store = require('./store')
 const templateAllNPCs = require('./templates/npc-listing.handlebars')
 const templatePersonalNPCs = require('./templates/personal-npc-listing.handlebars')
+const templateSingleNPC = require('./templates/single-npc.handlebars')
 
 const onSignUpSucess = function (apiResponse) {
   $('#register-modal').modal('hide')
@@ -140,7 +141,10 @@ const returnToProfile = function () {
 }
 
 const RetrieveNPCSuccess = function (apiResponse) {
-
+  $('#single-npc-readout-modal-content').empty()
+  $('#single-npc-readout-modal').modal('show')
+  const singleNPCHTML = templateSingleNPC({ npc: apiResponse.npc })
+  $('#single-npc-readout-modal-content').append(singleNPCHTML)
 }
 
 const RetrieveNPCFailure = function (apiResponse) {

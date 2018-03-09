@@ -1,0 +1,54 @@
+<!-- Attributes list items only generated if they exist in the database -->
+<!-- Need to make it so edit and delete buttons only appear if ownership -->
+
+    <div class="single-npc-readout-div" data-id="2-{{npc.id}}">
+      <h3>{{npc.name}}</h3>
+      <ul>
+        {{#if npc.race}}
+          <li>Race: {{npc.race}}</li>
+        {{/if}}
+        {{#if npc.dnd_class}}
+          <li>Class: {{npc.dnd_class}}</li>
+        {{/if}}
+        {{#if npc.challenge_rating}}
+          <li>Challenge Rating: {{npc.challenge_rating}}</li>
+        {{/if}}
+        {{#if npc.level}}
+          <li>Level: {{npc.level}}</li>
+        {{/if}}
+        {{#if npc.HP}}
+          <li>HP: {{npc.HP}}</li>
+        {{/if}}
+        {{#if npc.AC}}
+          <li>AC: {{npc.AC}}</li>
+        {{/if}}
+        {{#if npc.ability_modifiers}}
+          <li>Ability Modifiers: {{npc.ability_modifiers}}</li>
+        {{/if}}
+        {{#if npc.spells_abilities}}
+          <li>Spells & Abilities: {{npc.spells_abilities}}</li>
+        {{/if}}
+        {{#if npc.traits}}
+          <li>Traits: {{npc.traits}}</li>
+        {{/if}}
+        {{#if npc.items}}
+          <li>Items: {{npc.items}}</li>
+        {{/if}}
+        {{#if npc.notes}}
+          <li>Notes: {{npc.notes}}</li>
+        {{/if}}
+        {{#if npc.user.user_name}}
+          <li>Created by: {{npc.user.user_name}}</li>
+        {{/if}}
+        {{#unless npc.private}}
+          <li>Privacy Setting: Public</li>
+        {{/unless}}
+      </ul>
+      <!-- —IF OWNER —> ***BUTTON: Edit NPC***
+      —IF OWNER —> ***BUTTON: Delete NPC*** (Are you sure?) -->
+      <!-- <button id="view-large-npc" class="btn btn-default" data-id="{{npc.id}}">View NPC</button> -->
+      <!-- I'm concerned I rely on the ID for the event handler since this will create a bunch of buttons with the same ID -->
+      <!-- I want them all to have the same function, but I think wierd things can happen if a bunch of things have the same ID -->
+      <!-- Other bad options include using the data-id, which I don't want to do because I want this to be the npc index -->
+      <!-- or put an event handler on the class; which is another no-no -->
+    </div>
