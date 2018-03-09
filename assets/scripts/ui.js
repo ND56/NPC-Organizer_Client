@@ -141,6 +141,7 @@ const returnToProfile = function () {
 }
 
 const RetrieveNPCSuccess = function (apiResponse) {
+  store.npc = apiResponse.npc
   // start - set boolean value of var based on ownership for use in handlebars
   let ownership = false
   if (apiResponse.npc.user.email === store.user.email) {
@@ -170,6 +171,51 @@ const deleteNPCFailure = function (apiResponse) {
   $('#universal-response-modal').modal('show')
 }
 
+const populateNPCModal = function () {
+  $('#single-npc-readout-modal').modal('hide')
+  $('#npc-modal-button').text('Edit NPC')
+  $('#create-npc-modal').modal('show')
+  $('#create-npc-form').prop('id', 'edit-npc-form')
+  $('#inputName').val(store.npc.name)
+  $('#inputRace').val(store.npc.race)
+  $('#inputClass').val(store.npc.dnd_class)
+  $('#inputChallengeRating').val(store.npc.challenge_rating)
+  $('#inputStatHP').val(store.npc.HP)
+  $('#inputStatAC').val(store.npc.AC)
+  $('#inputStatsAbMods').val(store.npc.ability_modifiers)
+  $('#inputStatsSpellsAbilities').val(store.npc.spells_abilities)
+  $('#inputStatsItems').val(store.npc.items)
+  $('#inputStatsLevel').val(store.npc.level)
+  $('#inputTraits').val(store.npc.traits)
+  $('#inputNotes').val(store.npc.notes)
+  $('#inputPrivacySetting').val(store.npc.private)
+}
+
+const editNPCSuccess = function (apiResponse) {
+  store.npc = apiResponse.npc
+  // reset form for use in create npc
+  $('#edit-npc-form').each(function () {
+    this.reset()
+  })
+  $('#edit-npc-form').prop('id', 'create-npc-form')
+  $('#npc-modal-button').text('Create NPC!')
+  $('#create-npc-modal').modal('hide')
+  // reset form for use in create npc
+  $('#universal-response-modal-content').text('Edit successful!')
+  $('#universal-response-modal').modal('show')
+  // immediately reflect edits in DOM
+  $("span[data-id='name-" + store.npc.id + "']").text(store.npc.name)
+  $("span[data-id='race-" + store.npc.id + "']").text(store.npc.race)
+  $("span[data-id='dnd-class-" + store.npc.id + "']").text(store.npc.dnd_class)
+  $("span[data-id='CR-" + store.npc.id + "']").text(store.npc.challenge_rating)
+  $("span[data-id='user-" + store.npc.id + "']").text(store.npc.user.user_name)
+}
+
+const editNPCFailure = function (apiResponse) {
+  $('#universal-response-modal-content').text('Failed to edit NPC. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you\'re inputing the correct data!')
+  $('#universal-response-modal').modal('show')
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -189,5 +235,8 @@ module.exports = {
   RetrieveNPCSuccess,
   RetrieveNPCFailure,
   deleteNPCSucess,
-  deleteNPCFailure
+  deleteNPCFailure,
+  populateNPCModal,
+  editNPCSuccess,
+  editNPCFailure
 }

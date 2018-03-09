@@ -4,19 +4,19 @@
 <!-- Attributes list items only generated if they exist in the database -->
 
     <div class="npc-readout-div" data-id="1-{{npc.id}}">
-      <h3>{{npc.name}}</h3>
+      <h3 class="npc-readout-name"><span data-id="name-{{npc.id}}">{{npc.name}}</span></h3>
       <ul>
         {{#if npc.race}}
-          <li>Race: {{npc.race}}</li>
+          <li><span class="npc-readout-property">Race:</span> <span data-id="race-{{npc.id}}">{{npc.race}}</span></li>
         {{/if}}
         {{#if npc.dnd_class}}
-          <li>Class: {{npc.dnd_class}}</li>
+          <li><span class="npc-readout-property">Class:</span> <span data-id="dnd-class-{{npc.id}}">{{npc.dnd_class}}</span></li>
         {{/if}}
         {{#if npc.challenge_rating}}
-          <li>Challenge Rating: {{npc.challenge_rating}}</li>
+          <li><span class="npc-readout-property">Challenge Rating:</span> <span data-id="CR-{{npc.id}}">{{npc.challenge_rating}}</span></li>
         {{/if}}
       </ul>
-      <button id="view-large-npc" class="btn btn-default" data-id="{{npc.id}}">View NPC</button>
+      <button id="view-large-npc" class="btn btn-default readout-view-larger-button" data-id="{{npc.id}}">View NPC</button>
       <!-- I'm concerned I rely on the ID for the event handler since this will create a bunch of buttons with the same ID -->
       <!-- I want them all to have the same function, but I think wierd things can happen if a bunch of things have the same ID -->
       <!-- Other bad options include using the data-id, which I don't want to do because I want this to be the npc index -->

@@ -91,6 +91,18 @@ const deleteNPC = function (npcIndex) {
   })
 }
 
+const editNPC = function (filteredNPCInfo) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs/' + store.npc.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: filteredNPCInfo
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -99,5 +111,6 @@ module.exports = {
   createNewNPC,
   getAllNPCs,
   retrieveNPC,
-  deleteNPC
+  deleteNPC,
+  editNPC
 }

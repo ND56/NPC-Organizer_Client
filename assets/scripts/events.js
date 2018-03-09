@@ -75,11 +75,25 @@ const onDeleteNPC = function (event) {
   const npcIndexObj = $(event.target).data()
   const npcIndex = npcIndexObj.id
   // Start - Storing npcIndex in store so ui can access
+  // UI hides from DOM on deletion
   store.npcIndex = npcIndex
   // End
   api.deleteNPC(npcIndex)
     .then(ui.deleteNPCSucess)
     .catch(ui.deleteNPCFailure)
+}
+
+const onEditNPC = function (event) {
+  event.preventDefault()
+  ui.populateNPCModal()
+}
+
+const onEditNPCSubmit = function (event) {
+  event.preventDefault()
+  const filteredNPCData = getFormFields(event.target)
+  api.editNPC(filteredNPCData)
+    .then(ui.editNPCSuccess)
+    .catch(ui.editNPCFailure)
 }
 
 module.exports = {
@@ -92,5 +106,7 @@ module.exports = {
   onReturnToProfile,
   onViewPersonalNPCs,
   onViewLargeNPCReadout,
-  onDeleteNPC
+  onDeleteNPC,
+  onEditNPC,
+  onEditNPCSubmit
 }
