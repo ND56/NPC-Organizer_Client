@@ -10,7 +10,7 @@ $(() => {
 
 $(() => {
   $('#home-page').hide()
-  $('#search-npc-form').hide()
+  $('#row-3').hide()
   $('#log-out-button').hide()
   $('#change-pw-button').hide()
   $('#return-to-profile-button').hide()

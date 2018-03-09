@@ -47,9 +47,32 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   padding-right: 40px;
 }
 
-.search-npcs-modal-content-wrapper {
-  height: 125px;
-  width: 450px;
+// .search-npcs-modal-content-wrapper {
+//   max-height: 800px;
+//   max-width: 800px;
+// }
+
+.row-1,
+.row-2 {
+  height: 60px;
+  margin-right: 45px;
+}
+
+.row-1 {
+  padding-top: 25px;
+}
+
+.row-2 {
+  padding-top: 10px;
+}
+
+.row-3 {
+  height: 80px;
+}
+
+.control-label,
+.input-placeholder {
+  margin-top: 10px;
 }
 
 #abil-label,

@@ -259,6 +259,8 @@ const emptyUserNameField = function () {
 
 const showNPCSearchField = function (chosenAttribute) {
   console.log('Chosen attribute is ', chosenAttribute)
+  $('#row-3').show()
+  $('#search-npc-label').text(chosenAttribute)
 }
 
 module.exports = {
