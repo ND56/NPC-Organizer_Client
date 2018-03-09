@@ -132,6 +132,35 @@ const searchByAttribute = function (event) {
   ui.showNPCSearchField(event.target.value)
 }
 
+const onResetSearchModal = function (event) {
+  event.preventDefault()
+  ui.resetSearchModal()
+}
+
+const onSearchNPC = function (event) {
+  event.preventDefault()
+  const searchFrom = $('#ownership-dropdown').val()
+  const searchBy = $('#search-npc-label').text()
+  const searchParams = $('#inputAttribute').val()
+  console.log(searchBy)
+  console.log(searchParams)
+  console.log(searchFrom)
+  // search by breakdown
+  if (searchBy === 'Name') {
+    api.searchNPCByName(searchFrom, searchParams)
+  } else if (searchBy === 'Race') {
+    console.log(searchBy)
+  } else if (searchBy === 'Class') {
+    console.log(searchBy)
+  } else if (searchBy === 'Challenge Rating') {
+    console.log(searchBy)
+  } else if (searchBy === 'Level') {
+    console.log(searchBy)
+  } else if (searchBy === 'Creator') {
+    console.log(searchBy)
+  }
+}
+
 module.exports = {
   onSignUp,
   onLogIn,
@@ -146,5 +175,7 @@ module.exports = {
   onEditNPC,
   onEditNPCSubmit,
   searchPersonalNPCs,
-  searchByAttribute
+  searchByAttribute,
+  onResetSearchModal,
+  onSearchNPC
 }

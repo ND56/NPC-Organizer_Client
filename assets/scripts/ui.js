@@ -263,6 +263,10 @@ const showNPCSearchField = function (chosenAttribute) {
   $('#search-npc-label').text(chosenAttribute)
 }
 
+const resetSearchModal = function () {
+  $('#row-3').hide()
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -289,5 +293,6 @@ module.exports = {
   blankNPCNameField,
   blankNPCPrivacyField,
   emptyUserNameField,
-  showNPCSearchField
+  showNPCSearchField,
+  resetSearchModal
 }

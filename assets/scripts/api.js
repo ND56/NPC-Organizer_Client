@@ -103,6 +103,10 @@ const editNPC = function (filteredNPCInfo) {
   })
 }
 
+const searchNPCByName = function () {
+
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -112,5 +116,6 @@ module.exports = {
   getAllNPCs,
   retrieveNPC,
   deleteNPC,
-  editNPC
+  editNPC,
+  searchNPCByName
 }

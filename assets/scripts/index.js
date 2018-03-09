@@ -34,4 +34,6 @@ $(() => {
   $('body').on('submit', '#create-npc-form', events.onCreateNPC)
   $('#ownership-dropdown').on('change', events.searchPersonalNPCs)
   $('#attribute-dropdown').on('change', events.searchByAttribute)
+  $('#search-npcs-button').on('click', events.onResetSearchModal)
+  $('#search-npc-form').on('submit', events.onSearchNPC)
 })
