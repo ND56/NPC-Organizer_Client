@@ -205,13 +205,29 @@ const searchResultsSuccess = function (apiResponse) {
   }
 }
 
-const searchResultsFailure = function () {
+const searchResultsFailure = function (apiResponse) {
   $('#search-npc-form').each(function () {
     this.reset()
   })
   $('#search-npcs-modal').modal('hide')
   $('#universal-response-modal-content').text('Failed to load NPCs. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. The server might be down. Try again later!')
   $('#universal-response-modal').modal('show')
+}
+
+const searchCreatorFailure = function (apiResponse) {
+  $('#search-npc-form').each(function () {
+    this.reset()
+  })
+  $('#search-npcs-modal').modal('hide')
+  if (apiResponse.status === 500) {
+    $('#return-to-profile-button').show()
+    $('#universal-content-header').text('Search Results')
+    $('#user-profile-page').hide()
+    $('#no-search-results').show()
+  } else {
+    $('#universal-response-modal-content').text('Failed to load NPCs. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. The server might be down. Try again later!')
+    $('#universal-response-modal').modal('show')
+  }
 }
 
 const viewPersonalNPCsFailure = function (apiResponse) {
@@ -360,5 +376,6 @@ module.exports = {
   showNPCSearchField,
   resetSearchModal,
   searchResultsSuccess,
-  searchResultsFailure
+  searchResultsFailure,
+  searchCreatorFailure
 }

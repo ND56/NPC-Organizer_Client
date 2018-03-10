@@ -164,7 +164,7 @@ const onSearchNPC = function (event) {
   } else if (searchBy === 'Creator') {
     api.searchNPCByCreator(searchParams)
       .then(ui.searchResultsSuccess)
-      .catch(ui.searchResultsFailure)
+      .catch(ui.searchCreatorFailure)
   }
 }
 
