@@ -9,6 +9,7 @@ $(() => {
 })
 
 $(() => {
+  $('[data-toggle="tooltip"]').tooltip()
   $('#home-page').hide()
   $('#row-3').hide()
   $('#no-search-results').hide()
