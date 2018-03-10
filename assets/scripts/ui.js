@@ -292,7 +292,11 @@ const populateNPCModal = function () {
   $('#inputStatsLevel').val(store.npc.level)
   $('#inputTraits').val(store.npc.traits)
   $('#inputNotes').val(store.npc.notes)
-  $('#inputPrivacySetting').val(store.npc.private)
+  if (store.npc.private === true) {
+    $('#inputPrivacySetting').prop('checked', true)
+  } else {
+    $('#inputPrivacySetting').prop('checked', false)
+  }
 }
 
 const editNPCSuccess = function (apiResponse) {

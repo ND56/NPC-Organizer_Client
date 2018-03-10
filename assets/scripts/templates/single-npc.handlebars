@@ -43,6 +43,9 @@
         {{#unless npc.private}}
           <li>Privacy Setting: Public</li>
         {{/unless}}
+        {{#if npc.private}}
+          <li>Privacy Setting: Private</li>
+        {{/if}}
       </ul>
       {{#if ownership}}
         <button id="edit-npc" class="btn btn-default readout-edit-button" data-id="{{npc.id}}">Edit NPC</button>

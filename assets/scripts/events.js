@@ -40,9 +40,16 @@ const onChangePw = function (event) {
 
 const onCreateNPC = function (event) {
   event.preventDefault()
+  console.log(event)
+  console.log(event.target)
   const filteredNPCData = getFormFields(event.target)
   console.log(filteredNPCData)
-  console.log(filteredNPCData.npc.name)
+  console.log(filteredNPCData.npc)
+  // testing
+  const privacySetting = $('#inputPrivacySetting').prop('checked')
+  filteredNPCData.npc.private = privacySetting
+  console.log(filteredNPCData.npc)
+  // testing
   // adding front-end validation no blank Name
   // this isn't a great fix tho because someone might
   // access my API from somewhere else
@@ -107,6 +114,8 @@ const onEditNPC = function (event) {
 const onEditNPCSubmit = function (event) {
   event.preventDefault()
   const filteredNPCData = getFormFields(event.target)
+  const privacySetting = $('#inputPrivacySetting').prop('checked')
+  filteredNPCData.npc.private = privacySetting
   if (filteredNPCData.npc.name === '') {
     ui.blankNPCNameField()
   } else if (filteredNPCData.npc.private === '') {
@@ -182,5 +191,5 @@ module.exports = {
   onEditNPCSubmit,
   searchByAttribute,
   onResetSearchModal,
-  onSearchNPC
+  onSearchNPC,
 }
