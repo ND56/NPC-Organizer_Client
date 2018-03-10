@@ -6,7 +6,6 @@ const store = require('./store')
 const onSignUp = function (event) {
   event.preventDefault()
   const filteredInputData = getFormFields(event.target)
-  console.log(filteredInputData.credentials.user_name)
   if (filteredInputData.credentials.user_name === '') {
     ui.emptyUserNameField()
   } else {
