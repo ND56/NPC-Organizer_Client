@@ -1,4 +1,4 @@
-curl "https://npc-organizer.herokuapp.com" \
+curl "https://npc-organizer.herokuapp.com/sign-up" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
