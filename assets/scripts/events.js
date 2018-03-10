@@ -158,18 +158,15 @@ const onSearchNPC = function (event) {
       .then(ui.searchResultsSuccess)
       .catch(ui.searchResultsFailure)
   } else if (searchBy === 'Level') {
-    console.log(searchBy)
+    api.searchNPCByLevel(searchParams)
+      .then(ui.searchResultsSuccess)
+      .catch(ui.searchResultsFailure)
   } else if (searchBy === 'Creator') {
-    console.log(searchBy)
+    api.searchNPCByCreator(searchParams)
+      .then(ui.searchResultsSuccess)
+      .catch(ui.searchResultsFailure)
   }
 }
-
-// .then(function (apiResponse) {
-//   console.log(apiResponse)
-// })
-// .catch(function (apiResponse) {
-//   console.log(apiResponse)
-// })
 
 module.exports = {
   onSignUp,

@@ -167,6 +167,38 @@ const searchNPCByCR = function (params) {
   })
 }
 
+const searchNPCByLevel = function (params) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs/search-by-level',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'npc': {
+        'level': params
+      }
+    }
+  })
+}
+
+const searchNPCByCreator = function (params) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs/search-by-creator',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'credentials': {
+        'user_name': params
+      }
+    }
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -180,5 +212,7 @@ module.exports = {
   searchNPCByName,
   searchNPCByRace,
   searchNPCByClass,
-  searchNPCByCR
+  searchNPCByCR,
+  searchNPCByLevel,
+  searchNPCByCreator
 }
