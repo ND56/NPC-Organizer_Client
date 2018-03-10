@@ -119,16 +119,8 @@ const onEditNPCSubmit = function (event) {
   }
 }
 
-const searchPersonalNPCs = function (event) {
-  event.preventDefault()
-  console.log('Dropdown event!')
-  console.log(event)
-}
-
 const searchByAttribute = function (event) {
   event.preventDefault()
-  console.log('Dropdown event 2!')
-  console.log(event)
   ui.showNPCSearchField(event.target.value)
 }
 
@@ -139,6 +131,9 @@ const onResetSearchModal = function (event) {
 
 const onSearchNPC = function (event) {
   event.preventDefault()
+  // reset attribute input field
+  $('#attribute-dropdown').val('Placeholder')
+  // end
   store.ownership = $('#ownership-dropdown').val()
   const searchBy = $('#search-npc-label').text()
   const searchParams = $('#inputAttribute').val()
@@ -151,7 +146,9 @@ const onSearchNPC = function (event) {
       .then(ui.searchResultsSuccess)
       .catch(ui.searchResultsFailure)
   } else if (searchBy === 'Race') {
-    console.log(searchBy)
+    api.searchNPCByRace(searchParams)
+      .then(ui.searchResultsSuccess)
+      .catch(ui.searchResultsFailure)
   } else if (searchBy === 'Class') {
     console.log(searchBy)
   } else if (searchBy === 'Challenge Rating') {
@@ -176,7 +173,6 @@ module.exports = {
   onDeleteNPC,
   onEditNPC,
   onEditNPCSubmit,
-  searchPersonalNPCs,
   searchByAttribute,
   onResetSearchModal,
   onSearchNPC

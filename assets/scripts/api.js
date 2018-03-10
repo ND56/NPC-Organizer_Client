@@ -119,6 +119,22 @@ const searchNPCByName = function (params) {
   })
 }
 
+const searchNPCByRace = function (params) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs/search-by-race',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'npc': {
+        'race': params
+      }
+    }
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -129,5 +145,6 @@ module.exports = {
   retrieveNPC,
   deleteNPC,
   editNPC,
-  searchNPCByName
+  searchNPCByName,
+  searchNPCByRace
 }

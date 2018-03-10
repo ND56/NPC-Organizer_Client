@@ -180,7 +180,6 @@ const searchResultsSuccess = function (apiResponse) {
     } else {
       $('#get-npc-div').append(allPublicResultsHTML)
     }
-    console.log(allPublicResultsHTML)
   } else if (store.ownership === 'Your NPCs') {
     $('#search-npc-form').each(function () {
       this.reset()
@@ -193,7 +192,6 @@ const searchResultsSuccess = function (apiResponse) {
     const personalNPCArr = apiResponse.npcs.filter(function (npc) {
       return npc.user.email === store.user.email
     })
-    console.log(personalNPCArr)
     if (personalNPCArr.length === 0) {
       $('#get-npc-div').hide()
       $('#no-search-results').show()
@@ -318,9 +316,12 @@ const emptyUserNameField = function () {
 }
 
 const showNPCSearchField = function (chosenAttribute) {
-  console.log('Chosen attribute is ', chosenAttribute)
-  $('#row-3').show()
-  $('#search-npc-label').text(chosenAttribute)
+  if ($('#attribute-dropdown').val() === 'Placeholder') {
+    $('#row-3').hide()
+  } else {
+    $('#row-3').show()
+    $('#search-npc-label').text(chosenAttribute)
+  }
 }
 
 const resetSearchModal = function () {
