@@ -47,11 +47,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   padding-right: 40px;
 }
 
-// .search-npcs-modal-content-wrapper {
-//   max-height: 800px;
-//   max-width: 800px;
-// }
-
 .row-1,
 .row-2 {
   height: 60px;
@@ -129,6 +124,19 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   height: 700px;
 }
 // End - User Profile Page
+
+// Start - NPC Readout
+.npc-readout-div {
+  // display: inline-block;
+  background-color: antiquewhite;
+  border: 1px solid black;
+  height: 225px;
+}
+
+.get-npc-div {
+  margin-right: 77px;
+}
+// End - NPC Readout
 
 @media (max-width: 991px) {
   .log-in-modal-content,
