@@ -1,8 +1,4 @@
 {{#each npcs as |npc|}}
-
-<!-- Only populates public NPCs -->
-<!-- Attributes list items only generated if they exist in the database -->
-
   {{#unless npc.private}}
     <div class="npc-readout-div" data-id="1-{{npc.id}}">
       <h3 class="npc-readout-name"><span data-id="name-{{npc.id}}">{{npc.name}}</span></h3>
@@ -23,5 +19,4 @@
       <button id="view-large-npc" class="btn btn-default readout-view-larger-button" data-id="{{npc.id}}">View NPC</button>
     </div>
   {{/unless}}
-
 {{/each}}

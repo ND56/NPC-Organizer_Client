@@ -1,8 +1,4 @@
 {{#each npcs as |npc|}}
-
-{{log npc.user.email}}
-<!-- Attributes list items only generated if they exist in the database -->
-
     <div class="npc-readout-div" data-id="1-{{npc.id}}">
       <h3 class="npc-readout-name"><span data-id="name-{{npc.id}}">{{npc.name}}</span></h3>
       <ul>
@@ -17,10 +13,5 @@
         {{/if}}
       </ul>
       <button id="view-large-npc" class="btn btn-default readout-view-larger-button" data-id="{{npc.id}}">View NPC</button>
-      <!-- I'm concerned I rely on the ID for the event handler since this will create a bunch of buttons with the same ID -->
-      <!-- I want them all to have the same function, but I think wierd things can happen if a bunch of things have the same ID -->
-      <!-- Other bad options include using the data-id, which I don't want to do because I want this to be the npc index -->
-      <!-- or put an event handler on the class; which is another no-no -->
     </div>
-
 {{/each}}

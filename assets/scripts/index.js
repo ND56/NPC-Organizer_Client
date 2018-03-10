@@ -11,6 +11,7 @@ $(() => {
 $(() => {
   // $('#home-page').hide()
   $('#row-3').hide()
+  $('#no-search-results').hide()
   $('#log-out-button').hide()
   $('#change-pw-button').hide()
   $('#return-to-profile-button').hide()

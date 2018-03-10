@@ -154,12 +154,72 @@ const viewPersonalNPCsSuccess = function (apiResponse) {
   $('#get-npc-div').append(personalNPCReadout)
 }
 
+const searchResultsSuccess = function (apiResponse) {
+  if (apiResponse.npcs.length === 0) {
+    $('#search-npc-form').each(function () {
+      this.reset()
+    })
+    $('#search-npcs-modal').modal('hide')
+    $('#return-to-profile-button').show()
+    $('#universal-content-header').text('Search Results')
+    $('#user-profile-page').hide()
+    $('#no-search-results').show()
+  } else if (store.ownership === 'Public NPCs') {
+    $('#search-npc-form').each(function () {
+      this.reset()
+    })
+    $('#search-npcs-modal').modal('hide')
+    $('#return-to-profile-button').show()
+    $('#universal-content-header').text('Search Results')
+    $('#user-profile-page').hide()
+    $('#get-npc-div').show()
+    const allPublicResultsHTML = templateAllNPCs({ npcs: apiResponse.npcs })
+    if (allPublicResultsHTML === '') {
+      $('#get-npc-div').hide()
+      $('#no-search-results').show()
+    } else {
+      $('#get-npc-div').append(allPublicResultsHTML)
+    }
+    console.log(allPublicResultsHTML)
+  } else if (store.ownership === 'Your NPCs') {
+    $('#search-npc-form').each(function () {
+      this.reset()
+    })
+    $('#search-npcs-modal').modal('hide')
+    $('#return-to-profile-button').show()
+    $('#universal-content-header').text('Search Results')
+    $('#user-profile-page').hide()
+    $('#get-npc-div').show()
+    const personalNPCArr = apiResponse.npcs.filter(function (npc) {
+      return npc.user.email === store.user.email
+    })
+    console.log(personalNPCArr)
+    if (personalNPCArr.length === 0) {
+      $('#get-npc-div').hide()
+      $('#no-search-results').show()
+    } else {
+      const personalNPCReadout = templatePersonalNPCs({ npcs: personalNPCArr })
+      $('#get-npc-div').append(personalNPCReadout)
+    }
+  }
+}
+
+const searchResultsFailure = function () {
+  $('#search-npc-form').each(function () {
+    this.reset()
+  })
+  $('#search-npcs-modal').modal('hide')
+  $('#universal-response-modal-content').text('Failed to load NPCs. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. The server might be down. Try again later!')
+  $('#universal-response-modal').modal('show')
+}
+
 const viewPersonalNPCsFailure = function (apiResponse) {
   $('#universal-response-modal-content').text('Failed to load NPCs. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. The server might be down. Try again later!')
   $('#universal-response-modal').modal('show')
 }
 
 const returnToProfile = function () {
+  $('#no-search-results').hide()
   $('#return-to-profile-button').hide()
   $('#universal-content-header').text(`${store.user.user_name}'s Profile`)
   $('#get-npc-div').hide()
@@ -294,5 +354,7 @@ module.exports = {
   blankNPCPrivacyField,
   emptyUserNameField,
   showNPCSearchField,
-  resetSearchModal
+  resetSearchModal,
+  searchResultsSuccess,
+  searchResultsFailure
 }

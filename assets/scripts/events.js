@@ -139,18 +139,17 @@ const onResetSearchModal = function (event) {
 
 const onSearchNPC = function (event) {
   event.preventDefault()
-  const searchFrom = $('#ownership-dropdown').val()
+  store.ownership = $('#ownership-dropdown').val()
   const searchBy = $('#search-npc-label').text()
   const searchParams = $('#inputAttribute').val()
   console.log(searchBy)
   console.log(searchParams)
-  console.log(searchFrom)
+  console.log(store.ownership)
   // search by breakdown
   if (searchBy === 'Name') {
-    api.searchNPCByName(searchFrom, searchParams)
-      .then(function (apiResponse) {
-        console.log(apiResponse)
-      })
+    api.searchNPCByName(searchParams)
+      .then(ui.searchResultsSuccess)
+      .catch(ui.searchResultsFailure)
   } else if (searchBy === 'Race') {
     console.log(searchBy)
   } else if (searchBy === 'Class') {
