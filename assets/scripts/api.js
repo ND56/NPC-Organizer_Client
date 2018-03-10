@@ -135,6 +135,38 @@ const searchNPCByRace = function (params) {
   })
 }
 
+const searchNPCByClass = function (params) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs/search-by-class',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'npc': {
+        'dnd_class': params
+      }
+    }
+  })
+}
+
+const searchNPCByCR = function (params) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs/search-by-challenge-rating',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'npc': {
+        'challenge_rating': params
+      }
+    }
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -146,5 +178,7 @@ module.exports = {
   deleteNPC,
   editNPC,
   searchNPCByName,
-  searchNPCByRace
+  searchNPCByRace,
+  searchNPCByClass,
+  searchNPCByCR
 }
