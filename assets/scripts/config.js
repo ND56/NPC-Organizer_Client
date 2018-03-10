@@ -8,7 +8,7 @@
 const config = {
   apiOrigins: {
     development: 'http://localhost:4741',
-    production: 'https://npc-organizer.herokuapp.com/'
+    production: 'https://npc-organizer.herokuapp.com'
   }
 }
 
