@@ -9,13 +9,13 @@ $(() => {
 })
 
 $(() => {
-  $('#home-page').hide()
+  // $('#home-page').hide()
   $('#row-3').hide()
   $('#log-out-button').hide()
   $('#change-pw-button').hide()
   $('#return-to-profile-button').hide()
-  // $('#universal-content-header').hide()
-  // $('#user-profile-page').hide()
+  $('#universal-content-header').hide()
+  $('#user-profile-page').hide()
   $('#get-npc-div').hide()
   $('#npc-needs-name').hide()
   $('#npc-needs-privacy').hide()

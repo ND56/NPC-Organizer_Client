@@ -103,8 +103,20 @@ const editNPC = function (filteredNPCInfo) {
   })
 }
 
-const searchNPCByName = function () {
-
+const searchNPCByName = function (pubOrPriv, params) {
+  return $.ajax({
+    url: config.apiOrigin + '/npcs/search-by-name',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'npc': {
+        'name': params
+      }
+    }
+  })
 }
 
 module.exports = {

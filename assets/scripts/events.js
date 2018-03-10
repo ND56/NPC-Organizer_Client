@@ -148,6 +148,9 @@ const onSearchNPC = function (event) {
   // search by breakdown
   if (searchBy === 'Name') {
     api.searchNPCByName(searchFrom, searchParams)
+      .then(function (apiResponse) {
+        console.log(apiResponse)
+      })
   } else if (searchBy === 'Race') {
     console.log(searchBy)
   } else if (searchBy === 'Class') {
