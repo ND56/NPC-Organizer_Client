@@ -69,6 +69,8 @@ const onLogInFailure = function (apiResponse) {
 }
 
 const onSignOutSuccess = function (apiResponse) {
+  $('#home-header').show()
+  $('#static-header').hide()
   $('#universal-content-header').hide()
   $('#user-profile-page').hide()
   $('#log-out-button').hide()

@@ -172,9 +172,33 @@ body {
   }
 }
 
+@media (max-width: 780px) {
+  .home-header {
+    left: 33%;
+  }
+}
+
 @media (max-width: 767px) {
   .space-div {
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 690px) {
+  .home-header {
+    font-size: 135px;
+  }
+}
+
+@media (max-width: 591px) {
+  .home-header {
+    font-size: 119px;
+  }
+}
+
+@media (max-width: 524px) {
+  .home-header {
+    font-size: 103px;
   }
 }
 
@@ -182,5 +206,11 @@ body {
   .universal-response-modal,
   .universal-response-modal-content {
     font-size: 15px;
+  }
+}
+
+@media (max-width: 472px) {
+  .home-header {
+    font-size: 96px;
   }
 }
