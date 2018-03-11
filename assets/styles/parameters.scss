@@ -2,6 +2,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 // Title screen
+#body {
+  padding-right: 0px;
+}
+
 body {
   height: 1000px;
   background-size: cover;
@@ -10,9 +14,9 @@ body {
 
 .home-header {
   font-size: 161px;
-  left: 39%;
+  left: 43%;
   position: relative;
-  top: 30%;
+  top: 34%;
 }
 // Title Screen
 
@@ -20,8 +24,10 @@ body {
 .nav-button {
   display: inline-block;
   float: right;
-  margin-left: 10px;
-  margin-top: 10px;
+  font-size: 18px;
+  margin-left: 23px;
+  padding: 10px;
+  margin-top: 25px;
 }
 // End - Nav Bar
 
@@ -106,14 +112,17 @@ body {
 
 // Start - User Profile Page
 .static-header {
-  font-size: 161px;
+  font-size: 64px;
   text-align: center;
-  position: relative;
-  margin-top: 35px;
+  position: absolute;
+  left: 8%;
+  margin-top: 24px;
 }
 
 .universal-content-header {
-  text-align: right;
+  text-align: center;
+  font-size: 47px;
+  margin-top: 113px;
 }
 
 .user-profile-page {
@@ -123,7 +132,7 @@ body {
   max-width: 1400px;
 }
 
-.create-npc-button{
+.create-npc-button {
   margin-top: 60%;
 }
 
@@ -164,6 +173,7 @@ body {
 }
 // End - NPC Readout
 
+// Start - Media Queries
 @media (max-width: 991px) {
   .log-in-modal-content,
   .register-modal-content,
@@ -172,10 +182,26 @@ body {
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 930px) {
   .home-header {
-    left: 33%;
+    left: 36%;
   }
+}
+
+@media (max-width: 900px) {
+  .nav-button {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .static-header {
+    font-size: 53px;
+  }
+
+  .universal-content-header {
+    font-size: 44px;
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -184,15 +210,71 @@ body {
   }
 }
 
+@media (max-width: 747px) {
+  .home-header {
+    left: 31%;
+  }
+
+  .nav-button {
+    font-size: 14px;
+    padding: 8px;
+    margin-left: 16px;
+    margin-top: 20px;
+  }
+
+  .static-header {
+    font-size: 43px;
+    left: 10%;
+  }
+
+  .universal-content-header {
+    font-size: 40px;
+  }
+
+}
+
 @media (max-width: 690px) {
   .home-header {
     font-size: 135px;
   }
 }
 
+@media (max-width: 630px) {
+  .nav-button {
+    padding: 6px;
+    margin-top: 16px;
+    margin-left: 12px;
+  }
+
+  .static-header {
+    left: 12%;
+    margin-top: 17px;
+  }
+
+  .universal-content-header {
+    font-size: 37px;
+    margin-top: 97px;
+  }
+}
+
 @media (max-width: 591px) {
   .home-header {
     font-size: 119px;
+  }
+}
+
+@media (max-width: 570px) {
+  .nav-button {
+    font-size: 13px;
+  }
+
+  .static-header {
+    font-size: 34px;
+  }
+
+  .universal-content-header {
+    font-size: 32px;
+    margin-top: 88px;
   }
 }
 
@@ -209,8 +291,49 @@ body {
   }
 }
 
+@media (max-width: 489px) {
+  .nav-button {
+    padding: 5px;
+    margin-top: 14px;
+    margin-left: 10px;
+  }
+
+  .static-header {
+    font-size: 30px;
+    left: 11%;
+    margin-top: 15px;
+  }
+
+  .universal-content-header {
+    font-size: 28px;
+    margin-top: 79px;
+  }
+}
+
 @media (max-width: 472px) {
   .home-header {
     font-size: 96px;
+  }
+}
+
+@media (max-width: 448px) {
+  .nav-button {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .static-header {
+    font-size: 26px;
+  }
+
+  .universal-content-header {
+    font-size: 25px;
+    margin-top: 72px;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-header {
+    font-size: 50px;
   }
 }

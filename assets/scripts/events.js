@@ -191,5 +191,5 @@ module.exports = {
   onEditNPCSubmit,
   searchByAttribute,
   onResetSearchModal,
-  onSearchNPC,
+  onSearchNPC
 }
