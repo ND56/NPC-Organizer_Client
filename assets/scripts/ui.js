@@ -44,6 +44,8 @@ const onLogInSucess = function (apiResponse) {
   $('#log-in-form').each(function () {
     this.reset()
   })
+  $('#home-header').hide()
+  $('#static-header').show()
   $('#home-page').hide()
   $('#log-in-button').hide()
   $('#register-button').hide()

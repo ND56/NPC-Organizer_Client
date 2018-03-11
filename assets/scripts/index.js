@@ -11,6 +11,7 @@ $(() => {
 $(() => {
   $('[data-toggle="tooltip"]').tooltip()
   // $('#home-page').hide()
+  $('#static-header').hide()
   $('#row-3').hide()
   $('#no-search-results').hide()
   $('#log-out-button').hide()

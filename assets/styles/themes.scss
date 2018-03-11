@@ -1,6 +1,24 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+// home Page
+body {
+  // background-image: url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?ixlib=rb-0.3.5&s=401496832d9a3bbed1f236e78baf66b1&auto=format&fit=crop&w=1350&q=80');
+  background-image: url('https://images.unsplash.com/photo-1515335500685-62c5e5e758bd?ixlib=rb-0.3.5&s=3b1159f0a4249151e422665e8a7e0598&auto=format&fit=crop&w=1534&q=80');
+  // background-image: url('');
+}
+
+.home-header,
+.static-header {
+  color: black;
+  // font-family: 'Shadows Into Light', cursive;
+  // font-family: 'Dancing Script', cursive;
+  // font-family: 'Amatic SC', cursive;
+  font-family: 'Berkshire Swash', cursive;
+  opacity: .6;
+}
+// home page
+
 // Start - User Profile Page
 .ex-1 {
   background-color: red;

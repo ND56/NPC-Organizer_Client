@@ -1,6 +1,21 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+// Title screen
+body {
+  height: 1000px;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.home-header {
+  font-size: 161px;
+  left: 39%;
+  position: relative;
+  top: 30%;
+}
+// Title Screen
+
 // Start - Nav Bar
 .nav-button {
   display: inline-block;
@@ -9,13 +24,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin-top: 10px;
 }
 // End - Nav Bar
-
-// Start - Header
-.static-header {
-  color: red;
-  font-size: 100px;
-}
-// End - Header
 
 // Start - Modals
 #inputPrivacySetting {
@@ -97,6 +105,17 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 // End - Modals
 
 // Start - User Profile Page
+.static-header {
+  font-size: 161px;
+  text-align: center;
+  position: relative;
+  margin-top: 35px;
+}
+
+.universal-content-header {
+  text-align: right;
+}
+
 .user-profile-page {
   background: yellow;
   height: 700px;
