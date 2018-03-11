@@ -1,7 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-// Title screen
+// Body
 #body {
   padding-right: 0px;
 }
@@ -11,7 +11,9 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+// Body
 
+// Title screen
 .home-header {
   font-size: 161px;
   left: 43%;
@@ -35,7 +37,7 @@ body {
 #inputPrivacySetting {
   height: 14px;
   width: 14px;
-  margin-top: 18px;
+  margin-top: 13px;
 }
 
 .close-modal {
@@ -142,8 +144,15 @@ body {
   margin-top: 5%;
 }
 
+.profile-button {
+  height: 65px;
+  font-size: 17px;
+  border: 0;
+}
+
 .resource-example {
   height: 320px;
+  margin-top: 50px;
 }
 
 .left-column {
@@ -166,10 +175,30 @@ body {
   border: 1px solid black;
   height: 225px;
   margin-top: 25px;
+  overflow: auto;
 }
 
 .get-npc-div {
   margin-right: 77px;
+}
+
+.npc-readout-name {
+  display: inline-block;
+  width: 50%;
+  font-size: 20px;
+}
+
+.npc-icon {
+  display: inline-block;
+  width: 29%;
+  height: 29%;
+  float: right;
+  margin-top: 6%;
+  border: 1px solid black;
+}
+
+.readout-li {
+  clear: right;
 }
 // End - NPC Readout
 
@@ -177,7 +206,8 @@ body {
 @media (max-width: 991px) {
   .log-in-modal-content,
   .register-modal-content,
-  .change-pw-modal-content {
+  .change-pw-modal-content,
+  .create-npc-modal-content {
     padding: 5px 25px 10px 15px;
   }
 }
@@ -254,6 +284,10 @@ body {
   .universal-content-header {
     font-size: 37px;
     margin-top: 97px;
+  }
+
+  #inputPrivacySetting {
+    margin-top: 0px;
   }
 }
 

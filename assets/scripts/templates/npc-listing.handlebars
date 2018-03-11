@@ -2,18 +2,19 @@
   {{#unless npc.private}}
     <div class="npc-readout-div col-sm-3 col-sm-offset-1 col-xs-4 col-xs-offset-2" data-id="1-{{npc.id}}">
       <h3 class="npc-readout-name"><span data-id="name-{{npc.id}}">{{npc.name}}</span></h3>
+      <div class="npc-icon" id="npc-icon"></div>
       <ul>
         {{#if npc.race}}
-          <li><span class="npc-readout-property">Race:</span> <span data-id="race-{{npc.id}}">{{npc.race}}</span></li>
+          <li class="readout-li"><span class="npc-readout-property">Race:</span> <span data-id="race-{{npc.id}}">{{npc.race}}</span></li>
         {{/if}}
         {{#if npc.dnd_class}}
-          <li><span class="npc-readout-property">Class:</span> <span data-id="dnd-class-{{npc.id}}">{{npc.dnd_class}}</span></li>
+          <li class="readout-li"><span class="npc-readout-property">Class:</span> <span class="dnd_class_readout" data-id="dnd-class-{{npc.id}}">{{npc.dnd_class}}</span></li>
         {{/if}}
         {{#if npc.challenge_rating}}
-          <li><span class="npc-readout-property">Challenge Rating:</span> <span data-id="CR-{{npc.id}}">{{npc.challenge_rating}}</span></li>
+          <li class="readout-li"><span class="npc-readout-property">Challenge Rating:</span> <span data-id="CR-{{npc.id}}">{{npc.challenge_rating}}</span></li>
         {{/if}}
         {{#if npc.user.user_name}}
-          <li><span class="npc-readout-property">Created by:</span> <span data-id="user-{{npc.id}}">{{npc.user.user_name}}</span></li>
+          <li class="readout-li"><span class="npc-readout-property">Created by:</span> <span data-id="user-{{npc.id}}">{{npc.user.user_name}}</span></li>
         {{/if}}
       </ul>
       <button id="view-large-npc" class="btn btn-default readout-view-larger-button" data-id="{{npc.id}}">View NPC</button>
