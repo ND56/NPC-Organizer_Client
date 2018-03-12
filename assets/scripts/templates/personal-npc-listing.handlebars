@@ -1,7 +1,7 @@
 {{#each npcs as |npc|}}
     <div class="npc-readout-div col-sm-3 col-sm-offset-1 col-xs-4 col-xs-offset-2" data-id="1-{{npc.id}}">
       <h3 class="npc-readout-name"><span data-id="name-{{npc.id}}">{{npc.name}}</span></h3>
-      <div class="npc-icon" id="npc-icon"></div>
+      <div class="npc-icon" id="npc-icon" data-class="5-{{npc.id}}"></div>
       <ul>
         {{#if npc.race}}
           <li class="readout-li"><span class="npc-readout-property">Race:</span> <span data-id="race-{{npc.id}}">{{npc.race}}</span></li>

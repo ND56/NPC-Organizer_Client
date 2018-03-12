@@ -2,6 +2,7 @@ const store = require('./store')
 const templateAllNPCs = require('./templates/npc-listing.handlebars')
 const templatePersonalNPCs = require('./templates/personal-npc-listing.handlebars')
 const templateSingleNPC = require('./templates/single-npc.handlebars')
+const classArrays = require('./classArrays')
 
 const onSignUpSucess = function (apiResponse) {
   $('#user-needs-username').hide()
@@ -135,6 +136,27 @@ const createNPCFailure = function (apiResponse) {
   console.log(apiResponse.responseText)
 }
 
+// Testing
+const adjustReadoutImages = function (apiResponse) {
+  const npcArr = apiResponse.npcs
+  for (let i = 0; i < apiResponse.npcs.length; i++) {
+    // console.log(npcArr)
+    // console.log(npcArr[0])
+    // console.log(npcArr[i].private)
+    // console.log(classArrays.monk)
+    // console.log(npcArr[i].dnd_class)
+    if (npcArr[i].private === false) {
+      if (classArrays.monk.some(function (element) {
+        return element === npcArr[i].dnd_class
+      })) {
+        console.log('I think this is working!')
+        console.log(npcArr[i], ' has a class that falls within the Monk array')
+      }
+    }
+  }
+}
+// TESTING
+
 const viewAllNPCsSuccess = function (apiResponse) {
   $('#return-to-profile-button').show()
   $('#universal-content-header').text('All Public NPCs')
@@ -142,6 +164,7 @@ const viewAllNPCsSuccess = function (apiResponse) {
   $('#get-npc-div').show()
   const allNPCReadoutHTML = templateAllNPCs({ npcs: apiResponse.npcs })
   $('#get-npc-div').append(allNPCReadoutHTML)
+  adjustReadoutImages(apiResponse)
 }
 
 const viewAllNPCsFailure = function (apiResponse) {
