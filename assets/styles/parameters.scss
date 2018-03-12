@@ -38,6 +38,10 @@ body {
 // End - Nav Bar
 
 // Start - Modals
+.user-needs-username {
+  padding-left: 17%;
+}
+
 .form-control {
   border: 1px solid black !important;
 }
@@ -321,6 +325,9 @@ body {
     font-size: 33px;
   }
 
+  .user-needs-username {
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 690px) {
