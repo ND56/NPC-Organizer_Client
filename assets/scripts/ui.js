@@ -136,7 +136,6 @@ const createNPCFailure = function (apiResponse) {
   console.log(apiResponse.responseText)
 }
 
-// Testing
 const adjustReadoutImages = function (apiResponse) {
   const npcArr = apiResponse.npcs
   for (let i = 0; i < apiResponse.npcs.length; i++) {
@@ -226,7 +225,6 @@ const adjustReadoutImages = function (apiResponse) {
     }
   }
 }
-// TESTING
 
 const viewAllNPCsSuccess = function (apiResponse) {
   $('#return-to-profile-button').show()
@@ -253,6 +251,7 @@ const viewPersonalNPCsSuccess = function (apiResponse) {
   })
   const personalNPCReadout = templatePersonalNPCs({ npcs: personalNPCArr })
   $('#get-npc-div').append(personalNPCReadout)
+  adjustReadoutImages(apiResponse)
 }
 
 const searchResultsSuccess = function (apiResponse) {
@@ -280,6 +279,7 @@ const searchResultsSuccess = function (apiResponse) {
       $('#no-search-results').show()
     } else {
       $('#get-npc-div').append(allPublicResultsHTML)
+      adjustReadoutImages(apiResponse)
     }
   } else if (store.ownership === 'Your NPCs') {
     $('#search-npc-form').each(function () {
@@ -299,6 +299,7 @@ const searchResultsSuccess = function (apiResponse) {
     } else {
       const personalNPCReadout = templatePersonalNPCs({ npcs: personalNPCArr })
       $('#get-npc-div').append(personalNPCReadout)
+      adjustReadoutImages(apiResponse)
     }
   }
 }
