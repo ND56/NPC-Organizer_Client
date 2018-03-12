@@ -57,7 +57,16 @@ const onLogInSucess = function (apiResponse) {
   $('#user-profile-page').show()
   $('#log-out-button').show()
   $('#change-pw-button').show()
-  console.log(apiResponse)
+  // Testing
+  $('#create-npc-form').each(function () {
+    this.reset()
+  })
+  $('#edit-npc-form').each(function () {
+    this.reset()
+  })
+  $('#edit-npc-form').prop('id', 'create-npc-form')
+  $('#npc-modal-button').text('Create NPC!')
+  // Testing
 }
 
 const onLogInFailure = function (apiResponse) {
@@ -341,6 +350,16 @@ const returnToProfile = function () {
   $('#get-npc-div').hide()
   $('#get-npc-div').empty()
   $('#user-profile-page').show()
+  // Testing
+  $('#create-npc-form').each(function () {
+    this.reset()
+  })
+  $('#edit-npc-form').each(function () {
+    this.reset()
+  })
+  $('#edit-npc-form').prop('id', 'create-npc-form')
+  $('#npc-modal-button').text('Create NPC!')
+  // Testing
 }
 
 const RetrieveNPCSuccess = function (apiResponse) {
