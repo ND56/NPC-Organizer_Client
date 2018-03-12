@@ -140,18 +140,89 @@ const createNPCFailure = function (apiResponse) {
 const adjustReadoutImages = function (apiResponse) {
   const npcArr = apiResponse.npcs
   for (let i = 0; i < apiResponse.npcs.length; i++) {
-    // console.log(npcArr)
-    // console.log(npcArr[0])
-    // console.log(npcArr[i].private)
-    // console.log(classArrays.monk)
-    // console.log(npcArr[i].dnd_class)
-    if (npcArr[i].private === false) {
-      if (classArrays.monk.some(function (element) {
-        return element === npcArr[i].dnd_class
-      })) {
-        console.log('I think this is working!')
-        console.log(npcArr[i], ' has a class that falls within the Monk array')
-      }
+    // set barbarian image
+    if (classArrays.barbarian.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/GGHd4MP.png)')
+    }
+    // set bard image
+    if (classArrays.bard.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/BEFVySZ.png)')
+    }
+    // set cleric image
+    if (classArrays.cleric.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/577kYwb.png)')
+    }
+    // set druid image
+    if (classArrays.druid.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/0wRS6em.png)')
+    }
+    // set artificer image
+    if (classArrays.artificer.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/XIYpp71.png)')
+    }
+    // set fighter image
+    if (classArrays.fighter.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/NxPJyOx.png)')
+    }
+    // set monk image
+    if (classArrays.monk.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/DSwkJRQ.png)')
+    }
+    // set mystic image
+    if (classArrays.mystic.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/4po4NHG.png)')
+    }
+    // set paladin image
+    if (classArrays.paladin.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/NFcBfH5.png)')
+    }
+    // set ranger image
+    if (classArrays.ranger.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/fVJ8Zeu.png)')
+    }
+    // set rogue image
+    if (classArrays.rogue.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/Rx6Gsku.png)')
+    }
+    // set sorcerer image
+    if (classArrays.sorcerer.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/JmitTnG.png)')
+    }
+    // set warlock image
+    if (classArrays.warlock.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/aygSDh6.png)')
+    }
+    // set wizard image
+    if (classArrays.wizard.some(function (element) {
+      return element === npcArr[i].dnd_class
+    })) {
+      $("div[data-class='5-" + npcArr[i].id + "']").css('background-image', 'url(https://imgur.com/5KtrgTD.png)')
     }
   }
 }
