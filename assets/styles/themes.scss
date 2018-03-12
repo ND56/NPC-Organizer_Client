@@ -44,6 +44,7 @@ body {
   background: #515151; // Dark Grey
   color: #DEC7B7; // Tan (like building in background)
   box-shadow: none;
+  border: 2px solid #DEC7B7;
 }
 
 .user-needs-username {
@@ -70,6 +71,7 @@ body {
   background-color: #DEC7B7; // Tan (like building in background)
   color: #515151;
   box-shadow: none;
+  border: 2px solid #515151;
 }
 
 .universal-content-header {
@@ -167,6 +169,17 @@ body {
 }
 
 .readout-value {
-  color: cornflowerblue;
+  color: #2C74B7; //dark-ish blue
+}
+
+.readout-view-larger-button {
+  background: #515151; // Dark Grey (like home-header color)
+  color: #DEC7B7; // Tan (like building in background)
+}
+
+.readout-view-larger-button:hover {
+  background-color: #DEC7B7; // Tan (like building in background)
+  color: #515151;
+  border: 2px solid #515151;
 }
 // End - NPC Readout
