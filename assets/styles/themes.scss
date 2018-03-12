@@ -54,22 +54,21 @@ body {
 
 // Start - User Profile Page
 .profile-button {
-  background-color: #DEC7B7; // Tan (like building in background)
   border-radius: 18px;
   // color: #6D6B6A; // Dark Grey (like home-header color)
-  color: #515151;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   // font-family: 'Josefin Sans', sans-serif;
   // font-family: 'Dancing Script', cursive;
   // font-family: 'Great Vibes', cursive;
   // font-family: 'Satisfy', cursive;
   // font-family: 'Cookie', cursive;
+  background: #515151; // Dark Grey (like home-header color)
+  color: #DEC7B7; // Tan (like building in background)
 }
 
 .profile-button:hover {
-  // background: #6D6B6A; // Dark Grey (like home-header color)
-  background: #515151;
-  color: #DEC7B7; // Tan (like building in background)
+  background-color: #DEC7B7; // Tan (like building in background)
+  color: #515151;
   box-shadow: none;
 }
 
@@ -145,6 +144,12 @@ body {
 // End - Modals
 
 // Start - NPC Readout
+.npc-readout-div {
+  // display: inline-block;
+  background-color: #DEC7B7; // Tan (like building in background)
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
 .npc-icon {
   background-image: url('https://imgur.com/qULhx2O.png');
   background-size: contain;
