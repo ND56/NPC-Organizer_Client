@@ -32,7 +32,7 @@ $(() => {
   $('#return-to-profile-button').on('click', events.onReturnToProfile)
   $('body').on('click', '#view-large-npc', events.onViewLargeNPCReadout)
   $('body').on('click', '#delete-npc', events.onDeleteNPC)
-  $('body').on('click', '#edit-npc', events.onEditNPC)
+  $('body').on('click', '.edit-npc', events.onEditNPC)
   $('body').on('submit', '#edit-npc-form', events.onEditNPCSubmit)
   $('body').on('submit', '#create-npc-form', events.onCreateNPC)
   $('#attribute-dropdown').on('change', events.searchByAttribute)

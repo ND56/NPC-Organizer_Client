@@ -16,7 +16,7 @@ body {
 // Title screen
 .home-header {
   font-size: 161px;
-  left: 43%;
+  left: 39%;
   position: relative;
   top: 34%;
 }
@@ -31,9 +31,17 @@ body {
   padding: 10px;
   margin-top: 25px;
 }
+
+.nav-wrapper {
+  margin-right: 25px;
+}
 // End - Nav Bar
 
 // Start - Modals
+.modal {
+  overflow-y: scroll !important;
+}
+
 #inputPrivacySetting {
   height: 14px;
   width: 14px;
@@ -53,7 +61,8 @@ body {
 .register-modal-content,
 .change-pw-modal-content,
 .create-npc-modal-content {
-  padding: 10px 65px 30px 0;
+  // padding: 10px 65px 30px 0;
+  padding: 0 65px 30px 0;
 }
 
 .space-div {
@@ -96,10 +105,10 @@ body {
   margin-top: 10px;
 }
 
-.control-label,
-.input-placeholder {
-  margin-top: 10px;
-}
+// .control-label,
+// .input-placeholder {
+//   margin-top: 10px;
+// }
 
 #abil-label,
 #spells-label {
@@ -202,22 +211,27 @@ body {
 // End - NPC Readout
 
 // Start - Media Queries
+@media (max-width: 1029px) {
+  .home-header {
+    left: 33%;
+  }
+}
+
 @media (max-width: 991px) {
   .log-in-modal-content,
   .register-modal-content,
   .change-pw-modal-content,
   .create-npc-modal-content {
-    padding: 5px 25px 10px 15px;
-  }
-}
-
-@media (max-width: 930px) {
-  .home-header {
-    left: 36%;
+    // padding: 5px 25px 10px 15px;
+    padding: 0px 25px 10px 15px;
   }
 }
 
 @media (max-width: 900px) {
+  .home-header {
+    font-size: 139;
+  }
+
   .nav-button {
     font-size: 15px;
     padding: 8px;
@@ -236,6 +250,12 @@ body {
 @media (max-width: 767px) {
   .space-div {
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 784px) {
+  .home-header {
+    font-size: 121px;
   }
 }
 
@@ -264,11 +284,15 @@ body {
 
 @media (max-width: 690px) {
   .home-header {
-    font-size: 135px;
+    font-size: 115px;
   }
 }
 
 @media (max-width: 630px) {
+  .home-header {
+    font-size: 95px;
+  }
+
   .nav-button {
     padding: 6px;
     margin-top: 16px;
@@ -290,12 +314,6 @@ body {
   }
 }
 
-@media (max-width: 591px) {
-  .home-header {
-    font-size: 119px;
-  }
-}
-
 @media (max-width: 570px) {
   .nav-button {
     font-size: 13px;
@@ -311,9 +329,9 @@ body {
   }
 }
 
-@media (max-width: 524px) {
+@media (max-width: 530px) {
   .home-header {
-    font-size: 103px;
+    font-size: 80px;
   }
 }
 
@@ -343,9 +361,9 @@ body {
   }
 }
 
-@media (max-width: 472px) {
+@media (max-width: 453px) {
   .home-header {
-    font-size: 96px;
+    font-size: 69px;
   }
 }
 
@@ -365,8 +383,9 @@ body {
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 425px) {
   .home-header {
-    font-size: 50px;
+    font-size: 56px;
+    left: 37%;
   }
 }
