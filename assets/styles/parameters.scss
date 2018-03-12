@@ -3,7 +3,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 // Body
 #body {
-  padding-right: 0px;
+  padding-right: 0px !important;
 }
 
 body {
@@ -38,6 +38,10 @@ body {
 // End - Nav Bar
 
 // Start - Modals
+.form-control {
+  border: 1px solid black !important;
+}
+
 .modal {
   overflow-y: scroll !important;
 }
@@ -55,6 +59,7 @@ body {
   margin-right: 1px;
   position: absolute;
   right: 2%;
+  margin-top: 4px;
 }
 
 .log-in-modal-content,
@@ -211,6 +216,14 @@ body {
 // End - NPC Readout
 
 // Start - Media Queries
+@media (max-width: 1049px) {
+  .static-header {
+    font-size: 57px;
+    left: 9%;
+    margin-top: 21px;
+  }
+}
+
 @media (max-width: 1029px) {
   .home-header {
     left: 33%;
@@ -227,9 +240,20 @@ body {
   }
 }
 
+@media (max-width: 973px) {
+  .profile-button {
+    font-size: 13px;
+    height: 45px;
+  }
+}
+
 @media (max-width: 900px) {
   .home-header {
     font-size: 139;
+  }
+
+  .nav-wrapper {
+    margin-right: 9px;
   }
 
   .nav-button {
@@ -247,15 +271,32 @@ body {
 
 }
 
-@media (max-width: 767px) {
-  .space-div {
-    margin-bottom: 20px;
+@media (max-width: 849px) {
+  .static-header {
+    font-size: 43px;
+    margin-top: 18px;
+  }
+
+  .universal-content-header {
+    font-size: 37px;
+  }
+}
+
+@media (max-width: 818px) {
+  .profile-button {
+    font-size: 11px;
   }
 }
 
 @media (max-width: 784px) {
   .home-header {
     font-size: 121px;
+  }
+}
+
+@media (max-width: 767px) {
+  .space-div {
+    margin-bottom: 20px;
   }
 }
 
@@ -272,12 +313,12 @@ body {
   }
 
   .static-header {
-    font-size: 43px;
+    font-size: 37px;
     left: 10%;
   }
 
   .universal-content-header {
-    font-size: 40px;
+    font-size: 33px;
   }
 
 }
@@ -285,6 +326,12 @@ body {
 @media (max-width: 690px) {
   .home-header {
     font-size: 115px;
+  }
+}
+
+@media (max-width: 660px) {
+  .profile-button {
+    font-size: 10px;
   }
 }
 
@@ -300,13 +347,14 @@ body {
   }
 
   .static-header {
-    left: 12%;
-    margin-top: 17px;
+    left: 10%;
+    margin-top: 15px;
+    font-size: 33px;
   }
 
   .universal-content-header {
-    font-size: 37px;
-    margin-top: 97px;
+    font-size: 28px;
+    margin-top: 77px;
   }
 
   #inputPrivacySetting {
@@ -320,12 +368,17 @@ body {
   }
 
   .static-header {
-    font-size: 34px;
+    font-size: 29px;
+    left: 10%;
+    margin-top: 14px;
   }
 
   .universal-content-header {
-    font-size: 32px;
-    margin-top: 88px;
+    font-size: 23px;
+  }
+
+  .profile-button {
+    font-size: 9px;
   }
 }
 
@@ -347,17 +400,17 @@ body {
     padding: 5px;
     margin-top: 14px;
     margin-left: 10px;
+    font-size: 10px;
   }
 
   .static-header {
-    font-size: 30px;
-    left: 11%;
-    margin-top: 15px;
+    left: 12%;
+    margin-top: 11px;
   }
 
   .universal-content-header {
-    font-size: 28px;
-    margin-top: 79px;
+    font-size: 19px;
+    margin-top: 65px;
   }
 }
 
@@ -369,17 +422,11 @@ body {
 
 @media (max-width: 448px) {
   .nav-button {
-    font-size: 12px;
     padding: 4px;
   }
 
   .static-header {
     font-size: 26px;
-  }
-
-  .universal-content-header {
-    font-size: 25px;
-    margin-top: 72px;
   }
 }
 
@@ -387,5 +434,9 @@ body {
   .home-header {
     font-size: 56px;
     left: 37%;
+  }
+
+  .profile-button {
+    font-size: 8px;
   }
 }

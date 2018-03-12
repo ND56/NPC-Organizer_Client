@@ -3,7 +3,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 // Start - Body
 #body {
-  padding-right: 0px;
+  padding-right: 0px !important;
 }
 // End - Body
 
@@ -28,7 +28,8 @@ body {
 .nav-button {
   background-color: #DEC7B7; // Tan (like building in background)
   border-radius: 18px;
-  color: #6D6B6A; // Dark Grey (like home-header color)
+  // color: #6D6B6A; // Dark Grey (like home-header color)
+  color: #515151; // Dark Grey
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   // font-family: 'Josefin Sans', sans-serif;
   // font-family: 'Dancing Script', cursive;
@@ -39,7 +40,8 @@ body {
 }
 
 .nav-button:hover {
-  background: #6D6B6A; // Dark Grey (like home-header color)
+  // background: #6D6B6A; // Dark Grey (like home-header color)
+  background: #515151; // Dark Grey
   color: #DEC7B7; // Tan (like building in background)
   box-shadow: none;
 }
@@ -72,6 +74,7 @@ body {
   // font-family: 'Maven Pro', sans-serif;
   // font-family: 'Rajdhani', sans-serif;
   // font-family: 'Poiret One', cursive;
+  color: #515151; // Dark Grey
 }
 
 .ex-1 {
@@ -104,20 +107,36 @@ body {
 // End - User Profile Page
 
 // Start - Modals
+.modal-content {
+    border: 9px solid #515151; // Dark Grey
+    border-radius: 22px;
+}
+
+.modal-button {
+  background-color: #DEC7B7; // Tan (like building in background)
+  border: 1px solid white !important;
+  color: #515151; // Dark Grey
+}
+
+.form-control {
+  background-color: #DEC7B7; // Tan (like building in background)
+}
+
+.universal-modal-content,
+.universal-response-modal-content,
 .log-in-modal-content,
 .register-modal-content,
 .change-pw-modal-content,
 .create-npc-modal-content {
   border-radius: 18px;
   background-color: #A8BCCE; // light blue (like the background)
-  // color: #6D6B6A; // Dark Grey (like home-header color)
-  color: #515151;
+  color: #515151; // Dark Grey
 }
 
 .close-modal {
   background-color: #A8BCCE; // light blue (like the background)
   border-color: #A8BCCE; // light blue (like the background)
-  color: #6D6B6A; // Dark Grey (like home-header color)
+  color: #515151; // Dark Grey
 }
 // End - Modals
 
