@@ -437,6 +437,90 @@ const editNPCSuccess = function (apiResponse) {
   $("span[data-id='dnd-class-" + store.npc.id + "']").text(store.npc.dnd_class)
   $("span[data-id='CR-" + store.npc.id + "']").text(store.npc.challenge_rating)
   $("span[data-id='user-" + store.npc.id + "']").text(store.npc.user.user_name)
+  // update the image
+  if (classArrays.barbarian.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/GGHd4MP.png)')
+  }
+  // set bard image
+  if (classArrays.bard.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/BEFVySZ.png)')
+  }
+  // set cleric image
+  if (classArrays.cleric.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/577kYwb.png)')
+  }
+  // set druid image
+  if (classArrays.druid.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/0wRS6em.png)')
+  }
+  // set artificer image
+  if (classArrays.artificer.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/XIYpp71.png)')
+  }
+  // set fighter image
+  if (classArrays.fighter.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/NxPJyOx.png)')
+  }
+  // set monk image
+  if (classArrays.monk.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/DSwkJRQ.png)')
+  }
+  // set mystic image
+  if (classArrays.mystic.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/4po4NHG.png)')
+  }
+  // set paladin image
+  if (classArrays.paladin.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/NFcBfH5.png)')
+  }
+  // set ranger image
+  if (classArrays.ranger.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/fVJ8Zeu.png)')
+  }
+  // set rogue image
+  if (classArrays.rogue.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/Rx6Gsku.png)')
+  }
+  // set sorcerer image
+  if (classArrays.sorcerer.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/JmitTnG.png)')
+  }
+  // set warlock image
+  if (classArrays.warlock.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/aygSDh6.png)')
+  }
+  // set wizard image
+  if (classArrays.wizard.some(function (element) {
+    return element === store.npc.dnd_class
+  })) {
+    $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/5KtrgTD.png)')
+  }
 }
 
 const editNPCFailure = function (apiResponse) {
