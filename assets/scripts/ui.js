@@ -579,15 +579,29 @@ const populateSampleNPCDataSuccess = function (apiResponse) {
   const userNPCArr = apiResponse.npcs.filter(function (element) {
     return element.user.email === store.user.email
   })
-  // (user samples) generate random numbers
-  const random3 = Math.floor(Math.random() * userNPCArr.length)
-  let random4 = Math.floor(Math.random() * userNPCArr.length)
-  if (random4 === random3) {
-    random4 = Math.floor(Math.random() * userNPCArr.length)
+  // (user samples) find 2 most recent
+  let mostRecentNPC = userNPCArr[0]
+  let penultNPC
+  const smallerUserArr = []
+  for (let i = 0; i < userNPCArr.length; i++) {
+    if (userNPCArr[i].created_at > mostRecentNPC.created_at) {
+      penultNPC = mostRecentNPC
+      mostRecentNPC = userNPCArr[i]
+    } else {
+      smallerUserArr.push(userNPCArr[i])
+    }
+  }
+  if (penultNPC === undefined) {
+    for (let i = 0; i < smallerUserArr.length; i++) {
+      penultNPC = smallerUserArr[0]
+      if (smallerUserArr[i].created_at > penultNPC.created_at) {
+        penultNPC = smallerUserArr[i]
+      }
+    }
   }
   // (user samples) create user sample divs
-  const samplePers1 = templateSampleNPCs({ npc: userNPCArr[random3] })
-  const samplePers2 = templateSampleNPCs({ npc: userNPCArr[random4] })
+  const samplePers1 = templateSampleNPCs({ npc: mostRecentNPC })
+  const samplePers2 = templateSampleNPCs({ npc: penultNPC })
   // (user samples) append to dom
   $('.ex-1').append(samplePers1)
   $('.ex-2').append(samplePers2)
