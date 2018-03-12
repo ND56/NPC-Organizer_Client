@@ -3,6 +3,7 @@ const templateAllNPCs = require('./templates/npc-listing.handlebars')
 const templatePersonalNPCs = require('./templates/personal-npc-listing.handlebars')
 const templateSingleNPC = require('./templates/single-npc.handlebars')
 const classArrays = require('./classArrays')
+const templateSampleNPCs = require('./templates/pub-priv-npc-samples.handlebars')
 
 const onSignUpSucess = function (apiResponse) {
   $('#user-needs-username').hide()
@@ -553,6 +554,49 @@ const resetSearchModal = function () {
   $('#row-3').hide()
 }
 
+const populateSampleNPCDataSuccess = function (apiResponse) {
+  // (public samples) narrow full npc list to public list
+  const publicNPCArr = apiResponse.npcs.filter(function (element) {
+    return element.private === false
+  })
+  // (public samples) narrow public list to exclude personal npcs
+  const truePublicArr = publicNPCArr.filter(function (element) {
+    return element.user.email !== store.user.email
+  })
+  // (public samples) set random numbers based on public length
+  const random1 = Math.floor(Math.random() * truePublicArr.length)
+  let random2 = Math.floor(Math.random() * truePublicArr.length)
+  if (random2 === random1) {
+    random2 = Math.floor(Math.random() * truePublicArr.length)
+  }
+  // (public samples) create public sample divs
+  const samplePub1 = templateSampleNPCs({ npc: truePublicArr[random1] })
+  const samplePub2 = templateSampleNPCs({ npc: truePublicArr[random2] })
+  // (public samples) append to dom
+  $('.ex-3').append(samplePub1)
+  $('.ex-4').append(samplePub2)
+  // (user samples) narrow by ownership
+  const userNPCArr = apiResponse.npcs.filter(function (element) {
+    return element.user.email === store.user.email
+  })
+  // (user samples) generate random numbers
+  const random3 = Math.floor(Math.random() * userNPCArr.length)
+  let random4 = Math.floor(Math.random() * userNPCArr.length)
+  if (random4 === random3) {
+    random4 = Math.floor(Math.random() * userNPCArr.length)
+  }
+  // (user samples) create user sample divs
+  const samplePers1 = templateSampleNPCs({ npc: userNPCArr[random3] })
+  const samplePers2 = templateSampleNPCs({ npc: userNPCArr[random4] })
+  // (user samples) append to dom
+  $('.ex-1').append(samplePers1)
+  $('.ex-2').append(samplePers2)
+}
+
+const populateSampleNPCDataFailure = function (apiResponse) {
+  console.log(apiResponse)
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -583,5 +627,7 @@ module.exports = {
   resetSearchModal,
   searchResultsSuccess,
   searchResultsFailure,
-  searchCreatorFailure
+  searchCreatorFailure,
+  populateSampleNPCDataSuccess,
+  populateSampleNPCDataFailure
 }

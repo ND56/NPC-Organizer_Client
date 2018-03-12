@@ -15,12 +15,19 @@ const onSignUp = function (event) {
   }
 }
 
+const getSampleNPCData = function (element) {
+  api.getAllNPCs()
+    .then(ui.populateSampleNPCDataSuccess)
+    .catch(ui.populateSampleNPCDataFailure)
+}
+
 const onLogIn = function (event) {
   event.preventDefault()
   const filteredInputData = getFormFields(event.target)
   api.onSignIn(filteredInputData)
     .then(ui.onLogInSucess)
     .catch(ui.onLogInFailure)
+    .then(getSampleNPCData)
 }
 
 const onLogOut = function (event) {

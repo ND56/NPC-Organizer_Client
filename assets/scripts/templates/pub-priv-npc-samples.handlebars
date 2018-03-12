@@ -1,0 +1,20 @@
+<!-- Attributes list items only generated if they exist in the database -->
+<div class="npc-readout-div" data-id="1-{{npc.id}}">
+  <h3 class="npc-readout-name"><span data-id="name-{{npc.id}}">{{npc.name}}</span></h3>
+  <div class="npc-icon" id="npc-icon" data-class="5-{{npc.id}}"></div>
+  <ul>
+    {{#if npc.race}}
+      <li class="readout-li"><span class="npc-readout-property">Race:</span> <span data-id="race-{{npc.id}}">{{npc.race}}</span></li>
+    {{/if}}
+    {{#if npc.dnd_class}}
+      <li class="readout-li"><span class="npc-readout-property">Class:</span> <span class="dnd_class_readout" data-id="dnd-class-{{npc.id}}">{{npc.dnd_class}}</span></li>
+    {{/if}}
+    {{#if npc.challenge_rating}}
+      <li class="readout-li"><span class="npc-readout-property">Challenge Rating:</span> <span data-id="CR-{{npc.id}}">{{npc.challenge_rating}}</span></li>
+    {{/if}}
+    {{#if npc.user.user_name}}
+      <li class="readout-li"><span class="npc-readout-property">Created by:</span> <span data-id="user-{{npc.id}}">{{npc.user.user_name}}</span></li>
+    {{/if}}
+  </ul>
+  <button id="view-large-npc" class="btn btn-default readout-view-larger-button" data-id="{{npc.id}}">View NPC</button>
+</div>
