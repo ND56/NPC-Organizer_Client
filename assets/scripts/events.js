@@ -69,6 +69,9 @@ const onCreateNPC = function (event) {
     api.createNewNPC(filteredNPCData)
       .then(ui.createNPCSuccess)
       .catch(ui.createNPCFailure)
+      // Testing
+      .then(getSampleNPCData)
+      // testing
   }
 }
 
@@ -82,6 +85,7 @@ const onViewNPCs = function (event) {
 const onReturnToProfile = function (event) {
   event.preventDefault()
   ui.returnToProfile()
+  getSampleNPCData()
 }
 
 const onViewPersonalNPCs = function (event) {

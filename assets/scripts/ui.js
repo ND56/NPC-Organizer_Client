@@ -554,7 +554,98 @@ const resetSearchModal = function () {
   $('#row-3').hide()
 }
 
+const fixNonArrImage = function (npc) {
+  if (classArrays.barbarian.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/GGHd4MP.png)')
+  }
+  // set bard image
+  if (classArrays.bard.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/BEFVySZ.png)')
+  }
+  // set cleric image
+  if (classArrays.cleric.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/577kYwb.png)')
+  }
+  // set druid image
+  if (classArrays.druid.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/0wRS6em.png)')
+  }
+  // set artificer image
+  if (classArrays.artificer.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/XIYpp71.png)')
+  }
+  // set fighter image
+  if (classArrays.fighter.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/NxPJyOx.png)')
+  }
+  // set monk image
+  if (classArrays.monk.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/DSwkJRQ.png)')
+  }
+  // set mystic image
+  if (classArrays.mystic.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/4po4NHG.png)')
+  }
+  // set paladin image
+  if (classArrays.paladin.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/NFcBfH5.png)')
+  }
+  // set ranger image
+  if (classArrays.ranger.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/fVJ8Zeu.png)')
+  }
+  // set rogue image
+  if (classArrays.rogue.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/Rx6Gsku.png)')
+  }
+  // set sorcerer image
+  if (classArrays.sorcerer.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/JmitTnG.png)')
+  }
+  // set warlock image
+  if (classArrays.warlock.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/aygSDh6.png)')
+  }
+  // set wizard image
+  if (classArrays.wizard.some(function (element) {
+    return element === npc.dnd_class
+  })) {
+    $("div[data-class='5-" + npc.id + "']").css('background-image', 'url(https://imgur.com/5KtrgTD.png)')
+  }
+}
+
 const populateSampleNPCDataSuccess = function (apiResponse) {
+  // empty the divs
+  $('.ex-1').empty()
+  $('.ex-2').empty()
+  $('.ex-3').empty()
+  $('.ex-4').empty()
   // (public samples) narrow full npc list to public list
   const publicNPCArr = apiResponse.npcs.filter(function (element) {
     return element.private === false
@@ -575,36 +666,54 @@ const populateSampleNPCDataSuccess = function (apiResponse) {
   // (public samples) append to dom
   $('.ex-3').append(samplePub1)
   $('.ex-4').append(samplePub2)
+  fixNonArrImage(truePublicArr[random1])
+  fixNonArrImage(truePublicArr[random2])
   // (user samples) narrow by ownership
   const userNPCArr = apiResponse.npcs.filter(function (element) {
     return element.user.email === store.user.email
   })
-  // (user samples) find 2 most recent
-  let mostRecentNPC = userNPCArr[0]
-  let penultNPC
-  const smallerUserArr = []
-  for (let i = 0; i < userNPCArr.length; i++) {
-    if (userNPCArr[i].created_at > mostRecentNPC.created_at) {
-      penultNPC = mostRecentNPC
-      mostRecentNPC = userNPCArr[i]
-    } else {
-      smallerUserArr.push(userNPCArr[i])
-    }
-  }
-  if (penultNPC === undefined) {
-    for (let i = 0; i < smallerUserArr.length; i++) {
-      penultNPC = smallerUserArr[0]
-      if (smallerUserArr[i].created_at > penultNPC.created_at) {
-        penultNPC = smallerUserArr[i]
+  if (userNPCArr.length === 0) {
+    $('.ex-1').text('Create some NPCs!')
+    $('.ex-2').text('Create some NPCs!')
+  } else if (userNPCArr.length === 1) {
+    $('.ex-2').text('Create some NPCs!')
+    // (user sample) create user sample div
+    const singleSample = templateSampleNPCs({ npc: userNPCArr[0] })
+    // (user sample) append to dom
+    $('.ex-1').append(singleSample)
+    // (fix image)
+    fixNonArrImage(userNPCArr[0])
+  } else {
+    // (user samples) find 2 most recent
+    let mostRecentNPC = userNPCArr[0]
+    let penultNPC
+    const smallerUserArr = []
+    for (let i = 0; i < userNPCArr.length; i++) {
+      if (userNPCArr[i].created_at > mostRecentNPC.created_at) {
+        penultNPC = mostRecentNPC
+        mostRecentNPC = userNPCArr[i]
+      } else {
+        smallerUserArr.push(userNPCArr[i])
       }
     }
+    if (penultNPC === undefined) {
+      for (let i = 0; i < smallerUserArr.length; i++) {
+        penultNPC = smallerUserArr[0]
+        if (smallerUserArr[i].created_at > penultNPC.created_at) {
+          penultNPC = smallerUserArr[i]
+        }
+      }
+    }
+    // (user samples) create user sample divs
+    const samplePers1 = templateSampleNPCs({ npc: mostRecentNPC })
+    const samplePers2 = templateSampleNPCs({ npc: penultNPC })
+    // (user samples) append to dom
+    $('.ex-1').append(samplePers1)
+    $('.ex-2').append(samplePers2)
+    // (fix images)
+    fixNonArrImage(mostRecentNPC)
+    fixNonArrImage(penultNPC)
   }
-  // (user samples) create user sample divs
-  const samplePers1 = templateSampleNPCs({ npc: mostRecentNPC })
-  const samplePers2 = templateSampleNPCs({ npc: penultNPC })
-  // (user samples) append to dom
-  $('.ex-1').append(samplePers1)
-  $('.ex-2').append(samplePers2)
 }
 
 const populateSampleNPCDataFailure = function (apiResponse) {
