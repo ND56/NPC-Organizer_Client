@@ -38,12 +38,17 @@ body {
 // End - Nav Bar
 
 // Start - Modals
+.input-div {
+  padding-left: 9px !important;
+  padding-right: 0px !important;
+}
+
 .user-needs-username {
   padding-left: 17%;
 }
 
 .form-control {
-  border: 1px solid black !important;
+  border: 1px solid #515151 !important;
 }
 
 .modal {
@@ -53,7 +58,7 @@ body {
 #inputPrivacySetting {
   height: 14px;
   width: 14px;
-  margin-top: 13px;
+  margin-top: 9px;
 }
 
 .close-modal {
@@ -71,7 +76,8 @@ body {
 .change-pw-modal-content,
 .create-npc-modal-content {
   // padding: 10px 65px 30px 0;
-  padding: 0 65px 30px 0;
+  padding: 0 38px 16px 0;
+  // padding: 0 65px 30px 0;
 }
 
 .space-div {
@@ -114,10 +120,9 @@ body {
   margin-top: 10px;
 }
 
-// .control-label,
-// .input-placeholder {
-//   margin-top: 10px;
-// }
+.control-label {
+  padding-right: 0px !important;
+}
 
 #abil-label,
 #spells-label {
@@ -131,6 +136,16 @@ body {
 // End - Modals
 
 // Start - User Profile Page
+.left-column {
+  position: relative;
+  left: 3%;
+}
+
+.right-column {
+  position: relative;
+  right: 3%;
+}
+
 .static-header {
   font-size: 64px;
   text-align: center;
@@ -146,7 +161,7 @@ body {
 }
 
 .user-profile-page {
-  background: yellow;
+  // background: yellow;
   height: 700px;
   margin: 0 auto;
   max-width: 1400px;
@@ -170,7 +185,6 @@ body {
 
 .resource-example {
   height: 320px;
-  margin-top: 50px;
 }
 
 .left-column {
@@ -184,16 +198,45 @@ body {
 .right-column {
   height: 700px;
 }
+
+.ex-1,
+.ex-3 {
+  padding-top: 7%;
+}
+
+.ex-2,
+.ex-4 {
+  margin-top: -12%;
+}
+
+.profile-button-wrapper {
+  position: relative;
+  bottom: 7%;
+}
+
 // End - User Profile Page
 
 // Start - NPC Readout
+.readout-view-larger-button {
+  margin-left: 36%;
+  margin-bottom: 4%;
+}
+
+.readout-ul {
+  width: 77%;
+  position: relative;
+  bottom: 7%;
+}
+
 .npc-readout-div {
   // display: inline-block;
-  background-color: antiquewhite;
+  background-color: whitesmoke;
   border: 1px solid black;
+  border-radius: 10px;
   height: 225px;
-  margin-top: 25px;
+  margin-top: 3%;
   overflow: auto;
+  margin-bottom: 0;
 }
 
 .get-npc-div {
@@ -204,6 +247,9 @@ body {
   display: inline-block;
   width: 50%;
   font-size: 20px;
+  padding-left: 5%;
+  word-wrap: break-word;
+  padding-bottom: 12px;
 }
 
 .npc-icon {
@@ -211,11 +257,17 @@ body {
   width: 29%;
   height: 29%;
   float: right;
-  margin-top: 6%;
+  margin-top: 5%;
 }
 
 .readout-li {
   clear: right;
+}
+
+.samples-header {
+  font-size: 21px;
+  text-align: center;
+  margin-top: 12px;
 }
 // End - NPC Readout
 

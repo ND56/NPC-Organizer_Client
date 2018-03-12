@@ -80,34 +80,34 @@ body {
   // font-family: 'Poiret One', cursive;
   color: #515151; // Dark Grey
 }
-
-.ex-1 {
-  background-color: red;
-}
-
-.ex-2 {
-  background-color: blue;
-}
-
-.ex-3 {
-  background-color: green;
-}
-
-.ex-4 {
-  background-color: black;
-}
-
-.left-column {
-  background: orange;
-}
-
-.middle-column {
-  background: purple;
-}
-
-.right-column {
-  background: orange;
-}
+//
+// .ex-1 {
+//   background-color: red;
+// }
+//
+// .ex-2 {
+//   background-color: blue;
+// }
+//
+// .ex-3 {
+//   background-color: green;
+// }
+//
+// .ex-4 {
+//   background-color: black;
+// }
+//
+// .left-column {
+//   background: orange;
+// }
+//
+// .middle-column {
+//   background: purple;
+// }
+//
+// .right-column {
+//   background: orange;
+// }
 // End - User Profile Page
 
 // Start - Modals
@@ -151,5 +151,17 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.npc-readout-property {
+  border-bottom: 1px solid #515151; // Dark Grey
+}
+
+.npc-readout-name {
+  color: cornflowerblue;
+}
+
+.readout-value {
+  color: cornflowerblue;
 }
 // End - NPC Readout

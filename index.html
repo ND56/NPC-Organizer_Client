@@ -44,13 +44,13 @@
             <form class="form-horizontal" id="log-in-form">
               <div class="form-group">
                 <label for="inputEmail1" class="col-sm-2 control-label">Email or Username</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputEmail1" name="credentials[email]" placeholder="Email or Username">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputPassword1" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="password" class="form-control" id="inputPassword1" name="credentials[password]" placeholder="Password">
                 </div>
               </div>
@@ -78,25 +78,25 @@
             <form class="form-horizontal" id="register-form">
               <div class="form-group">
                 <label for="inputEmail2" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="email" class="form-control" id="inputEmail2" name="credentials[email]" placeholder="Email">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputUsername2" class="col-sm-2 control-label">Username</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputUsername2" name="credentials[user_name]" placeholder="Username">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputPassword2" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="password" class="form-control" id="inputPassword2" name="credentials[password]" placeholder="Password">
                 </div>
               </div>
               <div class="form-group">
                 <label for="confirm-password" class="col-sm-2 control-label">Confirm Password</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="password" class="form-control" id="confirm-password" name="credentials[password_confirmation]" placeholder="You probably spelled your password wrong. Write it again!">
                 </div>
               </div>
@@ -129,24 +129,28 @@
       <!-- Start - User Profile Page -->
       <div class="user-profile-page" id="user-profile-page">
         <div class="col-xs-4 left-column">
+          <div class="samples-header" id="samples-header">Your Recent NPCs</div>
           <div class="resource-example ex-1"></div>
           <div class="resource-example ex-2"></div>
         </div>
         <div class="col-xs-4 middle-column">
-          <div class="row-div">
-            <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 create-npc-button profile-button" id="create-npc-button" data-toggle="modal" data-target="#create-npc-modal">Create NPC</button>
-          </div>
-          <div class="row-div">
-            <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 view-npcs profile-button" id="view-npcs">View All Public NPCs</button>
-          </div>
-          <div class="row-div">
-            <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 view-personal-npcs profile-button" id="view-personal-npcs">View All Personal NPCs</button>
-          </div>
-          <div class="row-div">
-            <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 search-npcs-button profile-button" id="search-npcs-button" data-toggle="modal" data-target="#search-npcs-modal">Search NPCs</button>
+          <div class="profile-button-wrapper">
+            <div class="row-div">
+              <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 create-npc-button profile-button" id="create-npc-button" data-toggle="modal" data-target="#create-npc-modal">Create NPC</button>
+            </div>
+            <div class="row-div">
+              <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 view-npcs profile-button" id="view-npcs">View All Public NPCs</button>
+            </div>
+            <div class="row-div">
+              <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 view-personal-npcs profile-button" id="view-personal-npcs">View All Personal NPCs</button>
+            </div>
+            <div class="row-div">
+              <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 search-npcs-button profile-button" id="search-npcs-button" data-toggle="modal" data-target="#search-npcs-modal">Search NPCs</button>
+            </div>
           </div>
         </div>
         <div class="col-xs-4 right-column">
+          <div class="samples-header" id="samples-header">Samples from the Realm</div>
           <div class="resource-example ex-3"></div>
           <div class="resource-example ex-4"></div>
         </div>
@@ -231,80 +235,80 @@
             <form class="form-horizontal" id="create-npc-form">
               <div class="form-group">
                 <label for="inputName" class="col-sm-2 control-label">Name</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputName" name="npc[name]" placeholder="E.g., Frodo Baggins">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputRace" class="col-sm-2 control-label">Race</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputRace" name="npc[race]" placeholder="E.g., Halfing">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputClass" class="col-sm-2 control-label">Class</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputClass" name="npc[dnd_class]" placeholder="E.g., Rogue">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputChallengeRating" class="col-sm-2 control-label">Challenge Rating</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputChallengeRating" name="npc[challenge_rating]" placeholder="Challenge Rating">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputStatHP" class="col-sm-2 control-label">HP</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputStatHP" name="npc[HP]" placeholder="E.g., 50.">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputStatAC" class="col-sm-2 control-label">AC</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputStatAC" name="npc[AC]" placeholder="E.g., 14.">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputStatsAbMods" class="col-sm-2 control-label" id="abil-label">Ability Modifiers</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputStatsAbMods" name="npc[ability_modifiers]" placeholder="E.g., Dexterity +4, Charisma +2.">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputStatsSpellsAbilities" class="col-sm-2 control-label" id="spells-label">Spells &amp; Abilities</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputStatsSpellsAbilities" name="npc[spells_abilities]" placeholder="E.g., Sneak Attack.">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputStatsItems" class="col-sm-2 control-label">Items</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputStatsItems" name="npc[items]" placeholder="E.g., Shortsword (Sting).">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputStatsLevel" class="col-sm-2 control-label">Level</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputStatsLevel" name="npc[level]" placeholder="E.g., 8.">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputTraits" class="col-sm-2 control-label">Traits</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="text" class="form-control" id="inputTraits" name="npc[traits]" placeholder="E.g., Lucky; loyal; determined.">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputNotes" class="col-sm-2 control-label">Notes</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <!-- <input type="text" class="form-control" id="inputNotes" name="npc[notes]" placeholder="E.g., Widely known for having destroyed the One Ring in the fires of Mount Doom."> -->
                   <textarea class="form-control" id="inputNotes" name="npc[notes]" placeholder="E.g., Widely known for having destroyed the One Ring in the fires of Mount Doom."></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputPrivacySetting" class="col-sm-2 control-label" data-toggle="tooltip" data-placement="bottom" title="Rendering your NPC private will hide it from other viewers.">Private?</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <!-- <input type="text" class="form-control" id="inputPrivacySetting" name="npc[private]" placeholder="Writing 'true' will hide your npc from other users; 'false' will render your npc visible to the public."> -->
                   <input class="inputPrivacySetting" id="inputPrivacySetting" type="checkbox">
                 </div>
@@ -335,13 +339,13 @@
             <form class="form-horizontal" id="change-pw-form">
               <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">Current Password</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="password" class="form-control" id="inputPassword3" name="passwords[old]" placeholder="Current Password">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputPassword4" class="col-sm-2 control-label">New Password</label>
-                <div class="col-sm-10">
+                <div class="input-div col-sm-10">
                   <input type="password" class="form-control" id="inputPassword4" name="passwords[new]" placeholder="New Password">
                 </div>
               </div>
