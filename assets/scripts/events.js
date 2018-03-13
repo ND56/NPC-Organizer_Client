@@ -189,6 +189,11 @@ const onSearchNPC = function (event) {
   }
 }
 
+const onLikeNPC = function (event) {
+  event.preventDefault()
+  console.log('Button Works!')
+}
+
 module.exports = {
   onSignUp,
   onLogIn,
@@ -204,5 +209,6 @@ module.exports = {
   onEditNPCSubmit,
   searchByAttribute,
   onResetSearchModal,
-  onSearchNPC
+  onSearchNPC,
+  onLikeNPC
 }
