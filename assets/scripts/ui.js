@@ -658,24 +658,39 @@ const populateSampleNPCDataSuccess = function (apiResponse) {
   const publicNPCArr = apiResponse.npcs.filter(function (element) {
     return element.private === false
   })
-  // (public samples) narrow public list to exclude personal npcs
-  const truePublicArr = publicNPCArr.filter(function (element) {
-    return element.user.email !== store.user.email
-  })
-  // (public samples) set random numbers based on public length
-  const random1 = Math.floor(Math.random() * truePublicArr.length)
-  let random2 = Math.floor(Math.random() * truePublicArr.length)
-  if (random2 === random1) {
-    random2 = Math.floor(Math.random() * truePublicArr.length)
+  // find most popular public npcs
+  let mostPopularNPC = publicNPCArr[0]
+  let penultPopNPC
+  const smallerPopList = []
+  for (let i = 0; i < publicNPCArr.length; i++) {
+    if (publicNPCArr[i].liking_users.length > mostPopularNPC.liking_users.length) {
+      penultPopNPC = mostPopularNPC
+      mostPopularNPC = publicNPCArr[i]
+      smallerPopList.push(penultPopNPC)
+    } else {
+      smallerPopList.push(publicNPCArr[i])
+    }
   }
+  for (let i = 0; i < smallerPopList.length; i++) {
+    if (smallerPopList[i].liking_users.length > penultPopNPC.liking_users.length) {
+      penultPopNPC = smallerPopList[i]
+    }
+  }
+  // previously set public npc samples randomly
+  // (public samples) set random numbers based on public length
+  // const random1 = Math.floor(Math.random() * truePublicArr.length)
+  // let random2 = Math.floor(Math.random() * truePublicArr.length)
+  // if (random2 === random1) {
+  //   random2 = Math.floor(Math.random() * truePublicArr.length)
+  // }
   // (public samples) create public sample divs
-  const samplePub1 = templateSampleNPCs({ npc: truePublicArr[random1] })
-  const samplePub2 = templateSampleNPCs({ npc: truePublicArr[random2] })
+  const samplePub1 = templateSampleNPCs({ npc: mostPopularNPC })
+  const samplePub2 = templateSampleNPCs({ npc: penultPopNPC })
   // (public samples) append to dom
   $('.ex-3').append(samplePub1)
   $('.ex-4').append(samplePub2)
-  fixNonArrImage(truePublicArr[random1])
-  fixNonArrImage(truePublicArr[random2])
+  fixNonArrImage(mostPopularNPC)
+  fixNonArrImage(penultPopNPC)
   // (user samples) narrow by ownership
   const userNPCArr = apiResponse.npcs.filter(function (element) {
     return element.user.email === store.user.email

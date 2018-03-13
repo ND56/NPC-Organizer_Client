@@ -203,6 +203,9 @@ const onLikeOrDislikeNPC = function (event) {
     api.deleteLike()
       .then(ui.subtractLikes)
   }
+  // Testing need to update DOM
+  getSampleNPCData()
+  // testing
 }
 
 module.exports = {
