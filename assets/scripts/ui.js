@@ -375,7 +375,14 @@ const RetrieveNPCSuccess = function (apiResponse) {
   $('#single-npc-readout-modal').modal('show')
   const singleNPCHTML = templateSingleNPC({ npc: apiResponse.npc, ownership: ownership })
   $('#single-npc-readout-modal-content').append(singleNPCHTML)
-  console.log(store.npc.id)
+  console.log(store.npc)
+  console.log(store.npc.liking_users)
+  const likedByArr = store.npc.liking_users
+  if (likedByArr.some(function (likees) {
+    return likees.id === store.user.id
+  })) {
+    $('.like-npc').toggleClass('active')
+  }
 }
 
 const RetrieveNPCFailure = function (apiResponse) {

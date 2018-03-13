@@ -126,6 +126,25 @@ body {
 // End - User Profile Page
 
 // Start - Modals
+.like-npc {
+  background: #DEC7B7; // Tan (like building in background)
+  border: 1px solid #515151; // Dark Grey
+  margin-bottom: 2px;
+  margin-left: 2px;
+}
+
+.like-npc:hover {
+  background-color: dodgerblue;
+}
+
+.active {
+  background: dodgerblue !important;
+}
+
+.active:hover {
+  background: #DEC7B7 !important; // Tan (like building in background)
+}
+
 .modal-content {
     border: 9px solid #515151; // Dark Grey
     border-radius: 22px;
@@ -146,7 +165,8 @@ body {
 .log-in-modal-content,
 .register-modal-content,
 .change-pw-modal-content,
-.create-npc-modal-content {
+.create-npc-modal-content,
+.single-npc-readout-modal-content-wrapper {
   border-radius: 18px;
   background-color: #A8BCCE; // light blue (like the background)
   color: #515151; // Dark Grey
