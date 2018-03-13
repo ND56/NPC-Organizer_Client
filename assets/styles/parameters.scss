@@ -267,9 +267,17 @@ body {
 .samples-header {
   font-size: 21px;
   text-align: center;
-  margin-top: 12px;
+  margin-top: 10%;
   margin-bottom: -5%;
+  padding: 4px;
 }
+
+.hidden-no-results {
+  font-size: 17px;
+  text-align: center;
+  padding-top: 25%;
+}
+
 // End - NPC Readout
 
 // Start - Media Queries

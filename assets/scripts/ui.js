@@ -4,6 +4,7 @@ const templatePersonalNPCs = require('./templates/personal-npc-listing.handlebar
 const templateSingleNPC = require('./templates/single-npc.handlebars')
 const classArrays = require('./classArrays')
 const templateSampleNPCs = require('./templates/pub-priv-npc-samples.handlebars')
+const templateNoResults = require('./templates/no-results.handlebars')
 
 const onSignUpSucess = function (apiResponse) {
   $('#user-needs-username').hide()
@@ -696,10 +697,15 @@ const populateSampleNPCDataSuccess = function (apiResponse) {
     return element.user.email === store.user.email
   })
   if (userNPCArr.length === 0) {
-    $('.ex-1').text('Create some NPCs!')
-    $('.ex-2').text('Create some NPCs!')
+    // $('.ex-1').text('Create some NPCs!')
+    // $('.ex-2').text('Create some NPCs!')
+    const noResult1HTML = templateNoResults
+    const noResult2HTML = templateNoResults
+    $('.ex-1').append(noResult1HTML)
+    $('.ex-2').append(noResult2HTML)
   } else if (userNPCArr.length === 1) {
-    $('.ex-2').text('Create some NPCs!')
+    const noResult2HTML = templateNoResults
+    $('.ex-2').append(noResult2HTML)
     // (user sample) create user sample div
     const singleSample = templateSampleNPCs({ npc: userNPCArr[0] })
     // (user sample) append to dom
