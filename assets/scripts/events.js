@@ -115,6 +115,8 @@ const onDeleteNPC = function (event) {
   api.deleteNPC(npcIndex)
     .then(ui.deleteNPCSucess)
     .catch(ui.deleteNPCFailure)
+    // testing
+    .then(getSampleNPCData)
 }
 
 const onEditNPC = function (event) {
