@@ -199,6 +199,27 @@ const searchNPCByCreator = function (params) {
   })
 }
 
+const createLike = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/likes',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'like': {
+        'user_id': store.user.id,
+        'npc_id': store.npc.id
+      }
+    }
+  })
+}
+
+const deleteLike = function () {
+  console.log('Like will have been deleted')
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -214,5 +235,7 @@ module.exports = {
   searchNPCByClass,
   searchNPCByCR,
   searchNPCByLevel,
-  searchNPCByCreator
+  searchNPCByCreator,
+  createLike,
+  deleteLike
 }

@@ -189,9 +189,26 @@ const onSearchNPC = function (event) {
   }
 }
 
-const onLikeNPC = function (event) {
+const onLikeOrDislikeNPC = function (event) {
   event.preventDefault()
   console.log('Button Works!')
+  $('.like-npc').toggleClass('active')
+  const likeButtonClassString = $('.like-npc').prop('class')
+  console.log(likeButtonClassString)
+  const likeButtonClassArr = likeButtonClassString.split(' ')
+  console.log(likeButtonClassArr)
+  if (likeButtonClassArr.some(function (element) {
+    return element === 'active'
+  })) {
+    console.log('Like will have been created')
+    api.createLike()
+      .then(function (response) {
+        console.log(response)
+      })
+  } else {
+    console.log('Like will have been deleted')
+    api.deleteLike()
+  }
 }
 
 module.exports = {
@@ -210,5 +227,5 @@ module.exports = {
   searchByAttribute,
   onResetSearchModal,
   onSearchNPC,
-  onLikeNPC
+  onLikeOrDislikeNPC
 }

@@ -35,7 +35,7 @@ $(() => {
   $('body').on('click', '.edit-npc', events.onEditNPC)
   $('body').on('submit', '#edit-npc-form', events.onEditNPCSubmit)
   $('body').on('submit', '#create-npc-form', events.onCreateNPC)
-  $('body').on('click', '.like-npc', events.onLikeNPC)
+  $('body').on('click', '.like-npc', events.onLikeOrDislikeNPC)
   $('#attribute-dropdown').on('change', events.searchByAttribute)
   $('#search-npcs-button').on('click', events.onResetSearchModal)
   $('#search-npc-form').on('submit', events.onSearchNPC)
