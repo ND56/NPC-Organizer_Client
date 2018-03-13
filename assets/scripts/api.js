@@ -218,6 +218,19 @@ const createLike = function () {
 
 const deleteLike = function () {
   console.log('Like will have been deleted')
+  return $.ajax({
+    url: config.apiOrigin + '/likes/destroy',
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'like': {
+        'npc_id': store.npc.id
+      }
+    }
+  })
 }
 
 module.exports = {

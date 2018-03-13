@@ -375,6 +375,7 @@ const RetrieveNPCSuccess = function (apiResponse) {
   $('#single-npc-readout-modal').modal('show')
   const singleNPCHTML = templateSingleNPC({ npc: apiResponse.npc, ownership: ownership })
   $('#single-npc-readout-modal-content').append(singleNPCHTML)
+  console.log(store.npc.id)
 }
 
 const RetrieveNPCFailure = function (apiResponse) {

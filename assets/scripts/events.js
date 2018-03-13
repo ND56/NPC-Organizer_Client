@@ -208,6 +208,9 @@ const onLikeOrDislikeNPC = function (event) {
   } else {
     console.log('Like will have been deleted')
     api.deleteLike()
+      .then(function (response) {
+        console.log(response)
+      })
   }
 }
 
