@@ -16,6 +16,7 @@
         {{#if npc.user.user_name}}
           <li class="readout-li"><span class="npc-readout-property">Created by:</span> <span class="readout-value" data-id="user-{{npc.id}}">{{npc.user.user_name}}</span></li>
         {{/if}}
+          <li class="readout-li"><span class="npc-readout-property">Likes:</span> <span class="readout-value" data-id="likes-{{npc.id}}">{{npc.liking_users.length}}</span></li>
       </ul>
       <button id="view-large-npc" class="btn btn-default readout-view-larger-button" data-id="{{npc.id}}">View NPC</button>
     </div>

@@ -728,6 +728,19 @@ const populateSampleNPCDataFailure = function (apiResponse) {
   console.log(apiResponse)
 }
 
+const addLikes = function (apiResponse) {
+  console.log('Like created!')
+  console.log(apiResponse)
+  $("span[data-id='likes-" + store.npc.id + "']").text(store.npc.liking_users.length + 1)
+}
+
+const subtractLikes = function (apiResponse) {
+  console.log('Like deleted!')
+  console.log(apiResponse)
+  $("span[data-id='likes-" + apiResponse.npc.id + "']").text(apiResponse.npc.liking_users.length)
+  store.npc = apiResponse.npc
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -760,5 +773,7 @@ module.exports = {
   searchResultsFailure,
   searchCreatorFailure,
   populateSampleNPCDataSuccess,
-  populateSampleNPCDataFailure
+  populateSampleNPCDataFailure,
+  addLikes,
+  subtractLikes
 }
