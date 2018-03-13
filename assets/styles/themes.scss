@@ -130,8 +130,6 @@ body {
 .like-npc {
   background: #DEC7B7; // Tan (like building in background)
   border: 1px solid #515151; // Dark Grey
-  margin-bottom: 2px;
-  margin-left: 2px;
 }
 
 .like-npc:hover {
@@ -233,5 +231,29 @@ body {
   background-color: #DEC7B7; // Tan (like building in background)
   color: #515151;
   border: 2px solid #515151;
+}
+
+.single-header {
+  font-family: 'Berkshire Swash', cursive;
+}
+
+.npc-readout-property-single {
+  color: #2C74B7 // dark-ish blue
+}
+
+.single-icon {
+  background-image: url('https://imgur.com/qULhx2O.png');
+  background-size: contain;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.single-close {
+  background-color: white;
+}
+
+.single-npc-readout-modal-content-wrapper {
+  background-color: white;
 }
 // End - NPC Readout

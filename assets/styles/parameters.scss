@@ -216,6 +216,11 @@ body {
 // End - User Profile Page
 
 // Start - NPC Readout
+.like-npc {
+  margin-bottom: 2px;
+  margin-left: 42.5%;
+}
+
 .readout-view-larger-button {
   margin-left: 36%;
   margin-bottom: 4%;
@@ -262,6 +267,53 @@ body {
 
 .readout-li {
   clear: right;
+}
+
+.single-icon-wrapper {
+  position: static;
+}
+
+.single-icon {
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  float: right;
+  position: absolute;
+  left: 80.5%;
+  top: 37%;
+}
+
+.single-npc-readout-modal-set-width {
+  width: 595px !important;
+}
+
+.readout-ul-single {
+  width: 78%;
+  margin-bottom: 3%;
+}
+
+.readout-li-single {
+  border-bottom: 1px solid;
+}
+
+.edit-npc {
+  margin-left: 34%;
+  margin-right: 1%;
+}
+
+.single-npc-readout-div {
+  padding-bottom: 16px;
+}
+
+.single-header {
+  font-size: 35px;
+  text-align: center;
+  margin-top: -23px;
+}
+
+.npc-readout-property-single,
+.readout-value-single {
+  font-size: 20px;
 }
 
 .samples-header {
