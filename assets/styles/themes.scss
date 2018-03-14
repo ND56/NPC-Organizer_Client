@@ -42,27 +42,17 @@ body {
 }
 
 .nav-button {
-  // background-color: #DEC7B7; // Tan (like building in background)
   background-color: white;
   border-radius: 18px;
-  // color: #6D6B6A; // Dark Grey (like home-header color)
-  color: #515151; // Dark Grey
+  color: black;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  border: 1px solid black;
-  // font-family: 'Josefin Sans', sans-serif;
-  // font-family: 'Dancing Script', cursive;
-  // font-family: 'Great Vibes', cursive;
-  // font-family: 'Satisfy', cursive;
-  // font-family: 'Cookie', cursive;
   font-family: 'Lobster Two', cursive;
 }
 
 .nav-button:hover {
-  // background: #6D6B6A; // Dark Grey (like home-header color)
-  background: #515151; // Dark Grey
+  background: black;
   color: white;
   box-shadow: none;
-  // border: 2px solid white;
 }
 
 .user-needs-username {
@@ -158,8 +148,8 @@ body {
 .modal-button {
   // background-color: #DEC7B7; // Tan (like building in background)
   background-color: white;
-  border: 2px solid #515151 !important;
-  color: #515151; // Dark Grey
+  border: 2px solid black !important;
+  color: black;
 }
 
 .form-control {
@@ -178,7 +168,7 @@ body {
   border-radius: 18px;
   // background-color: #A8BCCE; // light blue (like the background)
   background-color: white;
-  color: #515151; // Dark Grey
+  color: black;
 }
 
 .close-modal {
@@ -214,6 +204,14 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.readout-value-single {
+  color: black;
+}
+
+.single-header {
+  color: black;
+}
+
 .npc-icon {
   background-image: url('https://imgur.com/qULhx2O.png');
   background-size: contain;
@@ -227,11 +225,13 @@ body {
 }
 
 .npc-readout-name {
-  color: cornflowerblue;
+  color: #2C74B7; //dark-ish blue
+  // color: cornflowerblue;
 }
 
 .readout-value {
-  color: #2C74B7; //dark-ish blue
+  // color: #2C74B7; //dark-ish blue
+  color: cornflowerblue;
 }
 
 .readout-view-larger-button {
