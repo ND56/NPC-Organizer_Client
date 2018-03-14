@@ -1131,7 +1131,17 @@ const editNPCSuccess = function (apiResponse) {
 }
 
 const editNPCFailure = function (apiResponse) {
-  $('#universal-response-modal-content').text('Failed to edit NPC. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you\'re inputing the correct data!')
+  // reset form for use in create npc
+  $('#npc-needs-name').hide()
+  $('#npc-needs-privacy').hide()
+  $('#edit-npc-form').each(function () {
+    this.reset()
+  })
+  $('#edit-npc-form').prop('id', 'create-npc-form')
+  $('#npc-modal-button').text('Create NPC!')
+  $('#create-npc-modal').modal('hide')
+  // reset form for use in create npc
+  $('#universal-response-modal-content').text('Woops, that name is taken. Failed to edit NPC because names must be unique!')
   $('#universal-response-modal').modal('show')
 }
 
