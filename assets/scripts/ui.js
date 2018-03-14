@@ -664,7 +664,7 @@ const editNPCSuccess = function (apiResponse) {
           $("div[data-id='1-" + store.npc.id + "']").hide()
         }
       }
-      // (2) bugbear
+      // (2) bugbear (searched input in bugbear)
       else if (classArrays.bugbear.some(function (element) {
         return element === store.search_npc_input
       })) {
@@ -676,7 +676,7 @@ const editNPCSuccess = function (apiResponse) {
           $("div[data-id='1-" + store.npc.id + "']").hide()
         }
       }
-      // (2) dragonborn
+      // (2) dragonborn (searched input in dragonborn)
       else if (classArrays.dragonborn.some(function (element) {
         return element === store.search_npc_input
       })) {
@@ -688,7 +688,7 @@ const editNPCSuccess = function (apiResponse) {
           $("div[data-id='1-" + store.npc.id + "']").hide()
         }
       }
-      // (2) dwarf
+      // (2) dwarf (searched input in dwarf)
       else if (classArrays.dwarf.some(function (element) {
         return element === store.search_npc_input
       })) {
@@ -700,7 +700,7 @@ const editNPCSuccess = function (apiResponse) {
           $("div[data-id='1-" + store.npc.id + "']").hide()
         }
       }
-      // (2) elf
+      // (2) elf (searched input in elf)
       else if (classArrays.elf.some(function (element) {
         return element === store.search_npc_input
       })) {
@@ -712,7 +712,7 @@ const editNPCSuccess = function (apiResponse) {
           $("div[data-id='1-" + store.npc.id + "']").hide()
         }
       }
-      // (2) firbolg
+      // (2) firbolg (searched input in firbolg)
       else if (classArrays.firbolg.some(function (element) {
         return element === store.search_npc_input
       })) {
@@ -724,15 +724,236 @@ const editNPCSuccess = function (apiResponse) {
           $("div[data-id='1-" + store.npc.id + "']").hide()
         }
       }
-
-
-
-
+      // (2) fey (searched input in fey)
+      else if (classArrays.fey.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.fey.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) gensai (searched input in gensai)
+      else if (classArrays.gensai.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.gensai.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) gnome (searched input in gnome)
+      else if (classArrays.gnome.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.gnome.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) goblin (searched input in goblin)
+      else if (classArrays.goblin.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.goblin.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) troll (searched input in troll)
+      else if (classArrays.troll.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.troll.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) goliath (searched input in goliath)
+      else if (classArrays.goliath.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.goliath.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) halfelf (searched input in halfelf)
+      else if (classArrays.halfelf.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.halfelf.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) halforc (searched input in halforc)
+      else if (classArrays.halforc.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.halforc.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) halfling (searched input in halfling)
+      else if (classArrays.halfling.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.halfling.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) human (searched input in human)
+      else if (classArrays.human.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.human.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) kenku (searched input in kenku)
+      else if (classArrays.kenku.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.kenku.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) kobold (searched input in kobold)
+      else if (classArrays.kobold.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.kobold.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) lizardfolk (searched input in lizardfolk)
+      else if (classArrays.lizardfolk.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.lizardfolk.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) tabaxi (searched input in tabaxi)
+      else if (classArrays.tabaxi.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.tabaxi.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) tiefling (searched input in tiefling)
+      else if (classArrays.tiefling.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.tiefling.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) tortle (searched input in tortle)
+      else if (classArrays.tortle.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.tortle.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) triton (searched input in triton)
+      else if (classArrays.triton.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.triton.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) yuanti (searched input in yuanti)
+      else if (classArrays.yuanti.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.yuanti.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) gith (searched input in gith)
+      else if (classArrays.gith.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new race is not in that same array
+        if (!classArrays.gith.some(function (element) {
+          return element === store.npc.race
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
     }
   }
-
-
-
   // class
 }
 
