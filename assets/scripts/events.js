@@ -158,9 +158,13 @@ const onSearchNPC = function (event) {
   store.ownership = $('#ownership-dropdown').val()
   const searchBy = $('#search-npc-label').text()
   const searchParams = $('#inputAttribute').val()
-  console.log(searchBy)
-  console.log(searchParams)
-  console.log(store.ownership)
+  console.log(searchBy) // search by
+  console.log(searchParams) // user input
+  console.log(store.ownership) // public or private
+  // storing values for DOM manipulation
+  store.searched_attribute = searchBy
+  store.search_limitation = store.ownership
+  store.search_npc_input = searchParams
   // search by breakdown
   if (searchBy === 'Name') {
     api.searchNPCByName(searchParams)

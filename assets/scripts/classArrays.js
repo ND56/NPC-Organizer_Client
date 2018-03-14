@@ -187,6 +187,105 @@ const wizard = ['Wizard', 'wizard', 'Abjurer', 'abjurer', 'abjuration',
   'Wizard: Enchanter', 'Wizard: Enchanting', 'Wizard (Enchanter)', 'Wizard (Enchanting)', 'Enchanting Wizard', 'Wizard of Enchanting', 'Wizard: Enchantment', 'Wizard (Enchantment)', 'Wizard of Enchantment', 'Enchantment Wizard',
   'Battle Mage', 'Battle Wizard', 'Wizard (Battle Magic)', 'Wizard (Battle Mage)', 'Wizard: Battle Magic', 'Wizard: Battle Mage']
 
+const aasimar = ['Aasimar', 'aasimar', 'Protector Aasimar', 'protector aasimar', 'Scourge Aasimar',
+  'scourge aasimar', 'fallen aasimar', 'Fallen Aasimar',
+  'Aasimar: Protector', 'Aasimar (Protector)',
+  'Aasimar: Scourge', 'Aasimar (Scourge)',
+  'Aasimar: Fallen', 'Aasimar (Fallen)']
+
+const bugbear = ['Bugbear', 'bugbear']
+
+const dragonborn = ['Dragonborn', 'dragonborn', 'Dragon', 'dragon', 'Draconic',
+  'draconic', 'Drake-Born', 'drake-born', 'Dragon-touched']
+
+const dwarf = ['Dwarf', 'dwarf', 'Dwarven', 'dwarven', 'Dwarfen', 'dwarfen',
+  'Duergar', 'duergar', 'gray dwarf', 'Gray Dwarf', 'Grey Dwarf',
+  'grey dwarf', 'Hill Dwarf', 'hill dwarf', 'Gold Dwarf', 'gold dwarf',
+  'Mountain Dwarf', 'mountain dwarf', 'Shield Dwarf', 'shield dwarf',
+  'Dwarf: Duergar', 'Dwarf (Duergar)',
+  'Dwarf: Grey', 'Dwarf (Grey)',
+  'Dwarf: Gray', 'Dwarf (Gray)',
+  'Dwarf: Hill', 'Dwarf (Hill)',
+  'Dwarf: Gold', 'Dwarf (Gold)',
+  'Dwarf: Mountain', 'Dwarf (Mountain)',
+  'Dwarf: Shield', 'Dwarf (Shield)']
+
+const elf = ['Elf', 'elf', 'Elven', 'elven', 'Elfin', 'elfin', 'Elfen', 'elfen',
+  'High Elf', 'high elf', 'Wood Elf', 'wood elf', 'Drow', 'drow',
+  'Dark Elf', 'dark elf', 'Aquatic Elf', 'aquatic elf', 'Avariel',
+  'avariel', 'Eladrin', 'eladrin', 'Sea Elf', 'sea elf', 'Grugach',
+  'grugach', 'Shadar-kai', 'shadar-kai',
+  'Elf: High', 'Elf (High)',
+  'Elf: Wood', 'Elf (Wood)',
+  'Elf: Drow', 'Elf (Drow)',
+  'Elf: Dark', 'Elf (Dark)',
+  'Elf: Aquatic', 'Elf (Aquatic)',
+  'Elf: Sea', 'Elf (Sea)',
+  'Elf: Avariel', 'Elf (Avariel)',
+  'Elf: Eladrin', 'Elf (Eladrin)',
+  'Elf: Grugach', 'Elf (Grugach)',
+  'Elf: Shadar-Kai', 'Elf (Shadar-Kai)']
+
+const firbolg = ['Firbolg', 'firbolg']
+
+const fey = ['Fey', 'fey', 'Feyborn', 'feyborn', 'feytouched', 'Feytouched',
+  'Fey-Born', 'fey-born', 'Fey-Touched', 'fey-touched']
+
+const gensai = ['Gensai', 'gensai', 'Air', 'air', 'Earth', 'earth', 'Fire', 'fire',
+  'water', 'Water', 'Air Gensai', 'Earth Gensai', 'Fire Gensai', 'Water Gensai', 'Gensai of Air', 'Gensai of Water', 'Gensai of Fire', 'Gensai of Earth',
+  'Gensai: Air', 'Gensai (Air)',
+  'Gensai: Earth', 'Gensai (Earth)',
+  'Gensai: Fire', 'Gensai (Fire)',
+  'Gensai: Water', 'Gensai (Water)']
+
+const gnome = ['Gnome', 'gnome', 'Forest Gnome', 'forest gnome', 'Rock Gnome',
+  'rock gnome', 'Deep Gnome', 'deep gnome', 'Svirfneblin',
+  'svirfneblin',
+  'Gnome: Forest', 'Gnome (Forest)',
+  'Gnome: Rock', 'Gnome (Rock)',
+  'Gnome: Deep', 'Gnome (Deep)',
+  'Gnome: Svirfneblin', 'Gnome (Svirfneblin)']
+
+const goblin = ['Goblin', 'goblin', 'Goblinoid', 'goblinoid', 'Hobgoblin',
+  'hobgoblin']
+
+const troll = ['Troll', 'troll']
+
+const goliath = ['Goliath', 'goliath']
+
+const halfelf = ['Half-Elf', 'half-elf', 'Half-Elven', 'half-elven', 'Half-Eflin',
+  'half-elfin', 'Half Elf', 'half elf']
+
+const halforc = ['Half-Orc', 'half-orc', 'Orc', 'orc', 'half orc', 'Half Orc']
+
+const halfling = ['Halfling', 'halfling', 'Hobbit', 'hobbit', 'Ghostwise',
+  'ghostwise', 'Lightfoot', 'lightfoot', 'Stout', 'stout',
+  'Halfling: Hobbit', 'Halfling (Hobbit)',
+  'Halfling: Ghostwise', 'Halfling (Ghostwise)',
+  'Halfling: Lightfoot', 'Halfling (Lightfoot)',
+  'Halfling: Stout', 'Halfling (Stout)']
+
+const human = ['Human', 'human']
+
+const kenku = ['Kenku', 'kenku', 'Auran', 'auran', 'Avian', 'avian']
+
+const kobold = ['Kobold', 'kobold']
+
+const lizardfolk = ['Lizardfolk', 'lizardfolk', 'lizard', 'Lizard']
+
+const tabaxi = ['Tabaxi', 'tabaxi']
+
+const tiefling = ['Tiefling', 'tiefling']
+
+const tortle = ['Tortle', 'tortle']
+
+const triton = ['Triton', 'triton', 'Merfolk', 'merfolk']
+
+const yuanti = ['Yuan-Ti Pureblood', 'yuan-ti pureblood', 'Yuan-Ti', 'yuan-ti',
+  'Yuan', 'yuan', 'Pureblood', 'Yuan-Ti: Pureblood', 'Yuan-Ti (Pureblood)']
+
+const gith = ['Gith', 'gith', 'Githyanki', 'githyanki', 'Githzerai', 'githzerai', 'Gith: Githyanky', 'Gith (Githyanki)', 'Gith: Githzerai', 'Gith (Githzerai)']
+
 module.exports = {
   artificer,
   barbarian,
@@ -201,5 +300,30 @@ module.exports = {
   druid,
   fighter,
   monk,
-  paladin
+  paladin,
+  aasimar,
+  dragonborn,
+  dwarf,
+  elf,
+  firbolg,
+  fey,
+  gensai,
+  gnome,
+  goblin,
+  troll,
+  goliath,
+  halfelf,
+  halforc,
+  halfling,
+  human,
+  kenku,
+  kobold,
+  lizardfolk,
+  tabaxi,
+  gith,
+  yuanti,
+  tiefling,
+  tortle,
+  triton,
+  bugbear
 }
