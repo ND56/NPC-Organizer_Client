@@ -954,7 +954,180 @@ const editNPCSuccess = function (apiResponse) {
       }
     }
   }
-  // class
+  // finally, if searched by class
+  if (store.searched_attribute === 'Class') {
+    // (1) if new class !== searched class
+    if (store.npc.dnd_class !== store.search_npc_input) {
+      // (2) artificer (searched input in artificer)
+      if (classArrays.artificer.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.artificer.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) barbarian (searched input in barbarian)
+      if (classArrays.barbarian.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.barbarian.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) bard (searched input in bard)
+      if (classArrays.bard.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.bard.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) cleric (searched input in cleric)
+      if (classArrays.cleric.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.cleric.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) druid (searched input in druid)
+      if (classArrays.druid.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.druid.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) fighter (searched input in fighter)
+      if (classArrays.fighter.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.fighter.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) monk (searched input in monk)
+      if (classArrays.monk.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.monk.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) mystic (searched input in mystic)
+      if (classArrays.mystic.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.mystic.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) paladin (searched input in paladin)
+      if (classArrays.paladin.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.paladin.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) ranger (searched input in ranger)
+      if (classArrays.ranger.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.ranger.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) rogue (searched input in rogue)
+      if (classArrays.rogue.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.rogue.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) sorcerer (searched input in sorcerer)
+      if (classArrays.sorcerer.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.sorcerer.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) warlock (searched input in warlock)
+      if (classArrays.warlock.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.warlock.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+      // (2) wizard (searched input in wizard)
+      if (classArrays.wizard.some(function (element) {
+        return element === store.search_npc_input
+      })) {
+        // (3) if new class is not in that same array
+        if (!classArrays.wizard.some(function (element) {
+          return element === store.npc.dnd_class
+        })) {
+          // (4) hide the edited NPC
+          $("div[data-id='1-" + store.npc.id + "']").hide()
+        }
+      }
+    }
+  }
 }
 
 const editNPCFailure = function (apiResponse) {
