@@ -163,7 +163,7 @@
 
       <!-- Start - Search NPC Modal -->
       <div class="modal fade search-npcs-modal" id="search-npcs-modal" tabindex="-1">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-md search-npc-set-width">
           <div class="modal-content search-npcs-modal-content-wrapper">
             <div>
               <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
@@ -173,11 +173,11 @@
               <!-- Row 1 -->
               <div class="row-1">
                 <!-- Column 1-A -->
-                <div class="col-xs-6 drop-down-label">
+                <div class="col-xs-3 drop-down-label">
                   Search:
                 </div>
                 <!-- Column 1-B -->
-                <div class="col-xs-6 drop-down-div drop-down-1" id="drop-down-1">
+                <div class="col-xs-9 drop-down-div drop-down-1" id="drop-down-1">
                   <select class="ownership-dropdown" id="ownership-dropdown">
                     <option value="Public NPCs">Public NPCs</option>
                     <option value="Your NPCs">Your NPCs</option>
@@ -187,11 +187,11 @@
               <!-- Row 2 -->
               <div class="row-2">
                 <!-- Column 2-A -->
-                <div class="col-xs-6 drop-down-label">
+                <div class="col-xs-3 drop-down-label">
                   Search by:
                 </div>
                 <!-- Column 2-B -->
-                <div class="col-xs-6 drop-down-div drop-down-2" id="drop-down-2">
+                <div class="col-xs-9 drop-down-div drop-down-2" id="drop-down-2">
                   <select class="attribute-dropdown" id="attribute-dropdown">
                     <option value="Placeholder"></option>
                     <option value="Name">Name</option>
@@ -370,7 +370,7 @@
       <!-- End - Get All NPCs Readout -->
 
       <!-- Start - No Search Results Div -->
-      <div class="no-search-results" id="no-search-results">No results matched your search parameters. Try another!</div>
+      <div class="no-search-results npc-readout-div hidden-no-results" id="no-search-results">No results matched your search parameters. <br />Try another!</div>
       <!-- End - No Search Results Div -->
 
       <!-- Start - Universal response modal -->

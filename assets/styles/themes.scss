@@ -30,22 +30,25 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-.home-header,
-.static-header {
+.home-header {
   color: black;
-  // font-family: 'Shadows Into Light', cursive;
-  // font-family: 'Dancing Script', cursive;
-  // font-family: 'Amatic SC', cursive;
   font-family: 'Berkshire Swash', cursive;
   opacity: .6;
 }
 
+.static-header {
+  color: black;
+  font-family: 'Berkshire Swash', cursive;
+}
+
 .nav-button {
-  background-color: #DEC7B7; // Tan (like building in background)
+  // background-color: #DEC7B7; // Tan (like building in background)
+  background-color: white;
   border-radius: 18px;
   // color: #6D6B6A; // Dark Grey (like home-header color)
   color: #515151; // Dark Grey
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border: 1px solid black;
   // font-family: 'Josefin Sans', sans-serif;
   // font-family: 'Dancing Script', cursive;
   // font-family: 'Great Vibes', cursive;
@@ -57,9 +60,9 @@ body {
 .nav-button:hover {
   // background: #6D6B6A; // Dark Grey (like home-header color)
   background: #515151; // Dark Grey
-  color: #DEC7B7; // Tan (like building in background)
+  color: white;
   box-shadow: none;
-  border: 2px solid #DEC7B7;
+  // border: 2px solid white;
 }
 
 .user-needs-username {
@@ -78,15 +81,17 @@ body {
   // font-family: 'Great Vibes', cursive;
   // font-family: 'Satisfy', cursive;
   // font-family: 'Cookie', cursive;
-  background: #515151; // Dark Grey (like home-header color)
-  color: #DEC7B7; // Tan (like building in background)
+  // background: #515151; // Dark Grey (like home-header color)
+  // color: #DEC7B7; // Tan (like building in background)
+  background: black;
+  color: white;
 }
 
 .profile-button:hover {
-  background-color: #DEC7B7; // Tan (like building in background)
-  color: #515151;
+  background-color: white;
+  color: black;
   box-shadow: none;
-  border: 2px solid #515151;
+  border: 2px solid black;
 }
 
 .universal-content-header {
@@ -94,7 +99,7 @@ body {
   // font-family: 'Maven Pro', sans-serif;
   // font-family: 'Rajdhani', sans-serif;
   // font-family: 'Poiret One', cursive;
-  color: #515151; // Dark Grey
+  color: black;
 }
 //
 // .ex-1 {
@@ -145,18 +150,21 @@ body {
 }
 
 .modal-content {
-    border: 5px solid #515151; // Dark Grey
+    // border: 5px solid #515151; // Dark Grey
+    border: 3px solid black;
     border-radius: 22px;
 }
 
 .modal-button {
-  background-color: #DEC7B7; // Tan (like building in background)
+  // background-color: #DEC7B7; // Tan (like building in background)
+  background-color: white;
   border: 2px solid #515151 !important;
   color: #515151; // Dark Grey
 }
 
 .form-control {
-  background-color: #DEC7B7; // Tan (like building in background)
+  // background-color: #DEC7B7; // Tan (like building in background)
+  background-color: white;
 }
 
 .universal-modal-content,
@@ -165,14 +173,17 @@ body {
 .register-modal-content,
 .change-pw-modal-content,
 .create-npc-modal-content,
-.single-npc-readout-modal-content-wrapper {
+.single-npc-readout-modal-content-wrapper,
+.search-npcs-modal-content-wrapper {
   border-radius: 18px;
-  background-color: #A8BCCE; // light blue (like the background)
+  // background-color: #A8BCCE; // light blue (like the background)
+  background-color: white;
   color: #515151; // Dark Grey
 }
 
 .close-modal {
-  background-color: #A8BCCE; // light blue (like the background)
+  // background-color: #A8BCCE; // light blue (like the background)
+  background-color: white;
   border-color: #A8BCCE; // light blue (like the background)
   color: #515151; // Dark Grey
 }
@@ -198,7 +209,8 @@ body {
 
 .npc-readout-div {
   // display: inline-block;
-  background-color: #DEC7B7; // Tan (like building in background)
+  // background-color: #DEC7B7; // Tan (like building in background)
+  background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
@@ -223,13 +235,15 @@ body {
 }
 
 .readout-view-larger-button {
-  background: #515151; // Dark Grey (like home-header color)
-  color: #DEC7B7; // Tan (like building in background)
+  // background: #515151; // Dark Grey (like home-header color)
+  // color: #DEC7B7; // Tan (like building in background)
+  background-color: black;
+  color: white;
 }
 
 .readout-view-larger-button:hover {
-  background-color: #DEC7B7; // Tan (like building in background)
-  color: #515151;
+  background-color: white;
+  color: black;
   border: 2px solid #515151;
 }
 

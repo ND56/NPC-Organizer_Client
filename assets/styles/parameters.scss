@@ -38,6 +38,25 @@ body {
 // End - Nav Bar
 
 // Start - Modals
+.attribute-dropdown,
+.ownership-dropdown {
+  width: 150px;
+}
+
+.drop-down-label {
+  text-align: right;
+}
+
+.search-npc-set-width {
+  width: 400px !important;
+}
+
+.row-1,
+.row-2 {
+  padding-left: 17%;
+  margin-bottom: 2%;
+}
+
 .input-div {
   padding-left: 9px !important;
   padding-right: 0px !important;
@@ -112,7 +131,7 @@ body {
 }
 
 #search-npc-modal-button {
-  margin-left: 84.666666666667%;
+  margin-left: 73.666666666667%;
   margin-top: 10px;
 }
 
@@ -164,7 +183,7 @@ body {
   // background: yellow;
   height: 700px;
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1130px;
 }
 
 .create-npc-button {
@@ -242,6 +261,7 @@ body {
   margin-top: 3%;
   overflow: auto;
   margin-bottom: 0;
+  border: 1px solid;
 }
 
 .get-npc-div {
@@ -328,6 +348,14 @@ body {
   font-size: 17px;
   text-align: center;
   padding-top: 25%;
+}
+
+.no-search-results {
+  width: 300px;
+  height: 300px;
+  padding-top: 9%;
+  margin: 0 auto;
+  margin-top: 12%;
 }
 
 // End - NPC Readout
