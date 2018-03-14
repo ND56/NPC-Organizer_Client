@@ -324,6 +324,8 @@ const adjustReadoutImages = function (apiResponse) {
 }
 
 const viewAllNPCsSuccess = function (apiResponse) {
+  // setting below value so it can be used to update the DOM after an edit
+  store.search_limitation = 'public'
   $('#return-to-profile-button').show()
   $('#universal-content-header').text('All Public NPCs')
   $('#user-profile-page').hide()
@@ -432,6 +434,8 @@ const viewPersonalNPCsFailure = function (apiResponse) {
 }
 
 const returnToProfile = function () {
+  // clearing stored search limitation
+  store.search_limitation = ''
   $('#no-search-results').hide()
   $('#return-to-profile-button').hide()
   $('#universal-content-header').text(`${store.user.user_name}'s Profile`)
@@ -617,6 +621,13 @@ const editNPCSuccess = function (apiResponse) {
     return element === store.npc.dnd_class
   })) {
     $("div[data-class='5-" + store.npc.id + "']").css('background-image', 'url(https://imgur.com/5KtrgTD.png)')
+  }
+  // adjust dom for possible search limitations
+  if (store.search_limitation === 'public') {
+    if (store.npc.private === true) {
+      console.log('This image should be hidden from the DOM')
+      $("div[data-id='1-" + store.npc.id + "']").hide()
+    }
   }
 }
 
