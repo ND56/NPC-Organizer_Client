@@ -215,6 +215,20 @@ const onLikeOrDislikeNPC = function (event) {
 const exportToPDF = (event) => {
   event.preventDefault()
   console.log('Button Works!')
+  const doc = new jsPDF()
+  const source = $("div[data-id='2-" + store.npc.id + "']")
+  console.log(source[0])
+  doc.fromHTML(
+    source[0],
+    15,
+    15,
+    {
+      'width': 100
+    },
+    function () {
+      doc.save(store.npc.name + '.pdf')
+    }
+  ) // maybe try a zero auto for magin?
 }
 
 module.exports = {
