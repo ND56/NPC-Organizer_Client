@@ -39,4 +39,6 @@ $(() => {
   $('#attribute-dropdown').on('change', events.searchByAttribute)
   $('#search-npcs-button').on('click', events.onResetSearchModal)
   $('#search-npc-form').on('submit', events.onSearchNPC)
+  $('body').on('click', '#export-pdf-1', events.exportToPDF)
+  $('body').on('click', '#export-pdf-2', events.exportToPDF)
 })

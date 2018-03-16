@@ -122,15 +122,6 @@ body {
 // End - User Profile Page
 
 // Start - Modals
-.like-npc {
-  background: #DEC7B7; // Tan (like building in background)
-  border: 1px solid #515151; // Dark Grey
-}
-
-.like-npc:hover {
-  background-color: dodgerblue;
-}
-
 .active {
   background: dodgerblue !important;
 }
@@ -180,6 +171,26 @@ body {
 // End - Modals
 
 // Start - NPC Readout
+// .single-readout-button {
+//   background-color: black;
+//   color: white;
+// }
+//
+// .single-readout-button {
+//   background-color: white;
+//   color: black;
+// }
+//
+// .like-npc {
+//   background: black; // Tan (like building in background)
+//   border: 1px solid #515151; // Dark Grey
+//   color: white
+// }
+//
+.like-npc:hover {
+  background-color: dodgerblue;
+}
+
 .hidden-no-results {
   font-style: italic;
   color: #2C74B7; //dark-ish blue

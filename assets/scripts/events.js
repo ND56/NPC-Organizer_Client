@@ -212,6 +212,11 @@ const onLikeOrDislikeNPC = function (event) {
   // testing
 }
 
+const exportToPDF = (event) => {
+  event.preventDefault()
+  console.log('Button Works!')
+}
+
 module.exports = {
   onSignUp,
   onLogIn,
@@ -228,5 +233,6 @@ module.exports = {
   searchByAttribute,
   onResetSearchModal,
   onSearchNPC,
-  onLikeOrDislikeNPC
+  onLikeOrDislikeNPC,
+  exportToPDF
 }
