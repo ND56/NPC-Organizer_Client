@@ -53,14 +53,14 @@
       </ul>
       <div class="readout-button-wrapper">
         {{#if ownership}}
-          <button class="single-readout-button edit-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Edit</button>
+          <button id="readout-edit-button" class="single-readout-button edit-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Edit</button>
           <button id="delete-npc" class="single-readout-button delete-npc btn btn-default readout-delete-button" data-id="{{npc.id}}">Delete</button>
           <button id="export-pdf-1" class="single-readout-button export-pdf btn btn-default readout-export-button" data-id="export-{{npc.id}}">PDF</button>
         {{/if}}
         {{#unless ownership}}
           <!-- <button class="like-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Like NPC</button> -->
           <!-- <button class="like-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Like <i class="fa fa-thumbs-up"></i></button> -->
-          <button class="single-readout-button like-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Like <i><img class="d20-image-1" src='https://i.imgur.com/UyxXj4G.png'/></i></button>
+          <button id="readout-like-button" class="single-readout-button like-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Like <i><img class="d20-image-1" src='https://i.imgur.com/UyxXj4G.png'/></i></button>
           <button id="export-pdf-2" class="single-readout-button export-pdf-2 btn btn-default readout-export-button" data-id="export-{{npc.id}}">PDF</button>
         {{/unless}}
       </div>

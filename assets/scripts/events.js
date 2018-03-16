@@ -214,16 +214,38 @@ const onLikeOrDislikeNPC = function (event) {
 
 const exportToPDF = (event) => {
   event.preventDefault()
-  console.log('Button Works!')
+  // create pdf
   const doc = new jsPDF()
+  // set source for pdf
   const source = $("div[data-id='2-" + store.npc.id + "']")
-  console.log(source[0])
+  // ignore buttons in the html
+  const elementHandler = {
+    '#readout-edit-button': function (element, renderer) {
+      return true
+    },
+    '#delete-npc': function (element, renderer) {
+      return true
+    },
+    '#readout-like-button': function (element, renderer) {
+      return true
+    },
+    '#export-pdf-1': function (element, renderer) {
+      return true
+    },
+    '#export-pdf-2': function (element, renderer) {
+      return true
+    }
+  }
+  // trying to style the pdf
+  doc.setProperties({ 'text-align': 'center' }) // does nothing
+  // append and format html readout
   doc.fromHTML(
     source[0],
     15,
     15,
     {
-      'width': 100
+      'width': 100,
+      'elementHandlers': elementHandler
     },
     function () {
       doc.save(store.npc.name + '.pdf')
