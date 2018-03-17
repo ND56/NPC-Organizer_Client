@@ -237,12 +237,13 @@ const exportToPDF = (event) => {
     }
   }
   // trying to style the pdf
-  doc.setProperties({ 'text-align': 'center' }) // does nothing
+  const nameHeader = $('.single-header')[0]
+  nameHeader.setAttribute('style', 'padding-bottom:10px')
   // append and format html readout
   doc.fromHTML(
     source[0],
-    15,
-    15,
+    40, // moving content from the left
+    15, // moves content from the top
     {
       'width': 100,
       'elementHandlers': elementHandler
@@ -250,7 +251,7 @@ const exportToPDF = (event) => {
     function () {
       doc.save(store.npc.name + '.pdf')
     }
-  ) // maybe try a zero auto for magin?
+  )
 }
 
 module.exports = {
