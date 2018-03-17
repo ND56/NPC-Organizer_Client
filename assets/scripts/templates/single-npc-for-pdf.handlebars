@@ -1,0 +1,67 @@
+<!-- Attributes list items only generated if they exist in the database -->
+<!-- Need to make it so edit and delete buttons only appear if ownership -->
+
+    <div class="single-npc-readout-div" data-id="2-{{npc.id}}">
+      <h3 class="single-header">{{npc.name}}</h3>
+      <div class="single-icon-wrapper">
+        <div class="single-icon" id="npc-icon" data-class="5-{{npc.id}}"></div>
+      </div>
+      <div class="readout-ul-single">
+        {{#if npc.race}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Race:</span> <span class="readout-value-single" data-id="race-{{npc.id}}">{{npc.race}}</span></p>
+        {{/if}}
+        {{#if npc.dnd_class}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Class:</span> <span class="readout-value-single dnd_class_readout" data-id="dnd-class-{{npc.id}}">{{npc.dnd_class}}</span></p>
+        {{/if}}
+        {{#if npc.challenge_rating}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Challenge Rating:</span> <span class="readout-value-single" data-id="CR-{{npc.id}}">{{npc.challenge_rating}}</span></p>
+        {{/if}}
+        {{#if npc.level}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Level:</span> <span class="readout-value-single" data-id="level-{{npc.id}}">{{npc.level}}</span></p>
+        {{/if}}
+        {{#if npc.HP}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">HP:</span> <span class="readout-value-single" data-id="HP-{{npc.id}}">{{npc.HP}}</span></p>
+        {{/if}}
+        {{#if npc.AC}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">AC:</span> <span class="readout-value-single" data-id="AC-{{npc.id}}">{{npc.AC}}</span></p>
+        {{/if}}
+        {{#if npc.ability_modifiers}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Ability Modifiers:</span> <span class="readout-value-single" data-id="AM-{{npc.id}}">{{npc.ability_modifiers}}</span></p>
+        {{/if}}
+        {{#if npc.spells_abilities}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Spells & Abilities:</span> <span class="readout-value-single" data-id="SA-{{npc.id}}">{{npc.spells_abilities}}</span></p>
+        {{/if}}
+        {{#if npc.traits}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Traits:</span> <span class="readout-value-single" data-id="traits-{{npc.id}}">{{npc.traits}}</span></p>
+        {{/if}}
+        {{#if npc.items}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Items:</span> <span class="readout-value-single" data-id="items-{{npc.id}}">{{npc.items}}</span></p>
+        {{/if}}
+        {{#if npc.notes}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Notes:</span> <span class="readout-value-single" data-id="notes-{{npc.id}}">{{npc.notes}}</span></p>
+        {{/if}}
+        {{#if npc.user.user_name}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Created By:</span> <span class="readout-value-single" data-id="UN-{{npc.id}}">{{npc.user.user_name}}</span></p>
+        {{/if}}
+        {{#unless npc.private}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Privacy Setting:</span> <span class="readout-value-single" data-id="private-{{npc.id}}">Public</span></p>
+        {{/unless}}
+        {{#if npc.private}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Privacy Setting:</span> <span class="readout-value-single" data-id="private-{{npc.id}}">Private</span></p>
+        {{/if}}
+          <p class="readout-li-single"><span class="npc-readout-property-single">Likes:</span> <span class="readout-value-single" data-id="likes-{{npc.id}}">{{npc.liking_users.length}}</span></p>
+      </div>
+      <div class="readout-button-wrapper">
+        {{#if ownership}}
+          <button id="readout-edit-button" class="single-readout-button edit-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Edit</button>
+          <button id="delete-npc" class="single-readout-button delete-npc btn btn-default readout-delete-button" data-id="{{npc.id}}">Delete</button>
+          <button id="export-pdf-1" class="single-readout-button export-pdf btn btn-default readout-export-button" data-id="export-{{npc.id}}">PDF</button>
+        {{/if}}
+        {{#unless ownership}}
+          <!-- <button class="like-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Like NPC</button> -->
+          <!-- <button class="like-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Like <i class="fa fa-thumbs-up"></i></button> -->
+          <button id="readout-like-button" class="single-readout-button like-npc btn btn-default readout-edit-button" data-id="{{npc.id}}">Like <i><img class="d20-image-1" src='https://i.imgur.com/UyxXj4G.png'/></i></button>
+          <button id="export-pdf-2" class="single-readout-button export-pdf-2 btn btn-default readout-export-button" data-id="export-{{npc.id}}">PDF</button>
+        {{/unless}}
+      </div>
+    </div>

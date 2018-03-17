@@ -2,6 +2,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('./store')
+const templatePDF = require('./templates/single-npc-for-pdf.handlebars')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -214,10 +215,15 @@ const onLikeOrDislikeNPC = function (event) {
 
 const exportToPDF = (event) => {
   event.preventDefault()
+  // clear div
+  $('#hidden-table-for-pdf').empty()
+  // create html element to use for PDF
+  const pdfHTML = templatePDF({ npc: store.npc })
+  $('#hidden-table-for-pdf').append(pdfHTML)
   // create pdf
   const doc = new jsPDF()
   // set source for pdf
-  const source = $("div[data-id='2-" + store.npc.id + "']")
+  const source = $('#hidden-table-for-pdf')
   // ignore buttons in the html
   const elementHandler = {
     '#readout-edit-button': function (element, renderer) {
@@ -238,11 +244,11 @@ const exportToPDF = (event) => {
   }
   // trying to style the pdf
   const nameHeader = $('.single-header')[0]
-  nameHeader.setAttribute('style', 'padding-bottom:10px')
+  nameHeader.setAttribute('style', 'margin-bottom:50px')
   // append and format html readout
   doc.fromHTML(
     source[0],
-    40, // moving content from the left
+    45, // moving content from the left // was 40
     15, // moves content from the top
     {
       'width': 100,
