@@ -46,6 +46,21 @@ const onChangePw = function (event) {
     .catch(ui.onPwChangeFailure)
 }
 
+const onClickCreate = function (event) {
+  event.preventDefault()
+  $('#npc-needs-name').hide()
+  $('#npc-needs-privacy').hide()
+  $('#edit-npc-form').each(function () {
+    this.reset()
+  })
+  $('#create-npc-form').each(function () {
+    this.reset()
+  })
+  $('#edit-npc-form').prop('id', 'create-npc-form')
+  $('#npc-modal-button').text('Create NPC!')
+  $('#create-npc-modal').modal('show')
+}
+
 const onCreateNPC = function (event) {
   event.preventDefault()
   console.log(event)
@@ -277,5 +292,6 @@ module.exports = {
   onResetSearchModal,
   onSearchNPC,
   onLikeOrDislikeNPC,
-  exportToPDF
+  exportToPDF,
+  onClickCreate
 }

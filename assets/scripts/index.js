@@ -24,6 +24,7 @@ $(() => {
   $('#npc-needs-name').hide()
   $('#npc-needs-privacy').hide()
   $('#user-needs-username').hide()
+  $('#create-npc-button').on('click', events.onClickCreate)
   $('#register-form').on('submit', events.onSignUp)
   $('#log-in-form').on('submit', events.onLogIn)
   $('#log-out-button').on('click', events.onLogOut)
