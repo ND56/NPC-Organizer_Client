@@ -372,6 +372,79 @@ body {
 
 // End - NPC Readout
 
+// Start - Folders *******************************
+
+.folders-readout-div {
+  height: 55%;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-top: 2%;
+  border: 2px solid black;
+  border-radius: 13px;
+  overflow: auto;
+}
+
+.folder-div {
+  margin-top: 6%;
+  text-align: center;
+  height: 150px;
+  overflow: auto;
+}
+
+.folder {
+  font-size: 70px;
+  color: #1F71BA;
+}
+
+.folder:hover {
+  cursor: pointer;
+}
+
+.folder-title {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.num-of-npcs-num {
+  color: #1F71BA;
+}
+
+.num-of-npcs-text {
+  text-decoration: underline;
+}
+
+.input-folder-div {
+  width: 76.33333333333% !important;
+  margin-top: 2%;
+  margin-left: 1%;
+}
+
+.create-folder-modal-content {
+  padding: 3%;
+  padding-bottom: 0;
+}
+
+.delete-folder {
+  font-size: 17px;
+  color: #1F71BA;
+  display: inline-block;
+}
+
+.edit-folder {
+  font-size: 17px;
+  color: black;
+  display: inline-block;
+  margin-left: 4%;
+}
+
+.delete-folder:hover,
+.edit-folder:hover {
+  cursor: pointer;
+}
+
+// End - Folders *********************************
+
 // Start - Media Queries
 @media (max-width: 1049px) {
   .static-header {

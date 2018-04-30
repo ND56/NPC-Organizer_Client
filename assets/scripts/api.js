@@ -217,7 +217,6 @@ const createLike = function () {
 }
 
 const deleteLike = function () {
-  console.log('Like will have been deleted')
   return $.ajax({
     url: config.apiOrigin + '/likes/destroy',
     method: 'DELETE',
@@ -230,6 +229,29 @@ const deleteLike = function () {
         'npc_id': store.npc.id
       }
     }
+  })
+}
+
+const indexFolders = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/folders',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createFolder = (folderData) => {
+  return $.ajax({
+    url: config.apiOrigin + '/folders',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: folderData
   })
 }
 
@@ -250,5 +272,7 @@ module.exports = {
   searchNPCByLevel,
   searchNPCByCreator,
   createLike,
-  deleteLike
+  deleteLike,
+  indexFolders,
+  createFolder
 }

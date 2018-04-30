@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "jquery": "^3.2.1",
+    "jquery-toast-plugin": "^1.3.2",
     "jspdf": "^1.3.5",
     "rasterizehtml": "^1.2.4"
   },

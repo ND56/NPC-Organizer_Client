@@ -275,6 +275,26 @@ const exportToPDF = (event) => {
   )
 }
 
+const onViewFolders = (event) => {
+  event.preventDefault()
+  api.indexFolders()
+    .then(ui.viewFoldersSuccess)
+    .catch(ui.viewFoldersFailure)
+}
+
+const onSelectFolder = (event) => {
+  event.preventDefault()
+  console.log('Button works!')
+}
+
+const onCreateFolder = (event) => {
+  event.preventDefault()
+  const folderData = getFormFields(event.target)
+  api.createFolder(folderData)
+    .then(ui.createFolderSuccess)
+    .catch(ui.createFolderFailure)
+}
+
 module.exports = {
   onSignUp,
   onLogIn,
@@ -293,5 +313,8 @@ module.exports = {
   onSearchNPC,
   onLikeOrDislikeNPC,
   exportToPDF,
-  onClickCreate
+  onClickCreate,
+  onViewFolders,
+  onSelectFolder,
+  onCreateFolder
 }

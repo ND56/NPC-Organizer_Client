@@ -5,6 +5,10 @@ const templateSingleNPC = require('./templates/single-npc.handlebars')
 const classArrays = require('./classArrays')
 const templateSampleNPCs = require('./templates/pub-priv-npc-samples.handlebars')
 const templateNoResults = require('./templates/no-results.handlebars')
+const templateAllFolders = require('./templates/all-folders.handlebars')
+const appendSingleFolder = require('./templates/append-single-folder.handlebars')
+// used for user notifications
+const notification = require('../../lib/notifications.js')
 
 const fixNonArrImage = function (npc) {
   if (classArrays.barbarian.some(function (element) {
@@ -443,6 +447,9 @@ const returnToProfile = function () {
   $('#universal-content-header').text(`${store.user.user_name}'s Profile`)
   $('#get-npc-div').hide()
   $('#get-npc-div').empty()
+  $('#folders-readout-div').hide()
+  $('#folders-readout-div').empty()
+  $('#create-folder-button').hide()
   $('#user-profile-page').show()
   // Testing
   $('#create-npc-form').each(function () {
@@ -1285,6 +1292,47 @@ const subtractLikes = function (apiResponse) {
   store.npc = apiResponse.npc
 }
 
+const viewFoldersSuccess = (apiResponse) => {
+  store.folders = apiResponse.folders
+  console.log(store.folders)
+  $('#return-to-profile-button').show()
+  $('#create-folder-button').show()
+  $('#universal-content-header').text(store.user.user_name + '\'s Folders')
+  $('#user-profile-page').hide()
+  $('#folders-readout-div').show()
+  const allFoldersHTML = templateAllFolders({ folders: store.folders })
+  $('#folders-readout-div').append(allFoldersHTML)
+}
+
+const viewFoldersFailure = (apiResponse) => {
+  notification.tempToast('error', 'Failed to Load Folders', 'We encountered an issue when requesting your folders from the server. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
+const createFolderSuccess = (apiResponse) => {
+  // reset form
+  $('#create-folder-form').each(function () {
+    this.reset()
+  })
+  // close Modal
+  $('#create-folder-modal').modal('hide')
+  // success notification
+  notification.tempToast('succes', 'Success!', 'Folder successfully created!', '#1F71BA', 'white', 'white', 4000)
+  // manipulate DOM
+  const oneFoldersHTML = appendSingleFolder({ folder: apiResponse.folder })
+  $('#folders-readout-div').append(oneFoldersHTML)
+}
+
+const createFolderFailure = (apiResponse) => {
+  // reset form
+  $('#create-folder-form').each(function () {
+    this.reset()
+  })
+  // close Modal
+  $('#create-folder-modal').modal('hide')
+  // error notification
+  notification.tempToast('error', 'Failed to Create Folder', 'We encountered an issue creating your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -1319,5 +1367,9 @@ module.exports = {
   populateSampleNPCDataSuccess,
   populateSampleNPCDataFailure,
   addLikes,
-  subtractLikes
+  subtractLikes,
+  viewFoldersSuccess,
+  viewFoldersFailure,
+  createFolderSuccess,
+  createFolderFailure
 }
