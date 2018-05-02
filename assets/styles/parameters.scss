@@ -382,6 +382,7 @@ body {
   border: 2px solid black;
   border-radius: 13px;
   overflow: auto;
+  padding-bottom: 3%;
 }
 
 .folder-div {
@@ -425,21 +426,21 @@ body {
   padding-bottom: 0;
 }
 
-.delete-folder {
+.d-folder {
   font-size: 17px;
   color: #1F71BA;
   display: inline-block;
 }
 
-.edit-folder {
+.e-folder {
   font-size: 17px;
   color: black;
   display: inline-block;
   margin-left: 4%;
 }
 
-.delete-folder:hover,
-.edit-folder:hover {
+.d-folder:hover,
+.e-folder:hover {
   cursor: pointer;
 }
 

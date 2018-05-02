@@ -1,9 +1,9 @@
 {{#each folders as |folder|}}
-<div class="col-xs-4 folder-div">
+<div class="col-xs-4 folder-div" data-id="{{folder.id}}">
   <p class="folder-title">{{folder.title}}</p>
   <i class="far fa-folder-open folder" data-id="{{folder.id}}"></i>
   <p><span class="num-of-npcs-text">NPCs</span>: <span class="num-of-npcs-num">{{folder.npcs.length}}</span></p>
-  <p class="delete-folder" data-id="{{folder.id}}"><i class="fas fa-trash-alt"></i></p>
-  <p class="edit-folder" data-id="{{folder.id}}"><i class="fas fa-edit"></i></i></p>
+  <p class="d-folder"><i class="fas fa-trash-alt delete-folder" data-delete="{{folder.id}}"></i></p>
+  <p class="e-folder"><i class="fas fa-edit edit-folder" data-edit="{{folder.id}}"></i></p>
 </div>
 {{/each}}

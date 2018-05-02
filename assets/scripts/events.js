@@ -282,17 +282,55 @@ const onViewFolders = (event) => {
     .catch(ui.viewFoldersFailure)
 }
 
-const onSelectFolder = (event) => {
-  event.preventDefault()
-  console.log('Button works!')
-}
-
 const onCreateFolder = (event) => {
   event.preventDefault()
   const folderData = getFormFields(event.target)
   api.createFolder(folderData)
     .then(ui.createFolderSuccess)
     .catch(ui.createFolderFailure)
+}
+
+const onDeleteFolder = (event) => {
+  event.preventDefault()
+  // Selecting a fontawesome SVG image in the DOM is tricky; depending on where
+  // you click, roughly 50% of the time you actually click the child of the
+  // element, which is a path element. I got around this by using the below
+  // conditional.
+  let folderId
+  if ($(event.target).data().delete) {
+    folderId = $(event.target).data().delete
+  } else {
+    folderId = $(event.target).parent().data().delete
+  }
+  // storing for purposes of DOM manipulation
+  store.deletedFolder = folderId
+  // API call
+  api.deleteFolder(folderId)
+    .then(ui.deleteFolderSuccess)
+    .catch(ui.deleteFolderFailure)
+}
+
+const onEditFolder = (event) => {
+  event.preventDefault()
+  // Selecting a fontawesome SVG image in the DOM is tricky; depending on where
+  // you click, roughly 50% of the time you actually click the child of the
+  // element, which is a path element. I got around this by using the below
+  // conditional.
+  let folderId
+  if ($(event.target).data().edit) {
+    folderId = $(event.target).data().edit
+  } else {
+    folderId = $(event.target).parent().data().edit
+  }
+  // get folder information from API & store it
+  api.getFolder(folderId)
+    .then(ui.editFolderModal)
+    .catch(ui.getFolderFailure)
+}
+
+const onSelectFolder = (event) => {
+  event.preventDefault()
+  console.log('Button works!')
 }
 
 module.exports = {
@@ -316,5 +354,7 @@ module.exports = {
   onClickCreate,
   onViewFolders,
   onSelectFolder,
-  onCreateFolder
+  onCreateFolder,
+  onDeleteFolder,
+  onEditFolder
 }

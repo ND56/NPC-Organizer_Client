@@ -1333,6 +1333,30 @@ const createFolderFailure = (apiResponse) => {
   notification.tempToast('error', 'Failed to Create Folder', 'We encountered an issue creating your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
 }
 
+const deleteFolderSuccess = () => {
+  // update DOM
+  $("div[data-id='" + store.deletedFolder + "']").hide()
+  // success notice
+  notification.tempToast('succes', 'Success!', 'Folder successfully deleted.', '#1F71BA', 'white', 'white', 4000)
+}
+
+const deleteFolderFailure = () => {
+  // error notification
+  notification.tempToast('error', 'Error!', 'We encountered an issue deleting your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
+const editFolderModal = (apiResponse) => {
+  // show Modal
+  $('#edit-folder-modal').modal('show')
+  // populate Modal
+  $('#inputFolder2').val(apiResponse.folder.title)
+}
+
+const getFolderFailure = (apiResponse) => {
+  // error notification
+  notification.tempToast('error', 'Error!', 'We encountered an issue finding your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -1371,5 +1395,9 @@ module.exports = {
   viewFoldersSuccess,
   viewFoldersFailure,
   createFolderSuccess,
-  createFolderFailure
+  createFolderFailure,
+  deleteFolderSuccess,
+  deleteFolderFailure,
+  editFolderModal,
+  getFolderFailure
 }

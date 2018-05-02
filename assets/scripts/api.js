@@ -255,6 +255,28 @@ const createFolder = (folderData) => {
   })
 }
 
+const deleteFolder = function (folderId) {
+  return $.ajax({
+    url: config.apiOrigin + '/folders/' + folderId,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getFolder = function (folderId) {
+  return $.ajax({
+    url: config.apiOrigin + '/folders/' + folderId,
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -274,5 +296,7 @@ module.exports = {
   createLike,
   deleteLike,
   indexFolders,
-  createFolder
+  createFolder,
+  deleteFolder,
+  getFolder
 }
