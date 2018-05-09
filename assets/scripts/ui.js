@@ -1366,11 +1366,30 @@ const editFolderSuccess = (apiResponse) => {
   // update DOM
   console.log('edit response is', apiResponse)
   $("p[data-title='" + apiResponse.folder.id + "']").text(apiResponse.folder.title)
+  // notification
+  notification.tempToast('succes', 'Success!', 'Folder successfully updated.', '#1F71BA', 'white', 'white', 4000)
 }
 
 const editFolderFailure = (apiResponse) => {
+  // close Modal
+  $('#edit-folder-modal').modal('hide')
   // error notification
   notification.tempToast('error', 'Error!', 'We encountered an issue editing your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
+const folderExists = (name) => {
+  // reset forms
+  $('#create-folder-form').each(function () {
+    this.reset()
+  })
+  $('#edit-folder-form').each(function () {
+    this.reset()
+  })
+  // close Modals
+  $('#create-folder-modal').modal('hide')
+  $('#edit-folder-modal').modal('hide')
+  // error notification
+  notification.tempToast('error', 'Error!', `Woops, you already have a folder titled "${name}." Please enter a different title!`, 'red', 'black', 'black', 8000) // red background, black text, light black load color
 }
 
 module.exports = {
@@ -1417,5 +1436,6 @@ module.exports = {
   editFolderModal,
   getFolderFailure,
   editFolderFailure,
-  editFolderSuccess
+  editFolderSuccess,
+  folderExists
 }

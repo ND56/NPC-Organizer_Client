@@ -285,8 +285,19 @@ const onViewFolders = (event) => {
 const onCreateFolder = (event) => {
   event.preventDefault()
   const folderData = getFormFields(event.target)
-  api.createFolder(folderData)
-    .then(ui.createFolderSuccess)
+  // get all folders to check titles
+  api.indexFolders()
+    .then(apiResponse => { store.folders = apiResponse.folders })
+    .then(other => {
+      // only allow if user doesn't already have a folder with that name
+      if (!store.folders.some(element => element.title === folderData.folder.title)) {
+        api.createFolder(folderData)
+          .then(ui.createFolderSuccess)
+          .catch(ui.createFolderFailure)
+      } else {
+        ui.folderExists(folderData.folder.title)
+      }
+    })
     .catch(ui.createFolderFailure)
 }
 
@@ -331,8 +342,25 @@ const onEditFolder = (event) => {
 const onSubmitEdit = (event) => {
   event.preventDefault()
   const folderTitle = getFormFields(event.target)
-  api.submitFolderEdit(folderTitle)
-    .then(ui.editFolderSuccess)
+  // get all folders to check titles
+  api.indexFolders()
+    .then(apiResponse => { store.folders = apiResponse.folders })
+    .then(other => {
+      // allow if the new name is the same as the current name
+      if (store.currentFolder.title === folderTitle.folder.title) {
+        api.submitFolderEdit(folderTitle)
+          .then(ui.editFolderSuccess)
+          .catch(ui.editFolderFailure)
+      // allow if user doesn't already have a folder with that name
+      } else if (!store.folders.some(element => element.title === folderTitle.folder.title)) {
+        api.submitFolderEdit(folderTitle)
+          .then(ui.editFolderSuccess)
+          .catch(ui.editFolderFailure)
+      // disallow in all other cases
+      } else {
+        ui.folderExists(folderTitle.folder.title)
+      }
+    })
     .catch(ui.editFolderFailure)
 }
 
