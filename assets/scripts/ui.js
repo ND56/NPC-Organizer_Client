@@ -1346,6 +1346,9 @@ const deleteFolderFailure = () => {
 }
 
 const editFolderModal = (apiResponse) => {
+  // store current folder
+  store.currentFolder = apiResponse.folder
+  console.log(store.currentFolder)
   // show Modal
   $('#edit-folder-modal').modal('show')
   // populate Modal
@@ -1355,6 +1358,19 @@ const editFolderModal = (apiResponse) => {
 const getFolderFailure = (apiResponse) => {
   // error notification
   notification.tempToast('error', 'Error!', 'We encountered an issue finding your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
+const editFolderSuccess = (apiResponse) => {
+  // close Modal
+  $('#edit-folder-modal').modal('hide')
+  // update DOM
+  console.log('edit response is', apiResponse)
+  $("p[data-title='" + apiResponse.folder.id + "']").text(apiResponse.folder.title)
+}
+
+const editFolderFailure = (apiResponse) => {
+  // error notification
+  notification.tempToast('error', 'Error!', 'We encountered an issue editing your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
 }
 
 module.exports = {
@@ -1399,5 +1415,7 @@ module.exports = {
   deleteFolderSuccess,
   deleteFolderFailure,
   editFolderModal,
-  getFolderFailure
+  getFolderFailure,
+  editFolderFailure,
+  editFolderSuccess
 }

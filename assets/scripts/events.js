@@ -328,6 +328,14 @@ const onEditFolder = (event) => {
     .catch(ui.getFolderFailure)
 }
 
+const onSubmitEdit = (event) => {
+  event.preventDefault()
+  const folderTitle = getFormFields(event.target)
+  api.submitFolderEdit(folderTitle)
+    .then(ui.editFolderSuccess)
+    .catch(ui.editFolderFailure)
+}
+
 const onSelectFolder = (event) => {
   event.preventDefault()
   console.log('Button works!')
@@ -356,5 +364,6 @@ module.exports = {
   onSelectFolder,
   onCreateFolder,
   onDeleteFolder,
-  onEditFolder
+  onEditFolder,
+  onSubmitEdit
 }

@@ -48,6 +48,7 @@ $(() => {
   $('#create-folder-button').hide()
   $('#view-folders').on('click', events.onViewFolders)
   $('#create-folder-form').on('submit', events.onCreateFolder)
+  $('#edit-folder-form').on('submit', events.onSubmitEdit)
   $('body').on('click', '.folder', events.onSelectFolder)
   $('body').on('click', '.delete-folder', events.onDeleteFolder)
   $('body').on('click', '.edit-folder', events.onEditFolder)

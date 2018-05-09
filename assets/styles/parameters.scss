@@ -374,22 +374,29 @@ body {
 
 // Start - Folders *******************************
 
-.folders-readout-div {
-  height: 55%;
-  background-color: white;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  margin-top: 2%;
-  border: 2px solid black;
-  border-radius: 13px;
-  overflow: auto;
-  padding-bottom: 3%;
-}
+// .folders-readout-div {
+  // height: 55%;
+  // background-color: white;
+  // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  // margin-top: 2%;
+  // border: 2px solid black;
+  // border-radius: 13px;
+  // overflow: auto;
+  // padding-bottom: 3%;
+// }
 
 .folder-div {
-  margin-top: 6%;
+  margin-top: 4%;
   text-align: center;
-  height: 150px;
+  height: 207px;
   overflow: auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-right: 1%;
+  width: 32.33333333333333333% !important;
+  background: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  padding-top: 1.5%;
 }
 
 .folder {

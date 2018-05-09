@@ -277,6 +277,18 @@ const getFolder = function (folderId) {
   })
 }
 
+const submitFolderEdit = (folderData) => {
+  return $.ajax({
+    url: config.apiOrigin + '/folders/' + store.currentFolder.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: folderData
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -298,5 +310,6 @@ module.exports = {
   indexFolders,
   createFolder,
   deleteFolder,
-  getFolder
+  getFolder,
+  submitFolderEdit
 }
