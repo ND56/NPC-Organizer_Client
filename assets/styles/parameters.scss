@@ -245,7 +245,7 @@ body {
 
 .readout-button-wrapper {
   margin-bottom: 1%;
-  margin-left: 33%;
+  margin-left: 29.5%;
 }
 
 .single-readout-button {
@@ -317,6 +317,10 @@ body {
 
 .single-npc-readout-modal-set-width {
   width: 595px !important;
+}
+
+.single-npc-readout-modal {
+  margin-top: 17vh;
 }
 
 .readout-ul-single {
@@ -450,6 +454,18 @@ body {
 .d-folder:hover,
 .e-folder:hover {
   cursor: pointer;
+}
+
+.save-npcs-modal-content {
+  height: 15vh;
+}
+
+.folder-button-wrapper {
+  padding-left: 2vh;
+}
+
+.folder-dropdown {
+  max-width: 15vh;
 }
 
 // End - Folders *********************************

@@ -63,15 +63,10 @@ const onClickCreate = function (event) {
 
 const onCreateNPC = function (event) {
   event.preventDefault()
-  console.log(event)
-  console.log(event.target)
   const filteredNPCData = getFormFields(event.target)
-  console.log(filteredNPCData)
-  console.log(filteredNPCData.npc)
   // testing
   const privacySetting = $('#inputPrivacySetting').prop('checked')
   filteredNPCData.npc.private = privacySetting
-  console.log(filteredNPCData.npc)
   // testing
   // adding front-end validation no blank Name
   // this isn't a great fix tho because someone might
@@ -174,9 +169,6 @@ const onSearchNPC = function (event) {
   store.ownership = $('#ownership-dropdown').val()
   const searchBy = $('#search-npc-label').text()
   const searchParams = $('#inputAttribute').val()
-  console.log(searchBy) // search by
-  console.log(searchParams) // user input
-  console.log(store.ownership) // public or private
   // storing values for DOM manipulation
   store.searched_attribute = searchBy
   store.search_limitation = store.ownership
@@ -364,9 +356,92 @@ const onSubmitEdit = (event) => {
     .catch(ui.editFolderFailure)
 }
 
+const onSaveToFolder = (event) => {
+  event.preventDefault()
+  // get list of folders to populate folder drop-down
+  api.indexFolders()
+    .then(apiResponse => { store.folders = apiResponse.folders })
+    // .then(other => console.log(store.folders))
+    .then(other => {
+      if (store.folders.length > 0) {
+        ui.saveToFolderModal()
+      } else {
+        ui.noFolders()
+      }
+    })
+}
+
+const onSubmitSaveToFolder = (event) => {
+  event.preventDefault()
+  const folderId = parseInt($('#folder-dropdown').val())
+  const npcId = store.npc.id
+  // first index folders to make sure the npc isn't in the folder already
+  api.indexFolders()
+    .then(apiResponse => { store.folders = apiResponse.folders })
+    // .then(other => console.log(store.folders))
+    .then(other => {
+      // use folder index to make sure NPC not already saved to the folder
+      const folderIndex = store.folders.findIndex(element => element.id === folderId)
+      // first, if folder is empty, proceed with save
+      if (!store.folders[folderIndex].npcs.length) {
+        api.saveToFolder(folderId, npcId)
+          .then(ui.saveToFolderSucess)
+          .catch(ui.saveToFolderFailure)
+      // second, if folder doesn't contain the npc, proceed with save
+      } else if (!store.folders[folderIndex].npcs.some(element => element.id === npcId)) {
+        api.saveToFolder(folderId, npcId)
+          .then(ui.saveToFolderSucess)
+          .catch(ui.saveToFolderFailure)
+      // else, notify user the save action will not occur
+      } else {
+        ui.alreadySaved(store.folders[folderIndex].title)
+      }
+    })
+}
+
+const onRemoveFromFolder = (event) => {
+  event.preventDefault()
+  const folderId = parseInt($('#folder-dropdown').val())
+  const npcId = store.npc.id
+  // first index folders to make sure the npc is in the folder
+  api.indexFolders()
+    .then(apiResponse => { store.folders = apiResponse.folders })
+    // .then(other => console.log(store.folders))
+    .then(other => {
+      // use folder index to make sure NPC is already saved to the folder
+      const folderIndex = store.folders.findIndex(element => element.id === folderId)
+      // If folder contains the npc, proceed with removal
+      if (store.folders[folderIndex].npcs.some(element => element.id === npcId)) {
+        api.removeFromFolder(folderId, npcId)
+          .then(ui.removeFromFolderSucess)
+          .catch(ui.removeFromFolderFailure)
+      // else, notify user the save action will not occur
+      } else {
+        ui.alreadyRemoved(store.folders[folderIndex].title)
+      }
+    })
+}
+
 const onSelectFolder = (event) => {
   event.preventDefault()
-  console.log('Button works!')
+  // Selecting a fontawesome SVG image in the DOM is tricky; depending on where
+  // you click, roughly 50% of the time you actually click the child of the
+  // element, which is a path element. I got around this by using the below
+  // conditional.
+  let folderId
+  if ($(event.target).data().id) {
+    folderId = $(event.target).data().id
+  } else {
+    folderId = $(event.target).parent().data().id
+  }
+  api.getFolder(folderId)
+    .then(ui.singleFolderViewSucess)
+    .catch(ui.singleFolderViewFailure)
+}
+
+const onReturnToFolders = (event) => {
+  event.preventDefault()
+  ui.returnToFolders()
 }
 
 module.exports = {
@@ -393,5 +468,9 @@ module.exports = {
   onCreateFolder,
   onDeleteFolder,
   onEditFolder,
-  onSubmitEdit
+  onSubmitEdit,
+  onSaveToFolder,
+  onSubmitSaveToFolder,
+  onReturnToFolders,
+  onRemoveFromFolder
 }

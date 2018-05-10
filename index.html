@@ -36,6 +36,7 @@
         <button class="nav-button log-out-button" id="log-out-button">Log Out</button>
         <button class="nav-button change-pw-button" id="change-pw-button" data-toggle="modal" data-target="#change-pw-modal">Change Password</button>
         <button class="nav-button change-pw-button" id="create-folder-button" data-toggle="modal" data-target="#create-folder-modal">Create Folder</button>
+        <button class="nav-button change-pw-button" id="return-to-folders-button">Return to Folders</button>
         <button class="nav-button return-to-profile-button" id="return-to-profile-button">Return to Profile</button>
       </div>
       <!-- End - Static Nav Bar -->
@@ -463,6 +464,37 @@
         </div>
       </div>
       <!-- End - Edit Folder Modal -->
+
+
+      <!-- Start - Save to Folder Modal -->
+      <div class="modal fade save-npcs-modal" id="save-npcs-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content save-npcs-modal-content-wrapper">
+            <div class="save-npcs-modal-content" id="save-npcs-modal-content">
+              <!-- Row 1 -->
+              <div class="row-1">
+                <!-- Column 1-A -->
+                <div class="col-xs-3 drop-down-label">
+                  Folder:
+                </div>
+                <!-- Column 1-B -->
+                <div class="col-xs-9 drop-down-div">
+                  <select class="folder-dropdown" id="folder-dropdown">
+                  </select>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="folder-button-wrapper">
+                  <button type="submit" class="btn btn-default save-npc-modal-button modal-button" id="save-npc-modal-button">Save</button>
+                  <button type="submit" class="btn btn-default remove-npc-modal-button modal-button" id="remove-npc-modal-button">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Save to Folder Modal -->
 
     </body>
 

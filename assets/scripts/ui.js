@@ -7,6 +7,7 @@ const templateSampleNPCs = require('./templates/pub-priv-npc-samples.handlebars'
 const templateNoResults = require('./templates/no-results.handlebars')
 const templateAllFolders = require('./templates/all-folders.handlebars')
 const appendSingleFolder = require('./templates/append-single-folder.handlebars')
+const templateFolderDropDown = require('./templates/folder-drop-down.handlebars')
 // used for user notifications
 const notification = require('../../lib/notifications.js')
 
@@ -127,8 +128,8 @@ const onSignUpFailure = function (apiResponse) {
     $('#universal-response-modal-content').text('Your registration was a failure. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you\'re using a unique email address and that your password entries match!')
     $('#universal-response-modal').modal('show')
   }
-  console.log(apiResponse)
-  console.log(apiResponse.responseJSON.exception)
+  // console.log(apiResponse)
+  // console.log(apiResponse.responseJSON.exception)
 }
 
 const onLogInSucess = function (apiResponse) {
@@ -171,6 +172,11 @@ const onLogInFailure = function (apiResponse) {
 }
 
 const onSignOutSuccess = function (apiResponse) {
+  store.singleFolder = ''
+  $('#return-to-folders-button').hide()
+  $('#create-folder-button').hide()
+  $('#folders-readout-div').hide()
+  $('#folders-readout-div').empty()
   $('#home-header').show()
   $('#static-header').hide()
   $('#universal-content-header').hide()
@@ -219,7 +225,7 @@ const createNPCSuccess = function (apiResponse) {
   })
   $('#universal-response-modal-content').text(apiResponse.npc.name + ' was successfully created!')
   $('#universal-response-modal').modal('show')
-  console.log(apiResponse)
+  // console.log(apiResponse)
 }
 
 const createNPCFailure = function (apiResponse) {
@@ -234,7 +240,7 @@ const createNPCFailure = function (apiResponse) {
     $('#universal-response-modal-content').text('Failed to create NPC. The server responded with error code: ' + apiResponse.status + ', ' + apiResponse.statusText + '. Make sure you entered the data fields correctly!')
     $('#universal-response-modal').modal('show')
   }
-  console.log(apiResponse.responseText)
+  // console.log(apiResponse.responseText)
 }
 
 const adjustReadoutImages = function (apiResponse) {
@@ -442,6 +448,8 @@ const returnToProfile = function () {
   store.search_limitation = ''
   store.searched_attribute = ''
   store.search_npc_input = ''
+  store.singleFolder = ''
+  $('#return-to-folders-button').hide()
   $('#no-search-results').hide()
   $('#return-to-profile-button').hide()
   $('#universal-content-header').text(`${store.user.user_name}'s Profile`)
@@ -451,7 +459,6 @@ const returnToProfile = function () {
   $('#folders-readout-div').empty()
   $('#create-folder-button').hide()
   $('#user-profile-page').show()
-  // Testing
   $('#create-npc-form').each(function () {
     this.reset()
   })
@@ -460,7 +467,6 @@ const returnToProfile = function () {
   })
   $('#edit-npc-form').prop('id', 'create-npc-form')
   $('#npc-modal-button').text('Create NPC!')
-  // Testing
 }
 
 const RetrieveNPCSuccess = function (apiResponse) {
@@ -475,8 +481,8 @@ const RetrieveNPCSuccess = function (apiResponse) {
   $('#single-npc-readout-modal').modal('show')
   const singleNPCHTML = templateSingleNPC({ npc: apiResponse.npc, ownership: ownership })
   $('#single-npc-readout-modal-content').append(singleNPCHTML)
-  console.log(store.npc)
-  console.log(store.npc.liking_users)
+  // console.log(store.npc)
+  // console.log(store.npc.liking_users)
   const likedByArr = store.npc.liking_users
   if (likedByArr.some(function (likees) {
     return likees.id === store.user.id
@@ -1274,19 +1280,20 @@ const populateSampleNPCDataSuccess = function (apiResponse) {
 }
 
 const populateSampleNPCDataFailure = function (apiResponse) {
-  console.log(apiResponse)
+  // error notification
+  notification.tempToast('error', 'Error!', `Woops, we've countered an error populting sample NPCs. The server might be down, please try again later!`, 'red', 'black', 'black', 8000) // red background, black text, light black load color
 }
 
 const addLikes = function (apiResponse) {
-  console.log('Like created!')
-  console.log(apiResponse)
+  // console.log('Like created!')
+  // console.log(apiResponse)
   // update npc viewer & dom
   $("span[data-id='likes-" + store.npc.id + "']").text(store.npc.liking_users.length + 1)
 }
 
 const subtractLikes = function (apiResponse) {
-  console.log('Like deleted!')
-  console.log(apiResponse)
+  // console.log('Like deleted!')
+  // console.log(apiResponse)
   // update npc viewer & dom
   $("span[data-id='likes-" + apiResponse.npc.id + "']").text(apiResponse.npc.liking_users.length)
   store.npc = apiResponse.npc
@@ -1294,7 +1301,7 @@ const subtractLikes = function (apiResponse) {
 
 const viewFoldersSuccess = (apiResponse) => {
   store.folders = apiResponse.folders
-  console.log(store.folders)
+  // console.log(store.folders)
   $('#return-to-profile-button').show()
   $('#create-folder-button').show()
   $('#universal-content-header').text(store.user.user_name + '\'s Folders')
@@ -1348,7 +1355,7 @@ const deleteFolderFailure = () => {
 const editFolderModal = (apiResponse) => {
   // store current folder
   store.currentFolder = apiResponse.folder
-  console.log(store.currentFolder)
+  // console.log(store.currentFolder)
   // show Modal
   $('#edit-folder-modal').modal('show')
   // populate Modal
@@ -1364,7 +1371,7 @@ const editFolderSuccess = (apiResponse) => {
   // close Modal
   $('#edit-folder-modal').modal('hide')
   // update DOM
-  console.log('edit response is', apiResponse)
+  // console.log('edit response is', apiResponse)
   $("p[data-title='" + apiResponse.folder.id + "']").text(apiResponse.folder.title)
   // notification
   notification.tempToast('succes', 'Success!', 'Folder successfully updated.', '#1F71BA', 'white', 'white', 4000)
@@ -1390,6 +1397,111 @@ const folderExists = (name) => {
   $('#edit-folder-modal').modal('hide')
   // error notification
   notification.tempToast('error', 'Error!', `Woops, you already have a folder titled "${name}." Please enter a different title!`, 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
+const noFolders = () => {
+  // error notification
+  notification.tempToast('info', 'Woops!', "You don't have any folders. Please create a folder before trying to save an NPC to one.", 'orange', 'white', 'white', 8000) // orange background, white text, white load color
+}
+
+const saveToFolderModal = () => {
+  // show modal
+  $('#save-npcs-modal').modal('show')
+  // empty drop-down
+  $('#folder-dropdown').empty()
+  // populate drop-down
+  const folderDropHTML = templateFolderDropDown({ folders: store.folders })
+  $('#folder-dropdown').append(folderDropHTML)
+}
+
+const alreadySaved = (folderTitle) => {
+  // error notification
+  notification.tempToast('info', 'Woops!', `${store.npc.name} has already been saved to "${folderTitle}."`, 'orange', 'white', 'white', 8000) // orange background, white text, white load color
+}
+
+const alreadyRemoved = (folderTitle) => {
+  // error notification
+  notification.tempToast('info', 'Woops!', `${store.npc.name} is not currently saved to "${folderTitle}."`, 'orange', 'white', 'white', 8000) // orange background, white text, white load color
+}
+
+const saveToFolderSucess = (apiResponse) => {
+  const folderName = apiResponse.safe.folder.title
+  const npcName = apiResponse.safe.npc.name
+  // notification
+  notification.tempToast('succes', 'Success!', `"${npcName}" was successfully saved to "${folderName}".`, '#1F71BA', 'white', 'white', 5000)
+  // update dom
+  if (store.singleFolder === apiResponse.safe.folder.id) {
+    const arr = []
+    arr.push(apiResponse.safe.npc)
+    const allNPCReadoutHTML = templateAllNPCs({ npcs: arr })
+    $('#get-npc-div').append(allNPCReadoutHTML)
+    const container = {}
+    container.npcs = []
+    container.npcs.push(apiResponse.safe.npc)
+    adjustReadoutImages(container)
+    console.log(container)
+  }
+}
+
+const saveToFolderFailure = (apiResponse) => {
+  // error notification
+  notification.tempToast('error', 'Error!', 'We encountered an issue saving to your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
+const removeFromFolderSucess = (apiResponse) => {
+  const folderName = apiResponse.folder.title
+  const npcName = store.npc.name
+  // notification
+  notification.tempToast('succes', 'Success!', `"${npcName}" was successfully removed from "${folderName}".`, '#1F71BA', 'white', 'white', 5000)
+  // update DOM
+  if (store.singleFolder === apiResponse.folder.id) {
+    $("div[data-id='1-" + store.npc.id + "']").hide()
+  }
+}
+
+const removeFromFolderFailure = () => {
+  // error notification
+  notification.tempToast('error', 'Error!', 'We encountered an issue removing this NPC from your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
+const singleFolderViewSucess = (apiResponse) => {
+  // store folder ID for DOM manipulation purposes
+  store.singleFolder = apiResponse.folder.id
+  console.log(apiResponse)
+  const npcs = apiResponse.folder.npcs
+  $('#create-folder-button').hide()
+  $('#return-to-folders-button').show()
+  $('#universal-content-header').text(apiResponse.folder.title)
+  $('#folders-readout-div').hide()
+  $('#get-npc-div').show()
+  const allNPCReadoutHTML = templateAllNPCs({ npcs: npcs })
+  $('#get-npc-div').append(allNPCReadoutHTML)
+  adjustReadoutImages(apiResponse.folder)
+}
+
+const singleFolderViewFailure = (apiResponse) => {
+  // error notification
+  notification.tempToast('error', 'Error!', 'We encountered an issue retrieving your folder. It may be the case that the server is down at this time. We apologize for the inconvenience, please try again later!', 'red', 'black', 'black', 8000) // red background, black text, light black load color
+}
+
+const returnToFolders = () => {
+  store.singleFolder = ''
+  $('#return-to-folders-button').hide()
+  $('#create-folder-button').show()
+  $('#no-search-results').hide()
+  $('#universal-content-header').text(`${store.user.user_name}'s Folders`)
+  $('#get-npc-div').hide()
+  $('#get-npc-div').empty()
+  $('#folders-readout-div').show()
+  // $('#folders-readout-div').empty()
+  $('#create-npc-form').each(function () {
+    this.reset()
+  })
+  $('#edit-npc-form').each(function () {
+    this.reset()
+  })
+  $('#edit-npc-form').prop('id', 'create-npc-form')
+  $('#npc-modal-button').text('Create NPC!')
 }
 
 module.exports = {
@@ -1437,5 +1549,16 @@ module.exports = {
   getFolderFailure,
   editFolderFailure,
   editFolderSuccess,
-  folderExists
+  folderExists,
+  noFolders,
+  saveToFolderModal,
+  alreadySaved,
+  saveToFolderSucess,
+  saveToFolderFailure,
+  singleFolderViewSucess,
+  singleFolderViewFailure,
+  returnToFolders,
+  removeFromFolderSucess,
+  removeFromFolderFailure,
+  alreadyRemoved
 }

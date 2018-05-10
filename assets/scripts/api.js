@@ -289,6 +289,40 @@ const submitFolderEdit = (folderData) => {
   })
 }
 
+const saveToFolder = (folderId, npcId) => {
+  return $.ajax({
+    url: config.apiOrigin + '/saves',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'safe': {
+        'folder_id': folderId,
+        'npc_id': npcId
+      }
+    }
+  })
+}
+
+const removeFromFolder = (folderId, npcId) => {
+  return $.ajax({
+    url: config.apiOrigin + '/saves/destroy',
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'safe': {
+        'folder_id': folderId,
+        'npc_id': npcId
+      }
+    }
+  })
+}
+
 module.exports = {
   onRegister,
   onSignIn,
@@ -311,5 +345,7 @@ module.exports = {
   createFolder,
   deleteFolder,
   getFolder,
-  submitFolderEdit
+  submitFolderEdit,
+  saveToFolder,
+  removeFromFolder
 }
