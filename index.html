@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>npcHub</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <!-- Head Title Icon Below -->
+      <link rel="shortcut icon" type="image/png" href="https://d30y9cdsu7xlg0.cloudfront.net/png/203593-200.png" />
+      <!-- Fonts below -->
+      <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Great+Vibes|Josefin+Sans|Lobster+Two|Nanum+Gothic|Satisfy" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Poiret+One|Rajdhani" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Limelight|Montserrat|Pacifico|Raleway" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700,900|Righteous" rel="stylesheet">
+      <!-- Thumbs up icon -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- links for html to pdf -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js" integrity="sha384-CchuzHs077vGtfhGYl9Qtc7Vx64rXBXdIAZIPbItbNyWIRTdG0oYAqki3Ry13Yzu" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+      <!-- FontAwesome -->
+      <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    </head>
+
+    <body class="container-fluid" id="body">
+    <!-- <div class="all-content-wrapper"> -->
+
+      <!-- Start - Static Nav Bar -->
+      <div class="nav-wrapper">
+        <button class="nav-button log-in-button" id="log-in-button" data-toggle="modal" data-target="#log-in-modal">Log In</button>
+        <button class="nav-button register-button" id="register-button" data-toggle="modal" data-target="#register-modal">Register</button>
+        <button class="nav-button log-out-button" id="log-out-button">Log Out</button>
+        <button class="nav-button change-pw-button" id="change-pw-button" data-toggle="modal" data-target="#change-pw-modal">Change Password</button>
+        <button class="nav-button change-pw-button" id="create-folder-button" data-toggle="modal" data-target="#create-folder-modal">Create Folder</button>
+        <button class="nav-button change-pw-button" id="return-to-folders-button">Return to Folders</button>
+        <button class="nav-button return-to-profile-button" id="return-to-profile-button">Return to Profile</button>
+      </div>
+      <!-- End - Static Nav Bar -->
+
+      <!-- Start - Log-In Modal -->
+      <div class="modal fade" id="log-in-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content log-in-modal-content" id="log-in-modal-content">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <!-- Start form for log-in modal-->
+            <form class="form-horizontal" id="log-in-form">
+              <div class="form-group">
+                <label for="inputEmail1" class="col-sm-2 control-label">Email or Username</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputEmail1" name="credentials[email]" placeholder="Email or Username">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword1" class="col-sm-2 control-label">Password</label>
+                <div class="input-div col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword1" name="credentials[password]" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default modal-button">Start managing NPCs!</button>
+                </div>
+              </div>
+            </form>
+            <!-- End form for log-in modal-->
+          </div>
+        </div>
+      </div>
+      <!-- End - Log-In Modal -->
+
+      <!-- Start - Register Modal -->
+      <div class="modal fade" id="register-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content register-modal-content" id="register-modal-content">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <!-- start form for register modal-->
+            <form class="form-horizontal" id="register-form">
+              <div class="form-group">
+                <label for="inputEmail2" class="col-sm-2 control-label">Email</label>
+                <div class="input-div col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail2" name="credentials[email]" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputUsername2" class="col-sm-2 control-label">Username</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputUsername2" name="credentials[user_name]" placeholder="Username">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword2" class="col-sm-2 control-label">Password</label>
+                <div class="input-div col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword2" name="credentials[password]" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="confirm-password" class="col-sm-2 control-label">Confirm Password</label>
+                <div class="input-div col-sm-10">
+                  <input type="password" class="form-control" id="confirm-password" name="credentials[password_confirmation]" placeholder="You probably spelled your password wrong. Write it again!">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default modal-button">Join our ranks!</button>
+                </div>
+              </div>
+              <div class="user-needs-username" id="user-needs-username">Please enter a Username!</div>
+            </form>
+            <!-- end form for register modal-->
+          </div>
+        </div>
+      </div>
+      <!-- End - Register Modal -->
+
+      <!-- Start - Primary Headers -->
+      <h1 class="home-header" id="home-header">npcHub</h1>
+      <h1 class="static-header" id="static-header">npcHub</h1>
+      <!-- End - Primary Headers -->
+
+      <!-- Start - Home Page View -->
+      <div class="home-page" id="home-page"></div>
+      <!-- End - Home Page View -->
+
+      <!-- Start - Universal Header -->
+      <h2 class="universal-content-header" id="universal-content-header">Universal Content Header</h2>
+      <!-- End - Universal Header -->
+
+      <!-- Start - User Profile Page -->
+      <div class="user-profile-page" id="user-profile-page">
+        <div class="col-xs-4 left-column">
+          <div class="samples-header" id="samples-header">Your Recent NPCs</div>
+          <div class="resource-example ex-1"></div>
+          <div class="resource-example ex-2"></div>
+        </div>
+        <div class="col-xs-4 middle-column">
+          <div class="profile-button-wrapper">
+            <div class="row-div">
+              <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 create-npc-button profile-button" id="create-npc-button">Create NPC</button>
+            </div>
+            <div class="row-div">
+              <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 view-folders view-npcs profile-button" id="view-folders">Folders</button>
+            </div>
+            <div class="row-div">
+              <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 view-npcs profile-button" id="view-npcs">View All Public NPCs</button>
+            </div>
+            <div class="row-div">
+              <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 view-personal-npcs profile-button" id="view-personal-npcs">View All Personal NPCs</button>
+            </div>
+            <div class="row-div">
+              <button class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 search-npcs-button profile-button" id="search-npcs-button" data-toggle="modal" data-target="#search-npcs-modal">Search NPCs</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-4 right-column">
+          <div class="samples-header" id="samples-header">Most liked in the Realm</div>
+          <div class="resource-example ex-3"></div>
+          <div class="resource-example ex-4"></div>
+        </div>
+      </div>
+      <!-- End - User Profile Page -->
+
+      <!-- Start - Search NPC Modal -->
+      <div class="modal fade search-npcs-modal" id="search-npcs-modal" tabindex="-1">
+        <div class="modal-dialog modal-md search-npc-set-width">
+          <div class="modal-content search-npcs-modal-content-wrapper">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <!-- <div class="space-div"></div> -->
+            <div class="search-npcs-modal-content" id="search-npcs-modal-content">
+              <!-- Row 1 -->
+              <div class="row-1">
+                <!-- Column 1-A -->
+                <div class="col-xs-3 drop-down-label">
+                  Search:
+                </div>
+                <!-- Column 1-B -->
+                <div class="col-xs-9 drop-down-div drop-down-1" id="drop-down-1">
+                  <select class="ownership-dropdown" id="ownership-dropdown">
+                    <option value="Public NPCs">Public NPCs</option>
+                    <option value="Your NPCs">Your NPCs</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="row-2">
+                <!-- Column 2-A -->
+                <div class="col-xs-3 drop-down-label">
+                  Search by:
+                </div>
+                <!-- Column 2-B -->
+                <div class="col-xs-9 drop-down-div drop-down-2" id="drop-down-2">
+                  <select class="attribute-dropdown" id="attribute-dropdown">
+                    <option value="Placeholder"></option>
+                    <option value="Name">Name</option>
+                    <option value="Race">Race</option>
+                    <option value="Class">Class</option>
+                    <option value="Challenge Rating">Challenge Rating</option>
+                    <option value="Level">Level</option>
+                    <option value="Creator">Creator</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Row 3 -->
+              <!-- Form Field to Search -->
+              <div class="form-div row-3" id="row-3">
+                <form class="form-horizontal search-npc-form" id="search-npc-form">
+                  <!-- <div class="form-group"> -->
+                  <label for="inputAttribute" class="col-sm-2 control-label" id="search-npc-label">Name</label>
+                  <div class="col-sm-10 input-placeholder">
+                    <input type="text" class="form-control" id="inputAttribute" placeholder="Input search">
+                  </div>
+                  <!-- </div> -->
+                  <!-- <div class="form-group"> -->
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default search-npc-modal-button modal-button" id="search-npc-modal-button">Search!</button>
+                    </div>
+                  <!-- </div> -->
+                </form>
+              </div>
+              <!-- Form Field to Search -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Search NPC Modal -->
+
+      <!-- Start - Create NPC Modal -->
+      <div class="modal fade" id="create-npc-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content create-npc-modal-content" id="create-npc-modal-content">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <!-- start form for Create NPC modal-->
+            <form class="form-horizontal" id="create-npc-form">
+              <div class="form-group">
+                <label for="inputName" class="col-sm-2 control-label">Name</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputName" name="npc[name]" placeholder="E.g., Frodo Baggins">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputRace" class="col-sm-2 control-label">Race</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputRace" name="npc[race]" placeholder="E.g., Halfing">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputClass" class="col-sm-2 control-label">Class</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputClass" name="npc[dnd_class]" placeholder="E.g., Rogue">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputChallengeRating" class="col-sm-2 control-label">Challenge Rating</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputChallengeRating" name="npc[challenge_rating]" placeholder="E.g., 1/4, 2, 5">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputStatHP" class="col-sm-2 control-label">HP</label>
+                <div class="input-div col-sm-10">
+                  <input type="number" class="form-control" id="inputStatHP" name="npc[HP]" placeholder="E.g., 50.">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputStatAC" class="col-sm-2 control-label">AC</label>
+                <div class="input-div col-sm-10">
+                  <input type="number" class="form-control" id="inputStatAC" name="npc[AC]" placeholder="E.g., 14.">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputStatsAbMods" class="col-sm-2 control-label" id="abil-label">Ability Modifiers</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputStatsAbMods" name="npc[ability_modifiers]" placeholder="E.g., Dexterity +4, Charisma +2.">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputStatsSpellsAbilities" class="col-sm-2 control-label" id="spells-label">Spells &amp; Abilities</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputStatsSpellsAbilities" name="npc[spells_abilities]" placeholder="E.g., Sneak Attack.">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputStatsItems" class="col-sm-2 control-label">Items</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputStatsItems" name="npc[items]" placeholder="E.g., Shortsword (Sting).">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputStatsLevel" class="col-sm-2 control-label">Level</label>
+                <div class="input-div col-sm-10">
+                  <input type="number" class="form-control" id="inputStatsLevel" name="npc[level]" placeholder="E.g., 8.">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputTraits" class="col-sm-2 control-label">Traits</label>
+                <div class="input-div col-sm-10">
+                  <input type="text" class="form-control" id="inputTraits" name="npc[traits]" placeholder="E.g., Lucky; loyal; determined.">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputNotes" class="col-sm-2 control-label">Notes</label>
+                <div class="input-div col-sm-10">
+                  <!-- <input type="text" class="form-control" id="inputNotes" name="npc[notes]" placeholder="E.g., Widely known for having destroyed the One Ring in the fires of Mount Doom."> -->
+                  <textarea class="form-control" id="inputNotes" name="npc[notes]" placeholder="E.g., Widely known for having destroyed the One Ring in the fires of Mount Doom."></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPrivacySetting" class="col-sm-2 control-label" data-toggle="tooltip" data-placement="bottom" title="Rendering your NPC private will hide it from other viewers.">Private?</label>
+                <div class="input-div col-sm-10">
+                  <!-- <input type="text" class="form-control" id="inputPrivacySetting" name="npc[private]" placeholder="Writing 'true' will hide your npc from other users; 'false' will render your npc visible to the public."> -->
+                  <input class="inputPrivacySetting" id="inputPrivacySetting" type="checkbox">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default npc-modal-button modal-button" id="npc-modal-button">Create NPC!</button>
+                </div>
+              </div>
+              <div class="npc-needs-name" id="npc-needs-name">Your NPC needs a name!</div>
+              <div class="npc-needs-privacy" id="npc-needs-privacy">Please set your privacy status!</div>
+            </form>
+            <!-- end form for Create NPC modal-->
+          </div>
+        </div>
+      </div>
+      <!-- End - Create NPC Modal -->
+
+      <!-- Start - Change Password Modal -->
+      <div class="modal fade" id="change-pw-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content change-pw-modal-content" id="change-pw-modal-content">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <!-- start form for change pw modal-->
+            <form class="form-horizontal" id="change-pw-form">
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Current Password</label>
+                <div class="input-div col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" name="passwords[old]" placeholder="Current Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword4" class="col-sm-2 control-label">New Password</label>
+                <div class="input-div col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword4" name="passwords[new]" placeholder="New Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default modal-button">Change Password!</button>
+                </div>
+              </div>
+            </form>
+            <!-- end form for change pw modal-->
+          </div>
+        </div>
+      </div>
+      <!-- End - Change Password Modal -->
+
+      <!-- Start - Get All NPCs Readout -->
+      <div class="get-npc-div" id="get-npc-div"></div>
+      <!-- End - Get All NPCs Readout -->
+
+      <!-- Start - No Search Results Div -->
+      <div class="no-search-results npc-readout-div hidden-no-results" id="no-search-results">No results matched your search parameters. <br />Try another!</div>
+      <!-- End - No Search Results Div -->
+
+      <!-- Start - Universal response modal -->
+      <div class="modal fade universal-response-modal" id="universal-response-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content universal-modal-content">
+            <div>
+              <button type="button" class="close-modal" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <div class="universal-response-modal-content" id="universal-response-modal-content">
+              ...
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Universal response modal -->
+
+      <!-- Start - Single NPC Readout Modal -->
+      <div class="modal fade single-npc-readout-modal" id="single-npc-readout-modal" tabindex="-1">
+        <div class="modal-dialog modal-lg single-npc-readout-modal-set-width">
+          <div class="modal-content single-npc-readout-modal-content-wrapper">
+            <div>
+              <button type="button" class="close-modal single-close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="space-div"></div>
+            <div class="single-npc-readout-modal-content" id="single-npc-readout-modal-content"></div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Single NPC Readout Modal -->
+    <!-- </div> -->
+      <div id="hidden-table-for-pdf"></div>
+
+      <!-- Start - All Folders View -->
+      <div class="folders-readout-div col-xs-8 col-xs-offset-2" id="folders-readout-div"></div>
+      <!-- End - All Folders View -->
+
+      <!-- Start - Create Folder Modal -->
+      <div class="modal fade" id="create-folder-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content create-folder-modal-content" id="create-folder-modal-content">
+            <!-- start form for create folder modal-->
+            <form class="form-horizontal" id="create-folder-form">
+              <div class="form-group">
+                <label for="inputFolder" class="col-sm-2 control-label">Folder Title</label>
+                <div class="input-div col-sm-10 input-folder-div">
+                  <input type="text" class="form-control" id="inputFolder" name="folder[title]" placeholder="E.g., Strahd Strikes Back!">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default modal-button">Create!</button>
+                </div>
+              </div>
+            </form>
+            <!-- end form for create folder modal-->
+          </div>
+        </div>
+      </div>
+      <!-- End - Create Folder Modal -->
+
+      <!-- Start - Edit Folder Modal -->
+      <div class="modal fade" id="edit-folder-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content create-folder-modal-content" id="edit-folder-modal-content">
+            <!-- start form for Edit folder modal-->
+            <form class="form-horizontal" id="edit-folder-form">
+              <div class="form-group">
+                <label for="inputFolder2" class="col-sm-2 control-label">Folder Title</label>
+                <div class="input-div col-sm-10 input-folder-div">
+                  <input type="text" class="form-control" id="inputFolder2" name="folder[title]" placeholder="E.g., Strahd Strikes Back!">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default modal-button">Edit!</button>
+                </div>
+              </div>
+            </form>
+            <!-- end form for Edit folder modal-->
+          </div>
+        </div>
+      </div>
+      <!-- End - Edit Folder Modal -->
+
+
+      <!-- Start - Save to Folder Modal -->
+      <div class="modal fade save-npcs-modal" id="save-npcs-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content save-npcs-modal-content-wrapper">
+            <div class="save-npcs-modal-content" id="save-npcs-modal-content">
+              <!-- Row 1 -->
+              <div class="row-1">
+                <!-- Column 1-A -->
+                <div class="col-xs-3 drop-down-label">
+                  Folder:
+                </div>
+                <!-- Column 1-B -->
+                <div class="col-xs-9 drop-down-div">
+                  <select class="folder-dropdown" id="folder-dropdown">
+                  </select>
+                </div>
+              </div>
+              <!-- Row 2 -->
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="folder-button-wrapper">
+                  <button type="submit" class="btn btn-default save-npc-modal-button modal-button" id="save-npc-modal-button">Save</button>
+                  <button type="submit" class="btn btn-default remove-npc-modal-button modal-button" id="remove-npc-modal-button">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End - Save to Folder Modal -->
+
+    </body>
+
+</html>
