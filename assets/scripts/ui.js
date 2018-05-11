@@ -549,9 +549,21 @@ const editNPCSuccess = function (apiResponse) {
   $('#universal-response-modal').modal('show')
   // immediately reflect edits in DOM
   $("span[data-id='name-" + store.npc.id + "']").text(store.npc.name)
-  $("span[data-id='race-" + store.npc.id + "']").text(store.npc.race)
-  $("span[data-id='dnd-class-" + store.npc.id + "']").text(store.npc.dnd_class)
-  $("span[data-id='CR-" + store.npc.id + "']").text(store.npc.challenge_rating)
+  if (store.npc.race === '') {
+    $("span[data-id='race-" + store.npc.id + "']").text('n/a')
+  } else {
+    $("span[data-id='race-" + store.npc.id + "']").text(store.npc.race)
+  }
+  if (store.npc.dnd_class === '') {
+    $("span[data-id='dnd-class-" + store.npc.id + "']").text('n/a')
+  } else {
+    $("span[data-id='dnd-class-" + store.npc.id + "']").text(store.npc.dnd_class)
+  }
+  if (store.npc.challenge_rating === '') {
+    $("span[data-id='CR-" + store.npc.id + "']").text('n/a')
+  } else {
+    $("span[data-id='CR-" + store.npc.id + "']").text(store.npc.challenge_rating)
+  }
   $("span[data-id='user-" + store.npc.id + "']").text(store.npc.user.user_name)
   // update the image
   if (classArrays.barbarian.some(function (element) {
