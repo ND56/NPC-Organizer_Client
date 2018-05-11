@@ -276,6 +276,11 @@ body {
   border: 1px solid;
 }
 
+.notes-li {
+  max-height: 118px;
+  overflow: auto;
+}
+
 .special {
   width: 32% !important;
   margin-left: 1.33333333333333% !important;
@@ -325,7 +330,7 @@ body {
 }
 
 .single-npc-readout-modal {
-  margin-top: 17vh;
+  margin-top: 13vh;
 }
 
 .readout-ul-single {
@@ -459,6 +464,10 @@ body {
 .d-folder:hover,
 .e-folder:hover {
   cursor: pointer;
+}
+
+.save-npcs-modal {
+  margin-top: -3vh;
 }
 
 .save-npcs-modal-content {
